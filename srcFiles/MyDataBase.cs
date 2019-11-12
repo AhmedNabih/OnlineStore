@@ -37,7 +37,7 @@ namespace OnlineStore.srcFiles
 
         ~MyDataBase()
         {
-            connection.Close();
+            try { connection.Close(); } catch { }
         }
 
         public void QueryExec(String query)
