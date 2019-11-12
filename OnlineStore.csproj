@@ -74,7 +74,7 @@
     <Compile Include="GUIFiles\StoreLayoutPage.Designer.cs">
       <DependentUpon>StoreLayoutPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="srcFiles\Admin.cs" />
+    <Compile Include="Users\Admin.cs" />
     <Compile Include="GUIFiles\mainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,7 +95,7 @@
     </Compile>
     <Compile Include="srcFiles\handler.cs" />
     <Compile Include="srcFiles\MyDataBase.cs" />
-    <Compile Include="srcFiles\NormalUser.cs" />
+    <Compile Include="Users\NormalUser.cs" />
     <Compile Include="GUIFiles\NUserPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,14 +107,14 @@
     <Compile Include="Data\ProductData.cs" />
     <Compile Include="Data\StoreData.cs" />
     <Compile Include="srcFiles\Store.cs" />
-    <Compile Include="srcFiles\StoreOwner.cs" />
+    <Compile Include="Users\StoreOwner.cs" />
     <Compile Include="GUIFiles\StoreOwnerPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUIFiles\StoreOwnerPage.Designer.cs">
       <DependentUpon>StoreOwnerPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="srcFiles\User.cs" />
+    <Compile Include="Users\User.cs" />
     <Compile Include="Data\UserData.cs" />
     <EmbeddedResource Include="GUIFiles\AddProductsPage.resx">
       <DependentUpon>AddProductsPage.cs</DependentUpon>
@@ -163,5 +163,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
