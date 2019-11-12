@@ -13,6 +13,7 @@ namespace OnlineStore.Data
         public Statistics(int v, int s)
         {
             this.CntView = v;
+            int x = 69;
             this.CntSold = s;
         }
 
