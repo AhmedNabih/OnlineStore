@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.GUIFiles;
-using WindowsFormsApp1.srcFiles;
+using OnlineStore.GUIFiles;
+using OnlineStore.srcFiles;
 
-namespace WindowsFormsApp1
+namespace OnlineStore
 {
     public partial class StoreOwnerPage : Form
     {

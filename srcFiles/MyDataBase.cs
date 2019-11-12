@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Data;
+using OnlineStore.Data;
 
-namespace WindowsFormsApp1.srcFiles
+namespace OnlineStore.srcFiles
 {
     public class MyDataBase
     {

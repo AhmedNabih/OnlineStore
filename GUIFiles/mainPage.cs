@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.GUIFiles;
+using OnlineStore.GUIFiles;
 
-namespace WindowsFormsApp1
+namespace OnlineStore
 {
     
     public partial class mainPage : Form

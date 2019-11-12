@@ -4,10 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsFormsApp1.Data;
-using WindowsFormsApp1.srcFiles;
+using OnlineStore.Data;
+using OnlineStore.srcFiles;
 
-namespace WindowsFormsApp1
+namespace OnlineStore
 {
     public class StoreOwner : User
     {

@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp1.Data;
+using OnlineStore.Data;
 
-namespace WindowsFormsApp1.GUIFiles
+namespace OnlineStore.GUIFiles
 {
     public partial class addStorePage : Form
     {

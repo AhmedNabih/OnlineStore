@@ -4,10 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WindowsFormsApp1.Data;
+using OnlineStore.Data;
 using System.Windows.Forms;
 
-namespace WindowsFormsApp1
+namespace OnlineStore
 {
     public class Admin : User
     {

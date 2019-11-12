@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1.GUIFiles
+﻿namespace OnlineStore.GUIFiles
 {
     partial class StoreLayoutPage
     {
