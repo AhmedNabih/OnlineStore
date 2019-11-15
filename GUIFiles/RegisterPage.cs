@@ -12,27 +12,28 @@ namespace OnlineStore.GUIFiles
 {
     public partial class RegisterPage : Form
     {
-        handler hand;
-        public RegisterPage(handler hd)
+        private Handler hand;
+        public RegisterPage()
         {
-            hand = hd;
+            this.hand = Handler.GetInstance();
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Bregister_Click(object sender, EventArgs e)
         {
-           
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            String[] data = {textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.SelectedItem.ToString() };
+            String[] data = {TuserName.Text, Tpassword.Text, Tname.Text, Temail.Text, Trole.SelectedItem.ToString() };
 
             hand.Register(data);
             MessageBox.Show("Account Created");
             this.Hide();
-            loginpage lg = new loginpage(hand);
+            loginpage lg = new loginpage();
             lg.Show();
+        }
+
+        private void Bback_Click(object sender, EventArgs e)
+        {
+            mainPage.GetInstance().Show();
+            this.Close();
         }
     }
 }

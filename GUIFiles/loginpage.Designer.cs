@@ -28,37 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TuserName = new System.Windows.Forms.TextBox();
+            this.Tpassword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Back = new System.Windows.Forms.Button();
+            this.Blogin = new System.Windows.Forms.Button();
+            this.Bback = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // TuserName
             // 
-            this.textBox1.Location = new System.Drawing.Point(252, 139);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 22);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            this.TuserName.Location = new System.Drawing.Point(128, 36);
+            this.TuserName.Name = "TuserName";
+            this.TuserName.Size = new System.Drawing.Size(184, 22);
+            this.TuserName.TabIndex = 12;
             // 
-            // textBox2
+            // Tpassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(607, 135);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(132, 22);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
+            this.Tpassword.Location = new System.Drawing.Point(128, 69);
+            this.Tpassword.Name = "Tpassword";
+            this.Tpassword.Size = new System.Drawing.Size(184, 22);
+            this.Tpassword.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(164, 139);
+            this.label1.Location = new System.Drawing.Point(35, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 17);
@@ -68,57 +63,46 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(513, 139);
+            this.label2.Location = new System.Drawing.Point(35, 69);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Password";
             // 
-            // button1
+            // Blogin
             // 
-            this.button1.Location = new System.Drawing.Point(331, 265);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.Blogin.Location = new System.Drawing.Point(55, 114);
+            this.Blogin.Margin = new System.Windows.Forms.Padding(4);
+            this.Blogin.Name = "Blogin";
+            this.Blogin.Size = new System.Drawing.Size(100, 28);
+            this.Blogin.TabIndex = 8;
+            this.Blogin.Text = "Login";
+            this.Blogin.UseVisualStyleBackColor = true;
+            this.Blogin.Click += new System.EventHandler(this.Blogin_Click);
             // 
-            // button2
+            // Bback
             // 
-            this.button2.Location = new System.Drawing.Point(492, 267);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Reset";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // Back
-            // 
-            this.Back.Location = new System.Drawing.Point(412, 338);
-            this.Back.Margin = new System.Windows.Forms.Padding(4);
-            this.Back.Name = "Back";
-            this.Back.Size = new System.Drawing.Size(100, 28);
-            this.Back.TabIndex = 10;
-            this.Back.Text = "Back";
-            this.Back.UseVisualStyleBackColor = true;
-            this.Back.Click += new System.EventHandler(this.Back_Click);
+            this.Bback.Location = new System.Drawing.Point(163, 114);
+            this.Bback.Margin = new System.Windows.Forms.Padding(4);
+            this.Bback.Name = "Bback";
+            this.Bback.Size = new System.Drawing.Size(100, 28);
+            this.Bback.TabIndex = 10;
+            this.Bback.Text = "Back";
+            this.Bback.UseVisualStyleBackColor = true;
+            this.Bback.Click += new System.EventHandler(this.Bback_Click);
             // 
             // loginpage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.Back);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(334, 163);
+            this.Controls.Add(this.Bback);
+            this.Controls.Add(this.Blogin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Tpassword);
+            this.Controls.Add(this.TuserName);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "loginpage";
             this.Text = "User Login";
@@ -129,12 +113,11 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TuserName;
+        private System.Windows.Forms.TextBox Tpassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Button Blogin;
+        private System.Windows.Forms.Button Bback;
     }
 }

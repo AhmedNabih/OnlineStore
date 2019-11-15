@@ -10,9 +10,9 @@ namespace OnlineStore
     public class NormalUser : User
     {
 
-        public override void ConnectPage(UserData data, handler hand)
+        public override void ConnectPage(UserData data)
         {
-            this.hand = hand;
+            this.hand = Handler.GetInstance();
             this.Data = data;
             NUserPage ap = new NUserPage();
             ap.Show();

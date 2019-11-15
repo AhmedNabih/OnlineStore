@@ -14,17 +14,17 @@ namespace OnlineStore
 
     public partial class loginpage : Form
     {
-        public handler hand;
-        public loginpage(handler hd)
+        private Handler hand;
+        public loginpage()
         {
-            hand = hd;
+            this.hand = Handler.GetInstance();
             InitializeComponent();
         }
 
-        public void Button1_Click(object sender, EventArgs e)
+        public void Blogin_Click(object sender, EventArgs e)
         {
-            String UserName = textBox1.Text;
-            String Password = textBox2.Text;
+            String UserName = TuserName.Text;
+            String Password = Tpassword.Text;
             if(!hand.Login(UserName, Password))
             {
                 MessageBox.Show("User Not Found");
@@ -32,32 +32,11 @@ namespace OnlineStore
             this.Hide();
             
         }
-        private void Button2_Click(object sender, EventArgs e)
+        
+        private void Bback_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
-            textBox2.Clear();
-        }
-
-        private void Button3_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Back_Click(object sender, EventArgs e)
-        {
+            mainPage.GetInstance().Show();
             this.Close();
-            mainPage mp = new mainPage(hand);
-            mp.Show();
         }
     }
 }

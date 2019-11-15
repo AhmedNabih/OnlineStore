@@ -12,6 +12,7 @@ namespace OnlineStore.srcFiles
 {
     public class MyDataBase
     {
+        private static MyDataBase instance = null;
         private String myCWD;
         private String ConnectionString = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
         private SqlConnection connection;
@@ -19,8 +20,14 @@ namespace OnlineStore.srcFiles
         private SqlCommand Command;
         private bool SafeGarde;
 
+        public static MyDataBase GetInstance(String path)
+        {
+            if (instance == null)
+                instance = new MyDataBase(path);
+            return instance;
+        }
 
-        public MyDataBase(String CD)
+        private MyDataBase(String CD)
         {
             this.myCWD = CD;
             connection = new SqlConnection(ConnectionString);

@@ -14,10 +14,10 @@ namespace OnlineStore
     public partial class AdminPage : Form
     {
         private Admin admin;
-        private handler hand;
-        public AdminPage(Admin admin, handler hand)
+        private Handler hand;
+        public AdminPage(Admin admin)
         {
-            this.hand = hand;
+            this.hand = Handler.GetInstance();
             this.admin = admin;
             InitializeComponent();
             TuserName.Text = admin.Data.userName;
@@ -99,9 +99,10 @@ namespace OnlineStore
 
         }
 
-        private void AdminPage_Load(object sender, EventArgs e)
+        private void LogOut_Click(object sender, EventArgs e)
         {
-
+            mainPage.GetInstance().Show();
+            this.Close();
         }
     }
 }
