@@ -20,9 +20,7 @@ namespace OnlineStore
         public static mainPage GetInstance()
         {
             if (instance == null)
-            {
                 instance = new mainPage();
-            }
             return instance;
         }
 

@@ -20,9 +20,7 @@ namespace OnlineStore
         public static Handler GetInstance()
         {
             if (instance == null)
-            {
                 instance = new Handler();
-            }
             return instance;
         }
 

@@ -12,7 +12,7 @@ namespace OnlineStore.srcFiles
 {
     public class MyDataBase
     {
-        private static MyDataBase instance = null;
+        private static MyDataBase instance = null; // For Singelton Pattern
         private String myCWD;
         private String ConnectionString = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
         private SqlConnection connection;
