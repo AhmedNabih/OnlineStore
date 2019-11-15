@@ -11,12 +11,22 @@ using OnlineStore.srcFiles;
 
 namespace OnlineStore
 {
-    public class handler
+    public class Handler
     {
-        public MyDataBase DB = new MyDataBase("D:\\dev\\VS\\WindowsFormsApp1\\WindowsFormsApp1\\MyData");
+        private static Handler instance = null;  // For Singelton Pattern
+        public MyDataBase DB = MyDataBase.GetInstance("D:\\dev\\VS\\WindowsFormsApp1\\WindowsFormsApp1\\MyData");
         private Dictionary<String, Object> pages;
 
-        public handler()
+        public static Handler GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new Handler();
+            }
+            return instance;
+        }
+
+        private Handler()
         {
             pages = new Dictionary<string, object>();
             pages.Add("Admin",new Admin());
@@ -30,7 +40,7 @@ namespace OnlineStore
             if (tpUser != null)
             {
                 dynamic TempObject = pages[tpUser.role];
-                TempObject.ConnectPage(tpUser, this);
+                TempObject.ConnectPage(tpUser);
                 return true;
             }
             else

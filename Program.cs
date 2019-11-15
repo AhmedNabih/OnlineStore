@@ -16,10 +16,10 @@ namespace OnlineStore
         
         static void Main()
         {
-            handler hand = new handler();
+            Handler hand = Handler.GetInstance();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new mainPage(hand));
+            Application.Run(mainPage.GetInstance());
         }
     }
 }

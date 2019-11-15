@@ -15,36 +15,39 @@ namespace OnlineStore
     
     public partial class mainPage : Form
     {
-        public handler hand;
-        public mainPage(handler hd)
+        private static mainPage instance = null; // Singelton Pattern
+
+        public static mainPage GetInstance()
         {
-            hand = hd;
-            InitializeComponent();
+            if (instance == null)
+            {
+                instance = new mainPage();
+            }
+            return instance;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private mainPage()
         {
-
-
+            InitializeComponent();
         }
 
         private void Login_Click(object sender, EventArgs e)
         {
             this.Hide();
-            loginpage f2 = new loginpage(hand);
-            f2.Show();
+            loginpage lp = new loginpage();
+            lp.Show();
         }
 
         private void Register_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegisterPage rg = new RegisterPage(hand);
+            RegisterPage rg = new RegisterPage();
             rg.Show();
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            hand.Exit();
+            Handler.GetInstance().Exit();
         }
     }
   

@@ -12,11 +12,11 @@ namespace OnlineStore
     public class Admin : User
     {
 
-        public override void ConnectPage(UserData data,handler hand)
+        public override void ConnectPage(UserData data)
         {
-            this.hand = hand;
+            this.hand = Handler.GetInstance();
             this.Data = data;
-            AdminPage ap = new AdminPage(this,hand);
+            AdminPage ap = new AdminPage(this);
             ap.Show();
         }
 

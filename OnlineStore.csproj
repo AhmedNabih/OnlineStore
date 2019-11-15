@@ -93,7 +93,7 @@
     <Compile Include="GUIFiles\AdminPage.Designer.cs">
       <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="srcFiles\handler.cs" />
+    <Compile Include="srcFiles\Handler.cs" />
     <Compile Include="srcFiles\MyDataBase.cs" />
     <Compile Include="Users\NormalUser.cs" />
     <Compile Include="GUIFiles\NUserPage.cs">

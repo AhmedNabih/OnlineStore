@@ -10,7 +10,7 @@ namespace OnlineStore
     public abstract class User
     {
         public UserData Data;
-        public handler hand;
-        public abstract void ConnectPage(UserData data,handler hand);
+        public Handler hand;
+        public abstract void ConnectPage(UserData data);
     }
 }

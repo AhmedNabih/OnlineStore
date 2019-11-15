@@ -13,11 +13,11 @@ namespace OnlineStore
     {
         public Store[] storeslist;
 
-        public override void ConnectPage(UserData data, handler hand)
+        public override void ConnectPage(UserData data)
         {
-            this.hand = hand;
+            this.hand = Handler.GetInstance();
             this.Data = data;
-            StoreOwnerPage ap = new StoreOwnerPage(this, hand);
+            StoreOwnerPage ap = new StoreOwnerPage(this);
             ap.Show();
         }
 
@@ -41,7 +41,7 @@ namespace OnlineStore
 
                 StoreData tpStoreData = new StoreData();
                 tpStoreData.Handler(tpStr.Split(','));
-                storeslist[i] = new Store(tpStoreData,hand);
+                storeslist[i] = new Store(tpStoreData);
                 i++;
             }
         }

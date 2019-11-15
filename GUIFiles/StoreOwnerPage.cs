@@ -15,12 +15,12 @@ namespace OnlineStore
     public partial class StoreOwnerPage : Form
     {
         public StoreOwner SO;
-        private handler hand;
+        private Handler hand;
 
-        public StoreOwnerPage(StoreOwner SO, handler hand)
+        public StoreOwnerPage(StoreOwner SO)
         {
+            this.hand = Handler.GetInstance();
             this.SO = SO;
-            this.hand = hand;
             InitializeComponent();
             TuserName.Text = SO.Data.userName;
             Tname.Text = SO.Data.name;
@@ -46,7 +46,7 @@ namespace OnlineStore
             }
             foreach (int inx in select)
             {                
-                StoreLayoutPage slp = new StoreLayoutPage(SO,SO.storeslist[inx],hand);
+                StoreLayoutPage slp = new StoreLayoutPage(SO,SO.storeslist[inx]);
                 slp.Show();
             }
         }
@@ -69,9 +69,8 @@ namespace OnlineStore
 
         private void Logout_Click(object sender, EventArgs e)
         {
+            mainPage.GetInstance().Show();
             this.Close();
-            mainPage mp = new mainPage(hand);
-            mp.Show();
         }
 
         private void DeleteStores_Click(object sender, EventArgs e)
