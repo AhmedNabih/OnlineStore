@@ -7,7 +7,7 @@ using OnlineStore.Data;
 
 namespace OnlineStore
 {
-    public class NormalUser : User
+    public class NormalUser : IUser
     {
 
         public override void ConnectPage(UserData data)
