@@ -7,7 +7,7 @@ using OnlineStore.Data;
 
 namespace OnlineStore
 {
-    public abstract class User
+    public abstract class IUser
     {
         public UserData Data;
         public Handler hand;
