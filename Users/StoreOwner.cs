@@ -45,6 +45,11 @@ namespace OnlineStore
                 i++;
             }
         }
+        public Store[] GetStores()
+        {
+
+            return storeslist;
+        }
 
         public void AddStore(String name, String type, String Location, String info)
         {
