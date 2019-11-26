@@ -9,7 +9,7 @@ using OnlineStore.srcFiles;
 
 namespace OnlineStore
 {
-    public class StoreOwner : User
+    public class StoreOwner : IUser
     {
         public Store[] storeslist;
 

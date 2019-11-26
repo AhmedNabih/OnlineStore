@@ -114,8 +114,9 @@
     <Compile Include="GUIFiles\StoreOwnerPage.Designer.cs">
       <DependentUpon>StoreOwnerPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\User.cs" />
+    <Compile Include="Users\IUser.cs" />
     <Compile Include="Data\UserData.cs" />
+    <Compile Include="Users\UserFactory.cs" />
     <EmbeddedResource Include="GUIFiles\AddProductsPage.resx">
       <DependentUpon>AddProductsPage.cs</DependentUpon>
     </EmbeddedResource>
