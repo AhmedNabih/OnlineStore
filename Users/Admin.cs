@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OnlineStore
 {
-    public class Admin : User
+    public class Admin : IUser
     {
 
         public override void ConnectPage(UserData data)

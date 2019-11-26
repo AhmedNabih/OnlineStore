@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OnlineStore.Data;
 using OnlineStore.srcFiles;
+using OnlineStore.Users;
 
 namespace OnlineStore
 {
@@ -15,7 +16,6 @@ namespace OnlineStore
     {
         private static Handler instance = null;  // For Singelton Pattern
         public MyDataBase DB = MyDataBase.GetInstance("D:\\dev\\VS\\WindowsFormsApp1\\WindowsFormsApp1\\MyData");
-        private Dictionary<String, Object> pages;
 
         public static Handler GetInstance()
         {
@@ -26,10 +26,6 @@ namespace OnlineStore
 
         private Handler()
         {
-            pages = new Dictionary<string, object>();
-            pages.Add("Admin",new Admin());
-            pages.Add("NormalUser", new NormalUser());
-            pages.Add("StoreOwner", new StoreOwner());
         }
 
         public bool Login(string UN, string PW)
@@ -37,8 +33,8 @@ namespace OnlineStore
             UserData tpUser = DB.SearchUserList(UN, PW);
             if (tpUser != null)
             {
-                dynamic TempObject = pages[tpUser.role];
-                TempObject.ConnectPage(tpUser);
+                IUser myUser = UserFactory.CreateUser(tpUser.role);
+                myUser.ConnectPage(tpUser);
                 return true;
             }
             else
