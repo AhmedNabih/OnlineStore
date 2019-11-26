@@ -50,10 +50,10 @@
             // 
             // AddNewProduct
             // 
-            this.AddNewProduct.Location = new System.Drawing.Point(75, 401);
-            this.AddNewProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AddNewProduct.Location = new System.Drawing.Point(56, 326);
+            this.AddNewProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddNewProduct.Name = "AddNewProduct";
-            this.AddNewProduct.Size = new System.Drawing.Size(149, 50);
+            this.AddNewProduct.Size = new System.Drawing.Size(112, 41);
             this.AddNewProduct.TabIndex = 0;
             this.AddNewProduct.Text = "Add New Products";
             this.AddNewProduct.UseVisualStyleBackColor = true;
@@ -61,82 +61,86 @@
             // 
             // Tname
             // 
-            this.Tname.Location = new System.Drawing.Point(575, 16);
-            this.Tname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Tname.Location = new System.Drawing.Point(431, 13);
+            this.Tname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Tname.Name = "Tname";
             this.Tname.ReadOnly = true;
-            this.Tname.Size = new System.Drawing.Size(175, 22);
+            this.Tname.Size = new System.Drawing.Size(132, 20);
             this.Tname.TabIndex = 1;
             // 
             // TuserName
             // 
-            this.TuserName.Location = new System.Drawing.Point(93, 14);
-            this.TuserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TuserName.Location = new System.Drawing.Point(70, 11);
+            this.TuserName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TuserName.Name = "TuserName";
             this.TuserName.ReadOnly = true;
-            this.TuserName.Size = new System.Drawing.Size(175, 22);
+            this.TuserName.Size = new System.Drawing.Size(132, 20);
             this.TuserName.TabIndex = 2;
             // 
             // Temail
             // 
-            this.Temail.Location = new System.Drawing.Point(333, 14);
-            this.Temail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Temail.Location = new System.Drawing.Point(250, 11);
+            this.Temail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Temail.Name = "Temail";
             this.Temail.ReadOnly = true;
-            this.Temail.Size = new System.Drawing.Size(175, 22);
+            this.Temail.Size = new System.Drawing.Size(132, 20);
             this.Temail.TabIndex = 3;
             // 
             // LuserName
             // 
             this.LuserName.AutoSize = true;
-            this.LuserName.Location = new System.Drawing.Point(12, 18);
+            this.LuserName.Location = new System.Drawing.Point(9, 15);
+            this.LuserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LuserName.Name = "LuserName";
-            this.LuserName.Size = new System.Drawing.Size(75, 17);
+            this.LuserName.Size = new System.Drawing.Size(57, 13);
             this.LuserName.TabIndex = 4;
             this.LuserName.Text = "UserName";
             // 
             // Lemail
             // 
             this.Lemail.AutoSize = true;
-            this.Lemail.Location = new System.Drawing.Point(285, 18);
+            this.Lemail.Location = new System.Drawing.Point(214, 15);
+            this.Lemail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lemail.Name = "Lemail";
-            this.Lemail.Size = new System.Drawing.Size(42, 17);
+            this.Lemail.Size = new System.Drawing.Size(32, 13);
             this.Lemail.TabIndex = 5;
             this.Lemail.Text = "Email";
             // 
             // Lname
             // 
             this.Lname.AutoSize = true;
-            this.Lname.Location = new System.Drawing.Point(527, 18);
+            this.Lname.Location = new System.Drawing.Point(395, 15);
+            this.Lname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lname.Name = "Lname";
-            this.Lname.Size = new System.Drawing.Size(45, 17);
+            this.Lname.Size = new System.Drawing.Size(35, 13);
             this.Lname.TabIndex = 6;
             this.Lname.Text = "Name";
             // 
             // Lrole
             // 
             this.Lrole.AutoSize = true;
-            this.Lrole.Location = new System.Drawing.Point(769, 21);
+            this.Lrole.Location = new System.Drawing.Point(577, 17);
+            this.Lrole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Lrole.Name = "Lrole";
-            this.Lrole.Size = new System.Drawing.Size(37, 17);
+            this.Lrole.Size = new System.Drawing.Size(29, 13);
             this.Lrole.TabIndex = 8;
             this.Lrole.Text = "Role";
             // 
             // Trole
             // 
-            this.Trole.Location = new System.Drawing.Point(812, 16);
-            this.Trole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Trole.Location = new System.Drawing.Point(609, 13);
+            this.Trole.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Trole.Name = "Trole";
             this.Trole.ReadOnly = true;
-            this.Trole.Size = new System.Drawing.Size(175, 22);
+            this.Trole.Size = new System.Drawing.Size(132, 20);
             this.Trole.TabIndex = 7;
             // 
             // ShowReq
             // 
-            this.ShowReq.Location = new System.Drawing.Point(667, 345);
-            this.ShowReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ShowReq.Location = new System.Drawing.Point(500, 280);
+            this.ShowReq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ShowReq.Name = "ShowReq";
-            this.ShowReq.Size = new System.Drawing.Size(149, 50);
+            this.ShowReq.Size = new System.Drawing.Size(112, 41);
             this.ShowReq.TabIndex = 9;
             this.ShowReq.Text = "Show New Stores Request";
             this.ShowReq.UseVisualStyleBackColor = true;
@@ -147,18 +151,18 @@
             this.StoresReq.FormattingEnabled = true;
             this.StoresReq.Items.AddRange(new object[] {
             "hg"});
-            this.StoresReq.Location = new System.Drawing.Point(645, 62);
-            this.StoresReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.StoresReq.Location = new System.Drawing.Point(484, 50);
+            this.StoresReq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.StoresReq.Name = "StoresReq";
-            this.StoresReq.Size = new System.Drawing.Size(375, 259);
+            this.StoresReq.Size = new System.Drawing.Size(282, 199);
             this.StoresReq.TabIndex = 10;
             // 
             // AddCheckedStoresReq
             // 
-            this.AddCheckedStoresReq.Location = new System.Drawing.Point(852, 345);
-            this.AddCheckedStoresReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AddCheckedStoresReq.Location = new System.Drawing.Point(639, 280);
+            this.AddCheckedStoresReq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddCheckedStoresReq.Name = "AddCheckedStoresReq";
-            this.AddCheckedStoresReq.Size = new System.Drawing.Size(149, 50);
+            this.AddCheckedStoresReq.Size = new System.Drawing.Size(112, 41);
             this.AddCheckedStoresReq.TabIndex = 11;
             this.AddCheckedStoresReq.Text = "Add Checked Stores Request";
             this.AddCheckedStoresReq.UseVisualStyleBackColor = true;
@@ -167,18 +171,18 @@
             // ProductsList
             // 
             this.ProductsList.FormattingEnabled = true;
-            this.ProductsList.Location = new System.Drawing.Point(60, 62);
-            this.ProductsList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ProductsList.Location = new System.Drawing.Point(45, 50);
+            this.ProductsList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ProductsList.Name = "ProductsList";
-            this.ProductsList.Size = new System.Drawing.Size(375, 259);
+            this.ProductsList.Size = new System.Drawing.Size(282, 199);
             this.ProductsList.TabIndex = 12;
             // 
             // RefreshProductsList
             // 
-            this.RefreshProductsList.Location = new System.Drawing.Point(75, 345);
-            this.RefreshProductsList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RefreshProductsList.Location = new System.Drawing.Point(56, 280);
+            this.RefreshProductsList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RefreshProductsList.Name = "RefreshProductsList";
-            this.RefreshProductsList.Size = new System.Drawing.Size(149, 50);
+            this.RefreshProductsList.Size = new System.Drawing.Size(112, 41);
             this.RefreshProductsList.TabIndex = 13;
             this.RefreshProductsList.Text = "Refresh Products List";
             this.RefreshProductsList.UseVisualStyleBackColor = true;
@@ -186,10 +190,10 @@
             // 
             // RemoveCheckedProduct
             // 
-            this.RemoveCheckedProduct.Location = new System.Drawing.Point(267, 345);
-            this.RemoveCheckedProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RemoveCheckedProduct.Location = new System.Drawing.Point(200, 280);
+            this.RemoveCheckedProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RemoveCheckedProduct.Name = "RemoveCheckedProduct";
-            this.RemoveCheckedProduct.Size = new System.Drawing.Size(149, 50);
+            this.RemoveCheckedProduct.Size = new System.Drawing.Size(112, 41);
             this.RemoveCheckedProduct.TabIndex = 14;
             this.RemoveCheckedProduct.Text = "Rrmove Checked Products";
             this.RemoveCheckedProduct.UseVisualStyleBackColor = true;
@@ -197,10 +201,10 @@
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(533, 489);
-            this.Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Exit.Location = new System.Drawing.Point(400, 397);
+            this.Exit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(83, 30);
+            this.Exit.Size = new System.Drawing.Size(62, 24);
             this.Exit.TabIndex = 15;
             this.Exit.Text = "Exit";
             this.Exit.UseVisualStyleBackColor = true;
@@ -208,10 +212,10 @@
             // 
             // LogOut
             // 
-            this.LogOut.Location = new System.Drawing.Point(440, 489);
-            this.LogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LogOut.Location = new System.Drawing.Point(330, 397);
+            this.LogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.LogOut.Name = "LogOut";
-            this.LogOut.Size = new System.Drawing.Size(83, 30);
+            this.LogOut.Size = new System.Drawing.Size(62, 24);
             this.LogOut.TabIndex = 16;
             this.LogOut.Text = "Logout";
             this.LogOut.UseVisualStyleBackColor = true;
@@ -219,10 +223,10 @@
             // 
             // RemoveCheckedStoresReq
             // 
-            this.RemoveCheckedStoresReq.Location = new System.Drawing.Point(852, 401);
-            this.RemoveCheckedStoresReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.RemoveCheckedStoresReq.Location = new System.Drawing.Point(639, 326);
+            this.RemoveCheckedStoresReq.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RemoveCheckedStoresReq.Name = "RemoveCheckedStoresReq";
-            this.RemoveCheckedStoresReq.Size = new System.Drawing.Size(149, 50);
+            this.RemoveCheckedStoresReq.Size = new System.Drawing.Size(112, 41);
             this.RemoveCheckedStoresReq.TabIndex = 17;
             this.RemoveCheckedStoresReq.Text = "Remove New Stores Request";
             this.RemoveCheckedStoresReq.UseVisualStyleBackColor = true;
@@ -230,9 +234,9 @@
             // 
             // AdminPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.RemoveCheckedStoresReq);
             this.Controls.Add(this.LogOut);
             this.Controls.Add(this.Exit);
@@ -251,9 +255,9 @@
             this.Controls.Add(this.TuserName);
             this.Controls.Add(this.Tname);
             this.Controls.Add(this.AddNewProduct);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AdminPage";
             this.Text = "Admin panel";
+            this.Load += new System.EventHandler(this.AdminPage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

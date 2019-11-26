@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{88153FE7-CD38-4446-AF73-43F0478BB515}</ProjectGuid>
+    <ProjectGuid>{073A1179-873F-4AF3-B722-6C6FDECE2F96}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>OnlineStore</RootNamespace>
     <AssemblyName>OnlineStore</AssemblyName>
@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CartData.cs" />
     <Compile Include="Data\Statistics.cs" />
     <Compile Include="GUIFiles\AddProductsPage.cs">
       <SubType>Form</SubType>
@@ -61,6 +62,24 @@
     </Compile>
     <Compile Include="GUIFiles\addStorePage.Designer.cs">
       <DependentUpon>addStorePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Cart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Cart.Designer.cs">
+      <DependentUpon>Cart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\InputData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\InputData.Designer.cs">
+      <DependentUpon>InputData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\ProductInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\ProductInfo.Designer.cs">
+      <DependentUpon>ProductInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIFiles\RegisterPage.cs">
       <SubType>Form</SubType>
@@ -123,6 +142,15 @@
     <EmbeddedResource Include="GUIFiles\addStorePage.resx">
       <DependentUpon>addStorePage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Cart.resx">
+      <DependentUpon>Cart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\InputData.resx">
+      <DependentUpon>InputData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\ProductInfo.resx">
+      <DependentUpon>ProductInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\mainPage.resx">
       <DependentUpon>mainPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\AdminPage.resx">
       <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\NUserPage.resx">
+      <DependentUpon>NUserPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\RegisterPage.resx">
       <DependentUpon>RegisterPage.cs</DependentUpon>

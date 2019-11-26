@@ -104,5 +104,10 @@ namespace OnlineStore
             mainPage.GetInstance().Show();
             this.Close();
         }
+
+        private void AdminPage_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

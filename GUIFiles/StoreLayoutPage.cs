@@ -76,7 +76,9 @@ namespace OnlineStore.GUIFiles
                 String cmdStat = "insert into MyStatistics values(" + IDStat + ",0,0)";
                 hand.DB.QueryExec(cmdStat);
 
-                cmd = "insert into StoreProductStat values (" + store.SD.ID + "," + Products.Items[inx].ToString().Split(',')[0] + "," + IDStat + ")";
+                InputData temp = new InputData("Enter Price");
+                temp.Show();
+                cmd = "insert into StoreProductStat values (" + store.SD.ID + "," + Products.Items[inx].ToString().Split(',')[0] + "," + IDStat + "," +temp.get()+")";
                 hand.DB.QueryExec(cmd);
                 MessageBox.Show("Item Added Succesfully");
             }

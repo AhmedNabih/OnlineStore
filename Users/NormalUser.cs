@@ -14,7 +14,7 @@ namespace OnlineStore
         {
             this.hand = Handler.GetInstance();
             this.Data = data;
-            NUserPage ap = new NUserPage();
+            NUserPage ap = new NUserPage(this);
             ap.Show();
         }
     }
