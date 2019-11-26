@@ -80,6 +80,13 @@ namespace OnlineStore.srcFiles
             }
         }
 
+        public DataTable GetAllStores()
+        {
+            String cmd = "select UserName,f.StoreName,f.StoreType,f.StoreLocation,f.StoreInfo from MyUser mu inner join (select UserID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join UserStore us on s.StoreID = us.StoreID) as f on f.UserID = mu.UserID";
+            DataTable datatable = Query(cmd);
+            return datatable;
+        }
+
 
         public DataTable GetProductsData()
         {

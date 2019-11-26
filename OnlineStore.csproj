@@ -62,6 +62,12 @@
     <Compile Include="GUIFiles\addStorePage.Designer.cs">
       <DependentUpon>addStorePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIFiles\AdminStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\AdminStatistic.Designer.cs">
+      <DependentUpon>AdminStatistic.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIFiles\RegisterPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\addStorePage.resx">
       <DependentUpon>addStorePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\AdminStatistic.resx">
+      <DependentUpon>AdminStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\mainPage.resx">
       <DependentUpon>mainPage.cs</DependentUpon>

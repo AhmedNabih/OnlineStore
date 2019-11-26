@@ -46,6 +46,7 @@
             this.Exit = new System.Windows.Forms.Button();
             this.LogOut = new System.Windows.Forms.Button();
             this.RemoveCheckedStoresReq = new System.Windows.Forms.Button();
+            this.Statistic = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddNewProduct
@@ -145,8 +146,6 @@
             // StoresReq
             // 
             this.StoresReq.FormattingEnabled = true;
-            this.StoresReq.Items.AddRange(new object[] {
-            "hg"});
             this.StoresReq.Location = new System.Drawing.Point(645, 62);
             this.StoresReq.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StoresReq.Name = "StoresReq";
@@ -197,7 +196,7 @@
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(533, 489);
+            this.Exit.Location = new System.Drawing.Point(566, 492);
             this.Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(83, 30);
@@ -208,7 +207,7 @@
             // 
             // LogOut
             // 
-            this.LogOut.Location = new System.Drawing.Point(440, 489);
+            this.LogOut.Location = new System.Drawing.Point(477, 492);
             this.LogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LogOut.Name = "LogOut";
             this.LogOut.Size = new System.Drawing.Size(83, 30);
@@ -228,11 +227,22 @@
             this.RemoveCheckedStoresReq.UseVisualStyleBackColor = true;
             this.RemoveCheckedStoresReq.Click += new System.EventHandler(this.RemoveCheckedStoresReq_Click);
             // 
+            // Statistic
+            // 
+            this.Statistic.Location = new System.Drawing.Point(388, 492);
+            this.Statistic.Name = "Statistic";
+            this.Statistic.Size = new System.Drawing.Size(83, 30);
+            this.Statistic.TabIndex = 18;
+            this.Statistic.Text = "Statistic";
+            this.Statistic.UseVisualStyleBackColor = true;
+            this.Statistic.Click += new System.EventHandler(this.Statistic_Click);
+            // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.Statistic);
             this.Controls.Add(this.RemoveCheckedStoresReq);
             this.Controls.Add(this.LogOut);
             this.Controls.Add(this.Exit);
@@ -251,7 +261,7 @@
             this.Controls.Add(this.TuserName);
             this.Controls.Add(this.Tname);
             this.Controls.Add(this.AddNewProduct);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminPage";
             this.Text = "Admin panel";
             this.ResumeLayout(false);
@@ -279,5 +289,6 @@
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Button LogOut;
         private System.Windows.Forms.Button RemoveCheckedStoresReq;
+        private System.Windows.Forms.Button Statistic;
     }
 }

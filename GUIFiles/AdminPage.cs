@@ -104,5 +104,11 @@ namespace OnlineStore
             mainPage.GetInstance().Show();
             this.Close();
         }
+
+        private void Statistic_Click(object sender, EventArgs e)
+        {
+            AdminStatistic as = new AdminStatistic();
+            as.Show();
+        }
     }
 }
