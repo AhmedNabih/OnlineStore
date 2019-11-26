@@ -10,8 +10,6 @@ namespace OnlineStore.Data
     {
         public int CntView;
         public int CntSold;
-
-
         public Statistics(int v, int s)
         {
             this.CntView = v;
