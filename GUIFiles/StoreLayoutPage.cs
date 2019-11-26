@@ -71,21 +71,34 @@ namespace OnlineStore.GUIFiles
             {
                 String cmdSZ = "select count(StatID) from MyStatistics";
                 DataTable tp = hand.DB.Query(cmdSZ);
-                int sz2 = System.Convert.ToInt32(tp.Rows[0][0].ToString()) + 1;
+                int sz2 = System.Convert.ToInt32(tp.Rows[0][0].ToString()) + new Random().Next(5000);
                 String IDStat = sz2.ToString();
                 String cmdStat = "insert into MyStatistics values(" + IDStat + ",0,0)";
                 hand.DB.QueryExec(cmdStat);
 
-                InputData temp = new InputData("Enter Price");
-                temp.Show();
-                cmd = "insert into StoreProductStat values (" + store.SD.ID + "," + Products.Items[inx].ToString().Split(',')[0] + "," + IDStat + "," +temp.get()+")";
+                price = 0.0;
+                amount = 0;
+                InputData temp = new InputData("Enter Price", "Enter Amount", Products.Items[inx].ToString().Split(',')[3]);
+                temp.ShowDialog();
+
+                cmd = "insert into StoreProductStat values (" + store.SD.ID + "," + Products.Items[inx].ToString().Split(',')[0] + "," + IDStat + "," +price+","+amount+")";
                 hand.DB.QueryExec(cmd);
                 MessageBox.Show("Item Added Succesfully");
             }
 
         }
-     
+        
 
+        private static double price = 0.0;
+        private static int amount = 0;
+        public static void setPrice(double val)
+        {
+            price = val;
+        }
+        public static void setAmount(int val)
+        {
+            amount = val;
+        }
         private void BRefresh_Click(object sender, EventArgs e)
         {
             MyProducts.Items.Clear();
@@ -94,7 +107,7 @@ namespace OnlineStore.GUIFiles
                 store.GetProducts();
                 for (int i = 0; i < store.PD.Length; i++)
                 {
-                    String tp = store.PD[i].ID+","+store.PD[i].Name + "," + store.PD[i].BrandName + "," + store.PD[i].BrandType;
+                    String tp = store.PD[i].ID+","+store.PD[i].Name + "," + store.PD[i].BrandName + "," + store.PD[i].BrandType +","+store.PD[i].amount+","+store.PD[i].price;
                     MyProducts.Items.Add(tp);
                 }
             }
@@ -114,6 +127,7 @@ namespace OnlineStore.GUIFiles
                     select.Add(i);
                 }
             }
+            store.GetStat();
             foreach (int inx in select)
             {
                 String tp = MyProducts.Items[inx].ToString().Split(',')[0];

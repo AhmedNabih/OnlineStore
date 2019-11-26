@@ -13,22 +13,23 @@ namespace OnlineStore.GUIFiles
 {
     public partial class InputData : Form
     {
-        double price;
-        public InputData(String data)
+        public InputData(String labelname1,String labelname2,String labelname3)
         {
             InitializeComponent();
-            DataInput.Text = data;
+            label1.Text = labelname1;
+            label2.Text = labelname2;
+            label3.Text = labelname3;
         }
 
         private void Submit_Click(object sender, EventArgs e)
         {
-             this.price = System.Convert.ToDouble(Pricee.Text);
-            this.Hide();
-        }
-       public double get()
-        {
-            return this.price;
+            double price = System.Convert.ToDouble(data1.Text);
+            int amount = Convert.ToInt32(data2.Text);
+            StoreLayoutPage.setPrice(price);
+            StoreLayoutPage.setAmount(amount);
             this.Close();
         }
+
+        
     }
 }

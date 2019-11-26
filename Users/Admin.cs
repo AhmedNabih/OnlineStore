@@ -20,13 +20,13 @@ namespace OnlineStore
             ap.Show();
         }
 
-        public void AddProduct(String BN, String BT, String N)
+        public void AddProduct(String BN, String BT, String N,String T)
         {
             String cmdSZ = "select count(ProductID) from Product";
             DataTable tp = hand.DB.Query(cmdSZ);
-            int sz = System.Convert.ToInt32(tp.Rows[0][0].ToString()) + 1;
+            int sz = System.Convert.ToInt32(tp.Rows[0][0].ToString()) + new Random().Next(5000);
             String ID = sz.ToString();
-            String cmd = "insert into Product values(" + ID + ",'" + BN + "','" + BT + "','" + N + "')";
+            String cmd = "insert into Product values(" + ID + ",'" + BN + "','" + BT + "','" + N +"','"+T+"')";
             hand.DB.QueryExec(cmd);
         }
 

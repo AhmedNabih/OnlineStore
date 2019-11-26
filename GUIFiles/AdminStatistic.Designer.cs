@@ -142,6 +142,7 @@
             this.BExit.TabIndex = 11;
             this.BExit.Text = "Exit";
             this.BExit.UseVisualStyleBackColor = true;
+            this.BExit.Click += new System.EventHandler(this.BExit_Click);
             // 
             // AdminStatistic
             // 

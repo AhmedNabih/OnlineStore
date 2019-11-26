@@ -37,6 +37,9 @@ namespace OnlineStore.GUIFiles
 
         }
 
-        
+        private void BExit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

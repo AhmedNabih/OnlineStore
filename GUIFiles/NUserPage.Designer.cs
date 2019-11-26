@@ -38,7 +38,7 @@
             this.Tname = new System.Windows.Forms.TextBox();
             this.LogOut = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
-            this.Refresh = new System.Windows.Forms.Button();
+            this.BRefresh = new System.Windows.Forms.Button();
             this.OpenStore = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.Store = new System.Windows.Forms.CheckedListBox();
@@ -48,84 +48,81 @@
             // Lrole
             // 
             this.Lrole.AutoSize = true;
-            this.Lrole.Location = new System.Drawing.Point(575, 17);
-            this.Lrole.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Lrole.Location = new System.Drawing.Point(767, 21);
             this.Lrole.Name = "Lrole";
-            this.Lrole.Size = new System.Drawing.Size(29, 13);
+            this.Lrole.Size = new System.Drawing.Size(37, 17);
             this.Lrole.TabIndex = 16;
             this.Lrole.Text = "Role";
             // 
             // Trole
             // 
-            this.Trole.Location = new System.Drawing.Point(607, 13);
-            this.Trole.Margin = new System.Windows.Forms.Padding(2);
+            this.Trole.Location = new System.Drawing.Point(809, 16);
+            this.Trole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Trole.Name = "Trole";
             this.Trole.ReadOnly = true;
-            this.Trole.Size = new System.Drawing.Size(132, 20);
+            this.Trole.Size = new System.Drawing.Size(175, 22);
             this.Trole.TabIndex = 15;
             // 
             // Lname
             // 
             this.Lname.AutoSize = true;
-            this.Lname.Location = new System.Drawing.Point(393, 15);
-            this.Lname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Lname.Location = new System.Drawing.Point(524, 18);
             this.Lname.Name = "Lname";
-            this.Lname.Size = new System.Drawing.Size(35, 13);
+            this.Lname.Size = new System.Drawing.Size(45, 17);
             this.Lname.TabIndex = 14;
             this.Lname.Text = "Name";
             // 
             // Lemail
             // 
             this.Lemail.AutoSize = true;
-            this.Lemail.Location = new System.Drawing.Point(212, 15);
-            this.Lemail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Lemail.Location = new System.Drawing.Point(283, 18);
             this.Lemail.Name = "Lemail";
-            this.Lemail.Size = new System.Drawing.Size(32, 13);
+            this.Lemail.Size = new System.Drawing.Size(42, 17);
             this.Lemail.TabIndex = 13;
             this.Lemail.Text = "Email";
             // 
             // LuserName
             // 
             this.LuserName.AutoSize = true;
-            this.LuserName.Location = new System.Drawing.Point(7, 15);
-            this.LuserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LuserName.Location = new System.Drawing.Point(9, 18);
             this.LuserName.Name = "LuserName";
-            this.LuserName.Size = new System.Drawing.Size(57, 13);
+            this.LuserName.Size = new System.Drawing.Size(75, 17);
             this.LuserName.TabIndex = 12;
             this.LuserName.Text = "UserName";
             // 
             // Temail
             // 
-            this.Temail.Location = new System.Drawing.Point(248, 11);
-            this.Temail.Margin = new System.Windows.Forms.Padding(2);
+            this.Temail.Location = new System.Drawing.Point(331, 14);
+            this.Temail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Temail.Name = "Temail";
             this.Temail.ReadOnly = true;
-            this.Temail.Size = new System.Drawing.Size(132, 20);
+            this.Temail.Size = new System.Drawing.Size(175, 22);
             this.Temail.TabIndex = 11;
             // 
             // TuserName
             // 
-            this.TuserName.Location = new System.Drawing.Point(68, 11);
-            this.TuserName.Margin = new System.Windows.Forms.Padding(2);
+            this.TuserName.Location = new System.Drawing.Point(91, 14);
+            this.TuserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TuserName.Name = "TuserName";
             this.TuserName.ReadOnly = true;
-            this.TuserName.Size = new System.Drawing.Size(132, 20);
+            this.TuserName.Size = new System.Drawing.Size(175, 22);
             this.TuserName.TabIndex = 10;
             // 
             // Tname
             // 
-            this.Tname.Location = new System.Drawing.Point(429, 13);
-            this.Tname.Margin = new System.Windows.Forms.Padding(2);
+            this.Tname.Location = new System.Drawing.Point(572, 16);
+            this.Tname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Tname.Name = "Tname";
             this.Tname.ReadOnly = true;
-            this.Tname.Size = new System.Drawing.Size(132, 20);
+            this.Tname.Size = new System.Drawing.Size(175, 22);
             this.Tname.TabIndex = 9;
             // 
             // LogOut
             // 
-            this.LogOut.Location = new System.Drawing.Point(190, 322);
+            this.LogOut.Location = new System.Drawing.Point(253, 396);
+            this.LogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LogOut.Name = "LogOut";
-            this.LogOut.Size = new System.Drawing.Size(75, 23);
+            this.LogOut.Size = new System.Drawing.Size(100, 28);
             this.LogOut.TabIndex = 20;
             this.LogOut.Text = "LogOut";
             this.LogOut.UseVisualStyleBackColor = true;
@@ -133,29 +130,32 @@
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(396, 322);
+            this.Exit.Location = new System.Drawing.Point(528, 396);
+            this.Exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(75, 23);
+            this.Exit.Size = new System.Drawing.Size(100, 28);
             this.Exit.TabIndex = 21;
             this.Exit.Text = "Exit";
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
-            // Refresh
+            // BRefresh
             // 
-            this.Refresh.Location = new System.Drawing.Point(252, 213);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(75, 23);
-            this.Refresh.TabIndex = 25;
-            this.Refresh.Text = "Refresh";
-            this.Refresh.UseVisualStyleBackColor = true;
-            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            this.BRefresh.Location = new System.Drawing.Point(336, 262);
+            this.BRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BRefresh.Name = "BRefresh";
+            this.BRefresh.Size = new System.Drawing.Size(100, 28);
+            this.BRefresh.TabIndex = 25;
+            this.BRefresh.Text = "Refresh";
+            this.BRefresh.UseVisualStyleBackColor = true;
+            this.BRefresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // OpenStore
             // 
-            this.OpenStore.Location = new System.Drawing.Point(252, 117);
+            this.OpenStore.Location = new System.Drawing.Point(336, 144);
+            this.OpenStore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OpenStore.Name = "OpenStore";
-            this.OpenStore.Size = new System.Drawing.Size(75, 23);
+            this.OpenStore.Size = new System.Drawing.Size(100, 28);
             this.OpenStore.TabIndex = 24;
             this.OpenStore.Text = "Open Store";
             this.OpenStore.UseVisualStyleBackColor = true;
@@ -164,35 +164,38 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 81);
+            this.label1.Location = new System.Drawing.Point(88, 100);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 13);
+            this.label1.Size = new System.Drawing.Size(108, 17);
             this.label1.TabIndex = 23;
             this.label1.Text = "Available stores";
             // 
             // Store
             // 
             this.Store.FormattingEnabled = true;
-            this.Store.Location = new System.Drawing.Point(26, 97);
+            this.Store.Location = new System.Drawing.Point(35, 119);
+            this.Store.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Store.Name = "Store";
-            this.Store.Size = new System.Drawing.Size(174, 184);
+            this.Store.Size = new System.Drawing.Size(231, 225);
             this.Store.TabIndex = 22;
             // 
             // Products
             // 
             this.Products.FormattingEnabled = true;
-            this.Products.Location = new System.Drawing.Point(440, 85);
+            this.Products.Location = new System.Drawing.Point(587, 105);
+            this.Products.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(285, 199);
+            this.Products.Size = new System.Drawing.Size(379, 242);
             this.Products.TabIndex = 26;
             // 
             // NUserPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(760, 450);
+            this.ClientSize = new System.Drawing.Size(1013, 554);
             this.Controls.Add(this.Products);
-            this.Controls.Add(this.Refresh);
+            this.Controls.Add(this.BRefresh);
             this.Controls.Add(this.OpenStore);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Store);
@@ -206,6 +209,7 @@
             this.Controls.Add(this.Temail);
             this.Controls.Add(this.TuserName);
             this.Controls.Add(this.Tname);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "NUserPage";
             this.Text = "NUserPage";
             this.Load += new System.EventHandler(this.NUserPage_Load);
@@ -225,7 +229,7 @@
         private System.Windows.Forms.TextBox Tname;
         private System.Windows.Forms.Button LogOut;
         private System.Windows.Forms.Button Exit;
-        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.Button BRefresh;
         private System.Windows.Forms.Button OpenStore;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckedListBox Store;

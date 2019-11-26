@@ -21,7 +21,7 @@ namespace OnlineStore.GUIFiles
 
         private void AddProduct_Click(object sender, EventArgs e)
         {
-            admin.AddProduct(TbrandName.Text,TbrandType.Text, Tname.Text);
+            admin.AddProduct(TbrandName.Text,TbrandType.Text, Tname.Text,Tterms.Text);
             MessageBox.Show("Product Added");
         }
 
