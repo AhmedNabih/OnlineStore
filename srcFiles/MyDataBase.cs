@@ -14,7 +14,7 @@ namespace OnlineStore.srcFiles
     {
         private static MyDataBase instance = null; // For Singelton Pattern
         private String myCWD;
-        private String ConnectionString = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
+        private String ConnectionString = "Data Source=DESKTOP-AHT9FG2\\;Initial Catalog=OnlineStore;Integrated Security=True";
         private SqlConnection connection;
         private SqlDataAdapter adpt;
         private SqlCommand Command;
@@ -49,7 +49,7 @@ namespace OnlineStore.srcFiles
        
         public DataTable GetProductsInStore(String StoreName)
         {
-            String cmd = "select ProductName from Product where ProductID IN (select Product from StoreProductStat where StoreProductStat.StoreID = (select StoreID from Store where StoreName = '" + StoreName + "'))";
+            String cmd = "select ProductName,ProductID from Product where ProductID IN (select Product from StoreProductStat where StoreProductStat.StoreID = (select StoreID from Store where StoreName = '" + StoreName + "'))";
   
             DataTable dataTable = Query(cmd);
             return dataTable;
@@ -86,14 +86,19 @@ namespace OnlineStore.srcFiles
                 return null;
             }
         }
-
+        
         public DataTable GetAllStores()
         {
-            String cmd = "select UserName,f.StoreName,f.StoreType,f.StoreLocation,f.StoreInfo from MyUser mu inner join (select UserID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join UserStore us on s.StoreID = us.StoreID) as f on f.UserID = mu.UserID";
+            String cmd = " select f.UserID,UserName, f.StoreID, f.StoreName,f.StoreType,f.StoreLocation,f.StoreInfo from MyUser mu inner join (select UserID, s.StoreID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join UserStore us on s.StoreID = us.StoreID) as f on f.UserID = mu.UserID";
             DataTable datatable = Query(cmd);
             return datatable;
         }
-
+        public DataTable getAmount(int StoreID,int ProductID)
+        {
+           String cmd="select amount from StoreProductStat where StoreID='" + StoreID + "' and Product='" + ProductID + "'";
+            DataTable dataTable = Query(cmd);
+            return dataTable;
+        }
 
         public DataTable GetProductsData()
         {

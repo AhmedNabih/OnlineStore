@@ -39,27 +39,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(53, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(40, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(12, 17);
+            this.label1.Size = new System.Drawing.Size(10, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "[";
             // 
             // data1
             // 
-            this.data1.Location = new System.Drawing.Point(16, 79);
-            this.data1.Margin = new System.Windows.Forms.Padding(4);
+            this.data1.Location = new System.Drawing.Point(12, 64);
             this.data1.Name = "data1";
-            this.data1.Size = new System.Drawing.Size(132, 22);
+            this.data1.Size = new System.Drawing.Size(100, 20);
             this.data1.TabIndex = 1;
             // 
             // Submit
             // 
-            this.Submit.Location = new System.Drawing.Point(183, 142);
-            this.Submit.Margin = new System.Windows.Forms.Padding(4);
+            this.Submit.Location = new System.Drawing.Point(137, 115);
             this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(100, 28);
+            this.Submit.Size = new System.Drawing.Size(75, 23);
             this.Submit.TabIndex = 2;
             this.Submit.Text = "Submit";
             this.Submit.UseVisualStyleBackColor = true;
@@ -67,44 +64,40 @@
             // 
             // data2
             // 
-            this.data2.Location = new System.Drawing.Point(16, 148);
-            this.data2.Margin = new System.Windows.Forms.Padding(4);
+            this.data2.Location = new System.Drawing.Point(12, 120);
             this.data2.Name = "data2";
-            this.data2.Size = new System.Drawing.Size(132, 22);
+            this.data2.Size = new System.Drawing.Size(100, 20);
             this.data2.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 106);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(40, 86);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(12, 17);
+            this.label2.Size = new System.Drawing.Size(10, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "[";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(208, 106);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(156, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(12, 17);
+            this.label3.Size = new System.Drawing.Size(10, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "[";
             // 
             // InputData
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 194);
+            this.ClientSize = new System.Drawing.Size(232, 156);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.data2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Submit);
             this.Controls.Add(this.data1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InputData";
             this.Text = "InputData";
             this.ResumeLayout(false);

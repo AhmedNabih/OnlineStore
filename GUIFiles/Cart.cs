@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineStore.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace OnlineStore.GUIFiles
 {
     public partial class Cart : Form
     {
+       
         public Cart()
         {
             InitializeComponent();
+        }
+
+        private void Cart_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -12,8 +12,12 @@ namespace OnlineStore.Data
         public String UserName;
         public double price;
 
+        public CartData()
+        {
 
+        }
 
+        
       
 
 

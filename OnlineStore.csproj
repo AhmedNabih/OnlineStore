@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CartData.cs" />
     <Compile Include="Data\Statistics.cs" />
     <Compile Include="GUIFiles\AddProductsPage.cs">
       <SubType>Form</SubType>
@@ -73,6 +74,12 @@
     </Compile>
     <Compile Include="GUIFiles\Cart.Designer.cs">
       <DependentUpon>Cart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\AddShippingInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\AddShippingInfo.Designer.cs">
+      <DependentUpon>AddShippingInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIFiles\InputData.cs">
       <SubType>Form</SubType>
@@ -152,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\Cart.resx">
       <DependentUpon>Cart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\AddShippingInfo.resx">
+      <DependentUpon>AddShippingInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\InputData.resx">
       <DependentUpon>InputData.cs</DependentUpon>

@@ -58,6 +58,7 @@
             this.Controls.Add(this.checkedListBox1);
             this.Name = "Cart";
             this.Text = "Cart";
+            this.Load += new System.EventHandler(this.Cart_Load);
             this.ResumeLayout(false);
 
         }
