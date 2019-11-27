@@ -37,6 +37,8 @@
             this.AddProduct = new System.Windows.Forms.Button();
             this.ClearText = new System.Windows.Forms.Button();
             this.Bclose = new System.Windows.Forms.Button();
+            this.Lterms = new System.Windows.Forms.Label();
+            this.Tterms = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // TbrandName
@@ -89,7 +91,7 @@
             // 
             // AddProduct
             // 
-            this.AddProduct.Location = new System.Drawing.Point(231, 119);
+            this.AddProduct.Location = new System.Drawing.Point(231, 169);
             this.AddProduct.Name = "AddProduct";
             this.AddProduct.Size = new System.Drawing.Size(105, 33);
             this.AddProduct.TabIndex = 6;
@@ -99,7 +101,7 @@
             // 
             // ClearText
             // 
-            this.ClearText.Location = new System.Drawing.Point(120, 119);
+            this.ClearText.Location = new System.Drawing.Point(120, 169);
             this.ClearText.Name = "ClearText";
             this.ClearText.Size = new System.Drawing.Size(105, 33);
             this.ClearText.TabIndex = 7;
@@ -109,7 +111,7 @@
             // 
             // Bclose
             // 
-            this.Bclose.Location = new System.Drawing.Point(9, 119);
+            this.Bclose.Location = new System.Drawing.Point(9, 169);
             this.Bclose.Name = "Bclose";
             this.Bclose.Size = new System.Drawing.Size(105, 33);
             this.Bclose.TabIndex = 8;
@@ -117,11 +119,29 @@
             this.Bclose.UseVisualStyleBackColor = true;
             this.Bclose.Click += new System.EventHandler(this.Bclose_Click);
             // 
+            // Lterms
+            // 
+            this.Lterms.AutoSize = true;
+            this.Lterms.Location = new System.Drawing.Point(55, 114);
+            this.Lterms.Name = "Lterms";
+            this.Lterms.Size = new System.Drawing.Size(48, 17);
+            this.Lterms.TabIndex = 10;
+            this.Lterms.Text = "Terms";
+            // 
+            // Tterms
+            // 
+            this.Tterms.Location = new System.Drawing.Point(134, 109);
+            this.Tterms.Name = "Tterms";
+            this.Tterms.Size = new System.Drawing.Size(170, 22);
+            this.Tterms.TabIndex = 9;
+            // 
             // AddProductsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 164);
+            this.ClientSize = new System.Drawing.Size(348, 229);
+            this.Controls.Add(this.Lterms);
+            this.Controls.Add(this.Tterms);
             this.Controls.Add(this.Bclose);
             this.Controls.Add(this.ClearText);
             this.Controls.Add(this.AddProduct);
@@ -149,5 +169,7 @@
         private System.Windows.Forms.Button AddProduct;
         private System.Windows.Forms.Button ClearText;
         private System.Windows.Forms.Button Bclose;
+        private System.Windows.Forms.Label Lterms;
+        private System.Windows.Forms.TextBox Tterms;
     }
 }

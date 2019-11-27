@@ -75,7 +75,7 @@ namespace OnlineStore.srcFiles
         {
 
             int i = 0;
-            string cmd = "select ProductID,ProductName,BrandName,BrandType from Product P inner join StoreProductStat SPS on P.ProductID = SPS.Product and SPS.StoreID =" + SD.ID;
+            string cmd = "select ProductID,ProductName,BrandName,BrandType,SPS.amount,SPS.price from Product P inner join StoreProductStat SPS on P.ProductID = SPS.Product and SPS.StoreID =" + SD.ID;
             DataTable tp = hand.DB.Query(cmd);
             if (tp.Rows.Count > 0)
             {

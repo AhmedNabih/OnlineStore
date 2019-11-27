@@ -105,9 +105,10 @@ namespace OnlineStore
             this.Close();
         }
 
-        private void AdminPage_Load(object sender, EventArgs e)
+        private void Statistic_Click(object sender, EventArgs e)
         {
-
+            //AdminStatistic as = new AdminStatistic();
+            //as.Show();
         }
     }
 }
