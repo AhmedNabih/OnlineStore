@@ -8,9 +8,28 @@ namespace OnlineStore.Users.Admin.AdminStatCommands.Receivers
 {
     public class StoreReceiver : IReceiver
     {
+        private String UserID;
+        private String StoreID;
+
+        public String User { get { return UserID; } set { UserID = value; } }
+        public String Store { get { return StoreID; } set { StoreID = value; } }
+
+        public StoreReceiver()
+        {
+            this.UserID = null;
+            this.StoreID = null;
+        }
+
         public String Sum()
         {
-            throw new NotImplementedException();
+            if(StoreID == null)
+            {
+                return "smthg";
+            }
+            else
+            {
+                return "smthg";
+            }
         }
 
         public String Average()

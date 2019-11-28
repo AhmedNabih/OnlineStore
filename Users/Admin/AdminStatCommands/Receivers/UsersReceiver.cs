@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineStore.srcFiles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,31 +9,28 @@ namespace OnlineStore.Users.Admin.AdminStatCommands.Receivers
 {
     public class Users : IReceiver
     {
+        private DataBaseQueries query;
         public Users() { }
-
-        public Users(String UserID)
-        {
-
-        }
 
         public String Sum()
         {
-            throw new NotImplementedException();
+            String res = query.UserTableSum();
+            return "Users Sum: " + res;
         }
 
         public String Average()
         {
-            throw new NotImplementedException();
+            return "Users Average: Not Defined Operation";
         }
 
         public String Max()
         {
-            throw new NotImplementedException();
+            return "Users Max: Not Defined Operation";
         }
 
         public String Min()
         {
-            throw new NotImplementedException();
+            return "Users Min: Not Defined Operation";
         }
 
     }

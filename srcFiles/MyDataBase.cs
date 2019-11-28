@@ -13,7 +13,6 @@ namespace OnlineStore.srcFiles
     public class MyDataBase
     {
         private static MyDataBase instance = null; // For Singelton Pattern
-        private String myCWD;
         private String ConnectionString = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=789789789asd;";
             //"Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
         private SqlConnection connection;
@@ -21,10 +20,10 @@ namespace OnlineStore.srcFiles
         private SqlCommand Command;
         private bool SafeGarde;
 
-        public static MyDataBase GetInstance(String path)
+        public static MyDataBase GetInstance()
         {
             if (instance == null)
-                instance = new MyDataBase(path);
+                instance = new MyDataBase();
             return instance;
         }
 

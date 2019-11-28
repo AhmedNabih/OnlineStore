@@ -15,7 +15,7 @@ namespace OnlineStore
     public class Handler
     {
         private static Handler instance = null;  // For Singelton Pattern
-        public MyDataBase DB = MyDataBase.GetInstance("D:\\dev\\VS\\WindowsFormsApp1\\WindowsFormsApp1\\MyData");
+        public MyDataBase DB = MyDataBase.GetInstance();
 
         public static Handler GetInstance()
         {
