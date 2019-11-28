@@ -107,8 +107,8 @@ namespace OnlineStore
 
         private void Statistic_Click(object sender, EventArgs e)
         {
-            //AdminStatistic as = new AdminStatistic();
-            //as.Show();
+            AdminStatistic adminStatistic = new AdminStatistic();
+            adminStatistic.Show();
         }
     }
 }

@@ -30,7 +30,6 @@
         {
             this.RBOutput = new System.Windows.Forms.RichTextBox();
             this.StatBox = new System.Windows.Forms.ListBox();
-            this.BSelect = new System.Windows.Forms.Button();
             this.BShowStores = new System.Windows.Forms.Button();
             this.BShowUsers = new System.Windows.Forms.Button();
             this.BMax = new System.Windows.Forms.Button();
@@ -39,6 +38,8 @@
             this.BSum = new System.Windows.Forms.Button();
             this.BClose = new System.Windows.Forms.Button();
             this.BExit = new System.Windows.Forms.Button();
+            this.BShowProducts = new System.Windows.Forms.Button();
+            this.BClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RBOutput
@@ -56,24 +57,14 @@
             this.StatBox.ItemHeight = 16;
             this.StatBox.Location = new System.Drawing.Point(39, 82);
             this.StatBox.Name = "StatBox";
-            this.StatBox.Size = new System.Drawing.Size(333, 276);
+            this.StatBox.Size = new System.Drawing.Size(352, 276);
             this.StatBox.TabIndex = 1;
-            // 
-            // BSelect
-            // 
-            this.BSelect.Location = new System.Drawing.Point(158, 407);
-            this.BSelect.Name = "BSelect";
-            this.BSelect.Size = new System.Drawing.Size(100, 37);
-            this.BSelect.TabIndex = 2;
-            this.BSelect.Text = "Select";
-            this.BSelect.UseVisualStyleBackColor = true;
-            this.BSelect.Click += new System.EventHandler(this.BSelect_Click);
             // 
             // BShowStores
             // 
-            this.BShowStores.Location = new System.Drawing.Point(101, 364);
+            this.BShowStores.Location = new System.Drawing.Point(156, 364);
             this.BShowStores.Name = "BShowStores";
-            this.BShowStores.Size = new System.Drawing.Size(100, 37);
+            this.BShowStores.Size = new System.Drawing.Size(111, 37);
             this.BShowStores.TabIndex = 4;
             this.BShowStores.Text = "Show Stores";
             this.BShowStores.UseVisualStyleBackColor = true;
@@ -81,9 +72,9 @@
             // 
             // BShowUsers
             // 
-            this.BShowUsers.Location = new System.Drawing.Point(207, 364);
+            this.BShowUsers.Location = new System.Drawing.Point(39, 364);
             this.BShowUsers.Name = "BShowUsers";
-            this.BShowUsers.Size = new System.Drawing.Size(100, 37);
+            this.BShowUsers.Size = new System.Drawing.Size(111, 37);
             this.BShowUsers.TabIndex = 5;
             this.BShowUsers.Text = "Show Users";
             this.BShowUsers.UseVisualStyleBackColor = true;
@@ -124,6 +115,7 @@
             this.BSum.TabIndex = 9;
             this.BSum.Text = "Sum";
             this.BSum.UseVisualStyleBackColor = true;
+            this.BSum.Click += new System.EventHandler(this.BSum_Click);
             // 
             // BClose
             // 
@@ -133,6 +125,7 @@
             this.BClose.TabIndex = 10;
             this.BClose.Text = "Close";
             this.BClose.UseVisualStyleBackColor = true;
+            this.BClose.Click += new System.EventHandler(this.BClose_Click);
             // 
             // BExit
             // 
@@ -144,11 +137,32 @@
             this.BExit.UseVisualStyleBackColor = true;
             this.BExit.Click += new System.EventHandler(this.BExit_Click);
             // 
+            // BShowProducts
+            // 
+            this.BShowProducts.Location = new System.Drawing.Point(273, 364);
+            this.BShowProducts.Name = "BShowProducts";
+            this.BShowProducts.Size = new System.Drawing.Size(118, 37);
+            this.BShowProducts.TabIndex = 12;
+            this.BShowProducts.Text = "Show Products";
+            this.BShowProducts.UseVisualStyleBackColor = true;
+            // 
+            // BClear
+            // 
+            this.BClear.Location = new System.Drawing.Point(156, 407);
+            this.BClear.Name = "BClear";
+            this.BClear.Size = new System.Drawing.Size(111, 37);
+            this.BClear.TabIndex = 13;
+            this.BClear.Text = "Clear";
+            this.BClear.UseVisualStyleBackColor = true;
+            this.BClear.Click += new System.EventHandler(this.BClear_Click);
+            // 
             // AdminStatistic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(825, 559);
+            this.Controls.Add(this.BClear);
+            this.Controls.Add(this.BShowProducts);
             this.Controls.Add(this.BExit);
             this.Controls.Add(this.BClose);
             this.Controls.Add(this.BSum);
@@ -157,7 +171,6 @@
             this.Controls.Add(this.BMax);
             this.Controls.Add(this.BShowUsers);
             this.Controls.Add(this.BShowStores);
-            this.Controls.Add(this.BSelect);
             this.Controls.Add(this.StatBox);
             this.Controls.Add(this.RBOutput);
             this.Name = "AdminStatistic";
@@ -170,7 +183,6 @@
 
         private System.Windows.Forms.RichTextBox RBOutput;
         private System.Windows.Forms.ListBox StatBox;
-        private System.Windows.Forms.Button BSelect;
         private System.Windows.Forms.Button BShowStores;
         private System.Windows.Forms.Button BShowUsers;
         private System.Windows.Forms.Button BMax;
@@ -179,5 +191,7 @@
         private System.Windows.Forms.Button BSum;
         private System.Windows.Forms.Button BClose;
         private System.Windows.Forms.Button BExit;
+        private System.Windows.Forms.Button BShowProducts;
+        private System.Windows.Forms.Button BClear;
     }
 }

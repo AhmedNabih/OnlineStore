@@ -14,7 +14,8 @@ namespace OnlineStore.srcFiles
     {
         private static MyDataBase instance = null; // For Singelton Pattern
         private String myCWD;
-        private String ConnectionString = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
+        private String ConnectionString = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=789789789asd;";
+            //"Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
         private SqlConnection connection;
         private SqlDataAdapter adpt;
         private SqlCommand Command;
@@ -89,9 +90,16 @@ namespace OnlineStore.srcFiles
 
         public DataTable GetAllStores()
         {
-            String cmd = "select UserName,f.StoreName,f.StoreType,f.StoreLocation,f.StoreInfo from MyUser mu inner join (select UserID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join UserStore us on s.StoreID = us.StoreID) as f on f.UserID = mu.UserID";
+            String cmd = "select f.UserID,UserName, f.StoreID, f.StoreName,f.StoreType,f.StoreLocation,f.StoreInfo from MyUser mu inner join (select UserID, s.StoreID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join UserStore us on s.StoreID = us.StoreID) as f on f.UserID = mu.UserID";
             DataTable datatable = Query(cmd);
             return datatable;
+        }
+
+        public DataTable GetStore(String userID)
+        {
+            String cmd = "select s.StoreID,StoreName,StoreType,StoreLocation,StoreInfo from Store s inner join UserStore us on s.StoreID = us.StoreID and us.UserID = " + userID;
+            DataTable dataTable = Query(cmd);
+            return dataTable;
         }
 
 
@@ -116,6 +124,13 @@ namespace OnlineStore.srcFiles
             String cmd = "select * from StoreRequests";
             DataTable datatable = Query(cmd);
             return datatable;
+        }
+
+        public DataTable GetUsersData()
+        {
+            String cmd = "select UserID, UserName, Name, Email, Role from MyUser";
+            DataTable dataTable = Query(cmd);
+            return dataTable;
         }
 
         public UserData SearchUserList(String UN, string PW)
