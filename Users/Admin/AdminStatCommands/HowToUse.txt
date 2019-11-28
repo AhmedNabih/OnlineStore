@@ -1,0 +1,4 @@
+﻿1st - Create a IReceiver interface object and select from "Receivers" file the type of list you want
+2nd - Create a ICommand interface object and select from "Commands" file the type of Command you want
+3rd - Create a CommandInvoker object
+4th - Call DoCommand from the CommandInvoker object giving it the ICommand object as parameter

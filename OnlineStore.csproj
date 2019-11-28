@@ -120,6 +120,16 @@
     </Compile>
     <Compile Include="srcFiles\Handler.cs" />
     <Compile Include="srcFiles\MyDataBase.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\Receivers\IReceiver.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\Commands\AverageCommand.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\CommandInvoker.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\Commands\ICommand.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\Commands\MaxCommand.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\Commands\MinCommand.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\Commands\SumCommand.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ProductReciver.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\Receivers\StoreReceiver.cs" />
+    <Compile Include="Users\Admin\AdminStatCommands\Receivers\UsersReceiver.cs" />
     <Compile Include="Users\NormalUser\NormalUser.cs" />
     <Compile Include="GUIFiles\Users\NormalUser\NUserPage.cs">
       <SubType>Form</SubType>
@@ -205,7 +215,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Users\Admin\AdminCommandPattern\" />
+    <Content Include="Users\Admin\AdminStatCommands\HowToUse.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
