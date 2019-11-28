@@ -50,80 +50,81 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Statistics.cs" />
-    <Compile Include="GUIFiles\AddProductsPage.cs">
+    <Compile Include="GUIFiles\Users\Admin\AddProductsPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\AddProductsPage.Designer.cs">
+    <Compile Include="GUIFiles\Users\Admin\AddProductsPage.Designer.cs">
       <DependentUpon>AddProductsPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\addStorePage.cs">
+    <Compile Include="GUIFiles\Users\StoreOwner\addStorePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\addStorePage.Designer.cs">
+    <Compile Include="GUIFiles\Users\StoreOwner\addStorePage.Designer.cs">
       <DependentUpon>addStorePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\AdminStatistic.cs">
+    <Compile Include="GUIFiles\Users\Admin\AdminStatistic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\AdminStatistic.Designer.cs">
+    <Compile Include="GUIFiles\Users\Admin\AdminStatistic.Designer.cs">
       <DependentUpon>AdminStatistic.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\Cart.cs">
+    <Compile Include="GUIFiles\Users\NormalUser\Cart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\Cart.Designer.cs">
+    <Compile Include="GUIFiles\Users\NormalUser\Cart.Designer.cs">
       <DependentUpon>Cart.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\InputData.cs">
+    <Compile Include="GUIFiles\Users\StoreOwner\InputData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\InputData.Designer.cs">
+    <Compile Include="GUIFiles\Users\StoreOwner\InputData.Designer.cs">
       <DependentUpon>InputData.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\ProductInfo.cs">
+    <Compile Include="GUIFiles\Users\NormalUser\ProductInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\ProductInfo.Designer.cs">
+    <Compile Include="GUIFiles\Users\NormalUser\ProductInfo.Designer.cs">
       <DependentUpon>ProductInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\RegisterPage.cs">
+    <Compile Include="GUIFiles\MainApp\RegisterPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\RegisterPage.Designer.cs">
+    <Compile Include="GUIFiles\MainApp\RegisterPage.Designer.cs">
       <DependentUpon>RegisterPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\StoreLayoutPage.cs">
+    <Compile Include="GUIFiles\Users\StoreOwner\StoreLayoutPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\StoreLayoutPage.Designer.cs">
+    <Compile Include="GUIFiles\Users\StoreOwner\StoreLayoutPage.Designer.cs">
       <DependentUpon>StoreLayoutPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\Admin.cs" />
-    <Compile Include="GUIFiles\mainPage.cs">
+    <Compile Include="srcFiles\DataBaseQueries.cs" />
+    <Compile Include="Users\Admin\Admin.cs" />
+    <Compile Include="GUIFiles\MainApp\mainPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\mainPage.Designer.cs">
+    <Compile Include="GUIFiles\MainApp\mainPage.Designer.cs">
       <DependentUpon>mainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\loginpage.cs">
+    <Compile Include="GUIFiles\MainApp\loginpage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\loginpage.Designer.cs">
+    <Compile Include="GUIFiles\MainApp\loginpage.Designer.cs">
       <DependentUpon>loginpage.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\AdminPage.cs">
+    <Compile Include="GUIFiles\Users\Admin\AdminPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\AdminPage.Designer.cs">
+    <Compile Include="GUIFiles\Users\Admin\AdminPage.Designer.cs">
       <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
     <Compile Include="srcFiles\Handler.cs" />
     <Compile Include="srcFiles\MyDataBase.cs" />
-    <Compile Include="Users\NormalUser.cs" />
-    <Compile Include="GUIFiles\NUserPage.cs">
+    <Compile Include="Users\NormalUser\NormalUser.cs" />
+    <Compile Include="GUIFiles\Users\NormalUser\NUserPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\NUserPage.Designer.cs">
+    <Compile Include="GUIFiles\Users\NormalUser\NUserPage.Designer.cs">
       <DependentUpon>NUserPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -131,53 +132,53 @@
     <Compile Include="Data\ProductData.cs" />
     <Compile Include="Data\StoreData.cs" />
     <Compile Include="srcFiles\Store.cs" />
-    <Compile Include="Users\StoreOwner.cs" />
-    <Compile Include="GUIFiles\StoreOwnerPage.cs">
+    <Compile Include="Users\StoreOwner\StoreOwner.cs" />
+    <Compile Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\StoreOwnerPage.Designer.cs">
+    <Compile Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.Designer.cs">
       <DependentUpon>StoreOwnerPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\IUser.cs" />
+    <Compile Include="Users\UsersFactoryPattern\IUser.cs" />
     <Compile Include="Data\UserData.cs" />
-    <Compile Include="Users\UserFactory.cs" />
-    <EmbeddedResource Include="GUIFiles\AddProductsPage.resx">
+    <Compile Include="Users\UsersFactoryPattern\UserFactory.cs" />
+    <EmbeddedResource Include="GUIFiles\Users\Admin\AddProductsPage.resx">
       <DependentUpon>AddProductsPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\addStorePage.resx">
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\addStorePage.resx">
       <DependentUpon>addStorePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\AdminStatistic.resx">
+    <EmbeddedResource Include="GUIFiles\Users\Admin\AdminStatistic.resx">
       <DependentUpon>AdminStatistic.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\Cart.resx">
+    <EmbeddedResource Include="GUIFiles\Users\NormalUser\Cart.resx">
       <DependentUpon>Cart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\InputData.resx">
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\InputData.resx">
       <DependentUpon>InputData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\mainPage.resx">
+    <EmbeddedResource Include="GUIFiles\MainApp\mainPage.resx">
       <DependentUpon>mainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\loginpage.resx">
+    <EmbeddedResource Include="GUIFiles\MainApp\loginpage.resx">
       <DependentUpon>loginpage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\AdminPage.resx">
+    <EmbeddedResource Include="GUIFiles\Users\Admin\AdminPage.resx">
       <DependentUpon>AdminPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\NUserPage.resx">
+    <EmbeddedResource Include="GUIFiles\Users\NormalUser\NUserPage.resx">
       <DependentUpon>NUserPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\ProductInfo.resx">
+    <EmbeddedResource Include="GUIFiles\Users\NormalUser\ProductInfo.resx">
       <DependentUpon>ProductInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\RegisterPage.resx">
+    <EmbeddedResource Include="GUIFiles\MainApp\RegisterPage.resx">
       <DependentUpon>RegisterPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\StoreLayoutPage.resx">
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\StoreLayoutPage.resx">
       <DependentUpon>StoreLayoutPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\StoreOwnerPage.resx">
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.resx">
       <DependentUpon>StoreOwnerPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -203,6 +204,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Users\Admin\AdminCommandPattern\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

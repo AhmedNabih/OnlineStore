@@ -88,6 +88,7 @@
             this.BMax.TabIndex = 6;
             this.BMax.Text = "Max";
             this.BMax.UseVisualStyleBackColor = true;
+            this.BMax.Click += new System.EventHandler(this.BMax_Click);
             // 
             // BMin
             // 
@@ -97,6 +98,7 @@
             this.BMin.TabIndex = 7;
             this.BMin.Text = "Min";
             this.BMin.UseVisualStyleBackColor = true;
+            this.BMin.Click += new System.EventHandler(this.BMin_Click);
             // 
             // BAverage
             // 
@@ -106,6 +108,7 @@
             this.BAverage.TabIndex = 8;
             this.BAverage.Text = "Average";
             this.BAverage.UseVisualStyleBackColor = true;
+            this.BAverage.Click += new System.EventHandler(this.BAverage_Click);
             // 
             // BSum
             // 
@@ -145,6 +148,7 @@
             this.BShowProducts.TabIndex = 12;
             this.BShowProducts.Text = "Show Products";
             this.BShowProducts.UseVisualStyleBackColor = true;
+            this.BShowProducts.Click += new System.EventHandler(this.BShowProducts_Click);
             // 
             // BClear
             // 

@@ -47,14 +47,7 @@ namespace OnlineStore.srcFiles
         {
             try { connection.Close(); } catch { }
         }
-       
-        public DataTable GetProductsInStore(String StoreName)
-        {
-            String cmd = "select ProductName from Product where ProductID IN (select Product from StoreProductStat where StoreProductStat.StoreID = (select StoreID from Store where StoreName = '" + StoreName + "'))";
-  
-            DataTable dataTable = Query(cmd);
-            return dataTable;
-        }
+
         public void QueryExec(String query)
         {
             try
@@ -117,6 +110,20 @@ namespace OnlineStore.srcFiles
             String cmd = "select StoreName,StoreType,StoreLocation,StoreInfo from Store";
             DataTable datatable = Query(cmd);
             return datatable;
+        }
+
+        public DataTable GetProductsInStore(String StoreID)
+        {
+            String cmd = "select StoreID, p.ProductName, price, amount from StoreProductStat sps inner join Product p on sps.Product = p.ProductID and sps.StoreID = " + StoreID;
+            DataTable dataTable = Query(cmd);
+            return dataTable;
+        }
+
+        public DataTable GetAllProductsInStore()
+        {
+            String cmd = "select StoreID, p.ProductName, price, amount from StoreProductStat sps inner join Product p on sps.Product = p.ProductID";
+            DataTable dataTable = Query(cmd);
+            return dataTable;
         }
 
         public DataTable GetStoreReq()

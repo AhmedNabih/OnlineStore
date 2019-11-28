@@ -25,11 +25,12 @@ namespace OnlineStore
         {
             String UserName = TuserName.Text;
             String Password = Tpassword.Text;
-            if(!hand.Login(UserName, Password))
+            if (!hand.Login(UserName, Password))
             {
                 MessageBox.Show("User Not Found");
             }
-            this.Hide();
+            else
+                this.Close();
             
         }
         
