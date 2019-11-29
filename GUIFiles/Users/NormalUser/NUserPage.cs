@@ -1,5 +1,7 @@
 ﻿using OnlineStore.GUIFiles;
-using OnlineStore.Users.NormalUser;
+using OnlineStore.srcFiles;
+using OnlineStore.Users.NormalUsers;
+using OnlineStore.Users.UserFactoryPattern;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OnlineStore.Data;
+using OnlineStore.srcFiles;
 
-namespace OnlineStore
+namespace OnlineStore.Users.UserFactoryPattern
 {
     public abstract class IUser
     {

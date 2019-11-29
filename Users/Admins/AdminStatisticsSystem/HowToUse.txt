@@ -1,0 +1,8 @@
+﻿1st - Create an interface object from "ReceiverStrategyPattern" folder and assign it to it factory object
+	i.e " IMax = MaxFactory().GetCommand( "IMaxCommandName" , null or Arg ) " // Receiver
+
+2nd - Create a ICommand interface object and select from "Commands" file the type of Command you want
+	i.e " ICommand cmd = new MaxCommand( AnIMaxReceiver ) "
+
+3rd - Call DoCommand from the CommandInvoker object giving it the ICommand object as parameter
+	i.e " CommandInvoker.DoCommand( AnICommandCommand ) "

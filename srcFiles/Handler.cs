@@ -9,8 +9,9 @@ using System.Windows.Forms;
 using OnlineStore.Data;
 using OnlineStore.srcFiles;
 using OnlineStore.Users;
+using OnlineStore.Users.UserFactoryPattern;
 
-namespace OnlineStore
+namespace OnlineStore.srcFiles
 {
     public class Handler
     {

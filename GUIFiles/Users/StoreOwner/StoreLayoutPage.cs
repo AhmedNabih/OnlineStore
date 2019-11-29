@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using OnlineStore.Data;
 using OnlineStore.srcFiles;
-using OnlineStore.Users.StoreOwner;
+using OnlineStore.Users.StoreOwners;
 
 namespace OnlineStore.GUIFiles
 {

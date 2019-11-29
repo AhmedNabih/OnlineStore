@@ -50,10 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Statistics.cs" />
-    <Compile Include="GUIFiles\Users\Admin\AddProductsPage.cs">
+    <Compile Include="GUIFiles\Users\Admins\AddProductsPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\Users\Admin\AddProductsPage.Designer.cs">
+    <Compile Include="GUIFiles\Users\Admins\AddProductsPage.Designer.cs">
       <DependentUpon>AddProductsPage.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIFiles\Users\StoreOwner\addStorePage.cs">
@@ -62,10 +62,10 @@
     <Compile Include="GUIFiles\Users\StoreOwner\addStorePage.Designer.cs">
       <DependentUpon>addStorePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\Users\Admin\AdminStatistic.cs">
+    <Compile Include="GUIFiles\Users\Admins\AdminStatistic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\Users\Admin\AdminStatistic.Designer.cs">
+    <Compile Include="GUIFiles\Users\Admins\AdminStatistic.Designer.cs">
       <DependentUpon>AdminStatistic.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIFiles\Users\NormalUser\Cart.cs">
@@ -99,7 +99,7 @@
       <DependentUpon>StoreLayoutPage.cs</DependentUpon>
     </Compile>
     <Compile Include="srcFiles\DataBaseQueries.cs" />
-    <Compile Include="Users\Admin\Admin.cs" />
+    <Compile Include="Users\Admins\Admin.cs" />
     <Compile Include="GUIFiles\MainApp\mainPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,50 +112,50 @@
     <Compile Include="GUIFiles\MainApp\loginpage.Designer.cs">
       <DependentUpon>loginpage.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIFiles\Users\Admin\AdminPage.cs">
+    <Compile Include="GUIFiles\Users\Admins\AdminPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUIFiles\Users\Admin\AdminPage.Designer.cs">
+    <Compile Include="GUIFiles\Users\Admins\AdminPage.Designer.cs">
       <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
     <Compile Include="srcFiles\Handler.cs" />
     <Compile Include="srcFiles\MyDataBase.cs" />
-    <Compile Include="Users\Admin\AdminController.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\IReceiver.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\AverageCommand.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\CommandInvoker.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\ICommand.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\MaxCommand.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\MinCommand.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\SumCommand.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ProductReciver.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\NotSupported\AverageNotSupportedOperation.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\IAverage.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\IMax.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\IMin.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\NotSupported\MaxNotSupportedOperation.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\NotSupported\MinNotSupportedOperation.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\NotSupported\SumNotSupportedOperation.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceDefault.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceStore.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceUser.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceDefault.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceStore.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceUser.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceDefault.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceStore.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceUser.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumDefault.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumStore.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumUser.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Stores\StoreAverageDefault.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Stores\StoreSumDefault.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\ISum.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Stores\StoreSumUser.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Users\UserSumDefault.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\StoreReceiver.cs" />
-    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\UsersReceiver.cs" />
-    <Compile Include="Users\NormalUser\NormalUser.cs" />
+    <Compile Include="Users\Admins\AdminController.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\AverageCommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\CommandInvoker.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\ICommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\MaxCommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\MinCommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\SumCommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\NotSupported\AverageNotSupportedOperation.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\IAverage.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\IMax.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\IMin.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\NotSupported\MaxNotSupportedOperation.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\NotSupported\MinNotSupportedOperation.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\NotSupported\SumNotSupportedOperation.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceStore.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceStore.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceStore.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumStore.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverFactory\AverageFactory.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverFactory\MaxFactory.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverFactory\MinFactory.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverFactory\SumFactory.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Stores\StoreAverageDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Stores\StoreSumDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\ISum.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Stores\StoreSumUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Users\UserSumDefault.cs" />
+    <Compile Include="Users\NormalUsers\NormalUser.cs" />
     <Compile Include="GUIFiles\Users\NormalUser\NUserPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,25 +167,25 @@
     <Compile Include="Data\ProductData.cs" />
     <Compile Include="Data\StoreData.cs" />
     <Compile Include="srcFiles\Store.cs" />
-    <Compile Include="Users\NormalUser\NormalUserController.cs" />
-    <Compile Include="Users\StoreOwner\StoreOwner.cs" />
+    <Compile Include="Users\NormalUsers\NormalUserController.cs" />
+    <Compile Include="Users\StoreOwners\StoreOwner.cs" />
     <Compile Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.Designer.cs">
       <DependentUpon>StoreOwnerPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Users\StoreOwner\StoreOwnerController.cs" />
+    <Compile Include="Users\StoreOwners\StoreOwnerController.cs" />
     <Compile Include="Users\UsersFactoryPattern\IUser.cs" />
     <Compile Include="Data\UserData.cs" />
     <Compile Include="Users\UsersFactoryPattern\UserFactory.cs" />
-    <EmbeddedResource Include="GUIFiles\Users\Admin\AddProductsPage.resx">
+    <EmbeddedResource Include="GUIFiles\Users\Admins\AddProductsPage.resx">
       <DependentUpon>AddProductsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\Users\StoreOwner\addStorePage.resx">
       <DependentUpon>addStorePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\Users\Admin\AdminStatistic.resx">
+    <EmbeddedResource Include="GUIFiles\Users\Admins\AdminStatistic.resx">
       <DependentUpon>AdminStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\Users\NormalUser\Cart.resx">
@@ -200,7 +200,7 @@
     <EmbeddedResource Include="GUIFiles\MainApp\loginpage.resx">
       <DependentUpon>loginpage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUIFiles\Users\Admin\AdminPage.resx">
+    <EmbeddedResource Include="GUIFiles\Users\Admins\AdminPage.resx">
       <DependentUpon>AdminPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\Users\NormalUser\NUserPage.resx">
@@ -242,7 +242,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Users\Admin\AdminStaticticesSystem\HowToUse.txt" />
+    <Content Include="Users\Admins\AdminStatisticsSystem\HowToUse.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

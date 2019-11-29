@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OnlineStore.Users.Admins;
+using OnlineStore.Users.NormalUsers;
+using OnlineStore.Users.StoreOwners;
 
-namespace OnlineStore.Users
+namespace OnlineStore.Users.UserFactoryPattern
 {
-
     public class UserFactory
     {
         public static IUser CreateUser(String UserRole)
