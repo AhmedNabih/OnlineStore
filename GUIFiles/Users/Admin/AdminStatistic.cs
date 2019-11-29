@@ -1,4 +1,7 @@
 ﻿using OnlineStore.srcFiles;
+using OnlineStore.Users.Admin.AdminStatCommands;
+using OnlineStore.Users.Admin.AdminStatCommands.Commands;
+using OnlineStore.Users.Admin.AdminStatCommands.Receivers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -128,6 +131,25 @@ namespace OnlineStore.GUIFiles
 
         private void BSum_Click(object sender, EventArgs e)
         {
+            IReceiver receiver;
+            if (this.Users)
+            {
+                receiver = new UsersReceiver();
+            }
+            else if (this.Store)
+            {
+                receiver = new StoreReceiver();
+                /*
+                if (StatBox.SelectedItem != null && StatBox.SelectedItem.ToString != "All")
+                    receiver.User = ;
+                */
+            }
+            else
+            {
+                receiver = new ProductReciver();
+            }
+            ICommand cmd = new SumCommand(receiver);
+            CommandInvoker invoker = new CommandInvoker();
 
         }
 

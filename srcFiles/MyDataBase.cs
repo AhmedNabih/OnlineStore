@@ -27,9 +27,8 @@ namespace OnlineStore.srcFiles
             return instance;
         }
 
-        private MyDataBase(String CD)
+        private MyDataBase()
         {
-            this.myCWD = CD;
             connection = new SqlConnection(ConnectionString);
             connection.Open();
             if (connection.State != System.Data.ConnectionState.Open)

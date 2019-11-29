@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using OnlineStore.Data;
 using System.Windows.Forms;
 
-namespace OnlineStore
+namespace OnlineStore.Users.Admin
 {
     public class Admin : IUser
     {

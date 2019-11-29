@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineStore.Users.Admin.AdminStatCommands.Receivers.ReceiverStrategyPattern;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,13 @@ namespace OnlineStore.Users.Admin.AdminStatCommands.Receivers
 {
     public interface IReceiver  // RECEIVER
     {
-        public abstract String Sum();
+        public abstract String Sum(ISum bahavior);
 
-        public abstract String Average();
+        public abstract String Average(IAverage behavior);
 
-        public abstract String Max();
+        public abstract String Max(IMax behavior);
 
-        public abstract String Min();
+        public abstract String Min(IMin behavior);
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using OnlineStore.srcFiles;
+using OnlineStore.Users.Admin.AdminStatCommands.Receivers.ReceiverStrategyPattern;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,30 +8,28 @@ using System.Threading.Tasks;
 
 namespace OnlineStore.Users.Admin.AdminStatCommands.Receivers
 {
-    public class Users : IReceiver
+    public class UsersReceiver : IReceiver
     {
-        private DataBaseQueries query;
-        public Users() { }
+        public UsersReceiver() { }
 
-        public String Sum()
+        public String Sum(ISum bahavior)
         {
-            String res = query.UserTableSum();
-            return "Users Sum: " + res;
+            return bahavior.Sum();
         }
 
-        public String Average()
+        public String Average(IAverage behavior)
         {
-            return "Users Average: Not Defined Operation";
+            return behavior.Average();
         }
 
-        public String Max()
+        public String Max(IMax behavior)
         {
-            return "Users Max: Not Defined Operation";
+            return behavior.Max();
         }
 
-        public String Min()
+        public String Min(IMin behavior)
         {
-            return "Users Min: Not Defined Operation";
+            return behavior.Min();
         }
 
     }

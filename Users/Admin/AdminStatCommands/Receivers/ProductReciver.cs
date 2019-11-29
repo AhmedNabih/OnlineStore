@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OnlineStore.srcFiles;
+using OnlineStore.Users.Admin.AdminStatCommands.Receivers.ReceiverStrategyPattern;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,24 +10,24 @@ namespace OnlineStore.Users.Admin.AdminStatCommands.Receivers
 {
     public class ProductReciver : IReceiver
     {
-        public String Sum()
+        public String Sum(ISum behavior)
         {
-            throw new NotImplementedException();
+            return behavior.Sum();
         }
 
-        public String Average()
+        public String Average(IAverage behavior)
         {
-            throw new NotImplementedException();
+            return behavior.Average();
         }
 
-        public String Max()
+        public String Max(IMax behavior)
         {
-            throw new NotImplementedException();
+            return behavior.Max();
         }
 
-        public String Min()
+        public String Min(IMin behavior)
         {
-            throw new NotImplementedException();
+            return behavior.Min();
         }
 
     }
