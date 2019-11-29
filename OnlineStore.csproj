@@ -167,6 +167,7 @@
     <Compile Include="Data\ProductData.cs" />
     <Compile Include="Data\StoreData.cs" />
     <Compile Include="srcFiles\Store.cs" />
+    <Compile Include="Users\NormalUser\NormalUserController.cs" />
     <Compile Include="Users\StoreOwner\StoreOwner.cs" />
     <Compile Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.cs">
       <SubType>Form</SubType>
@@ -174,6 +175,7 @@
     <Compile Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.Designer.cs">
       <DependentUpon>StoreOwnerPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\StoreOwner\StoreOwnerController.cs" />
     <Compile Include="Users\UsersFactoryPattern\IUser.cs" />
     <Compile Include="Data\UserData.cs" />
     <Compile Include="Users\UsersFactoryPattern\UserFactory.cs" />

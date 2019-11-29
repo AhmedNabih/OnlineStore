@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OnlineStore.Data;
+using OnlineStore.Users.StoreOwner;
 
 namespace OnlineStore.GUIFiles
 {

@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using OnlineStore.Data;
 
-namespace OnlineStore
+namespace OnlineStore.Users.NormalUser
 {
     public class NormalUser : IUser
     {
-
         public override void ConnectPage(UserData data)
         {
             this.hand = Handler.GetInstance();

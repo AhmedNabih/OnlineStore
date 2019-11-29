@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using OnlineStore.Data;
 using OnlineStore.srcFiles;
 
-namespace OnlineStore
+namespace OnlineStore.Users.StoreOwner
 {
     public class StoreOwner : IUser
     {

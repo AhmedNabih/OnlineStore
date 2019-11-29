@@ -15,6 +15,10 @@ namespace OnlineStore.Users.Admin
             this.admin = admin;
         }
 
+        public void Statictices()
+        {
+
+        }
 
     }
 }
