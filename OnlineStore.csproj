@@ -127,6 +127,8 @@
     <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\MaxCommand.cs" />
     <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\MinCommand.cs" />
     <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\SumCommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverFactory\CommandsFactory.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\IReceiverCommands.cs" />
     <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\NotSupported\AverageNotSupportedOperation.cs" />
     <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\IAverage.cs" />
     <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\IMax.cs" />
