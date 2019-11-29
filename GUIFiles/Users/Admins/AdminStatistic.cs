@@ -1,4 +1,8 @@
 ﻿using OnlineStore.srcFiles;
+using OnlineStore.Users.Admins.AdminsStatisticsSystem;
+using OnlineStore.Users.Admins.AdminsStatisticsSystem.Commands;
+using OnlineStore.Users.Admins.AdminsStatisticsSystem.Receivers.ReceiverFactory;
+using OnlineStore.Users.Admins.AdminsStatisticsSystemCommands.Receivers.ReceiverStrategyPattern;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -120,47 +124,6 @@ namespace OnlineStore.GUIFiles.Users.Admins
             }
         }
 
-        private void BSum_Click(object sender, EventArgs e)
-        {
-            /*
-            IReceiver receiver;
-            if (this.Users)
-            {
-                receiver = new UsersReceiver();
-            }
-            else if (this.Store)
-            {
-                receiver = new StoreReceiver();
-                /*
-                if (StatBox.SelectedItem != null && StatBox.SelectedItem.ToString != "All")
-                    receiver.User = ;
-                
-            }
-            else
-            {
-                receiver = new ProductReciver();
-            }
-            ICommand cmd = new SumCommand(receiver);
-            CommandInvoker invoker = new CommandInvoker();
-            */
-
-        }
-
-        private void BAverage_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BMax_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BMin_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BClear_Click(object sender, EventArgs e)
         {
             this.Users = false;
@@ -171,6 +134,42 @@ namespace OnlineStore.GUIFiles.Users.Admins
         private void BExit_Click(object sender, EventArgs e)
         {
             hand.Exit();
+        }
+
+        private void BProcess_Click(object sender, EventArgs e)
+        {
+            // kind operation onwhat
+            if (OperationBox.SelectedItem == null || KindBox.SelectedItem == null || OnWhatBox.SelectedItem == null)
+                MessageBox.Show("select select everything");
+            else
+            {
+                ICommand cmd;
+                String arg1 = KindBox.SelectedItem.ToString() + " " + OperationBox.SelectedItem.ToString() + " " + OnWhatBox.SelectedItem.ToString();
+                String arg2 = UserStoreID.Text == "" ? null : UserStoreID.Text; 
+                if(OperationBox.SelectedItem.ToString() == "Sum")
+                {
+                    ISum sum = SumFactory.GetCommand(arg1, arg2);
+                    cmd = new SumCommand(sum);
+                }
+                else if(OperationBox.SelectedItem.ToString() == "Average")
+                {
+                    IAverage average = AverageFactory.GetCommand(arg1, arg2);
+                    cmd = new AverageCommand(average);
+                }
+                else if(OperationBox.SelectedItem.ToString() == "Max")
+                {
+                    IMax max = MaxFactory.GetCommand(arg1, arg2);
+                    cmd = new MaxCommand(max);
+                }
+                else
+                {
+                    IMin min = MinFactory.GetCommand(arg1, arg2);
+                    cmd = new MinCommand(min);
+                }
+                String res = CommandInvoker.DoCommand(cmd);
+                String screen = Output.Text + "\n" + res;
+                Output.Text = screen;
+            }
         }
 
         private void BClose_Click(object sender, EventArgs e)

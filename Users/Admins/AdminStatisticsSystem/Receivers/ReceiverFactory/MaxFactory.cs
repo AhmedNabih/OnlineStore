@@ -12,12 +12,12 @@ namespace OnlineStore.Users.Admins.AdminsStatisticsSystem.Receivers.ReceiverFact
     public class MaxFactory
     {
         public static IMax GetCommand(String str, String arg) // pass null to arg if not used
-        {
-            if (str == "Product Max Price User" && arg != null)
+        { 
+            if (str == "Product Max User" && arg != null)
                 return new ProductMaxPriceUser(arg);
-            else if (str == "Product Max Price Store" && arg != null)
+            else if (str == "Product Max Store" && arg != null)
                 return new ProductMaxPriceStore(arg);
-            else if (str == "Product Max Price Default")
+            else if (str == "Product Max All")
                 return new ProductMaxPriceDefault();
             else
                 return new MaxNotSupportedOperation();

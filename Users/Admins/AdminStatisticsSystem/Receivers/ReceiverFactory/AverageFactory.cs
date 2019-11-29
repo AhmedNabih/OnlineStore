@@ -14,13 +14,13 @@ namespace OnlineStore.Users.Admins.AdminsStatisticsSystem.Receivers.ReceiverFact
     {
         public static IAverage GetCommand(String str, String arg) // pass null to arg if not used
         {
-            if (str == "Store Average Default")
+            if (str == "Store Average All")
                 return new StoreAverageDefault();
-            else if (str == "Product Average Price User" && arg != null)
+            else if (str == "Product Average User" && arg != null)
                 return new ProductAveragePriceUser(arg);
-            else if (str == "Product Average Price Store" && arg != null)
+            else if (str == "Product Average Store" && arg != null)
                 return new ProductAveragePriceStore(arg);
-            else if (str == "Product Average Price Default")
+            else if (str == "Product Average All")
                 return new ProductAveragePriceDefault();
             else
                 return new AverageNotSupportedOperation();

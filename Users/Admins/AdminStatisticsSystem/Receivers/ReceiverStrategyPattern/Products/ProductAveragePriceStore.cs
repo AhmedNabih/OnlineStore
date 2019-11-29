@@ -20,7 +20,7 @@ namespace OnlineStore.Users.Admins.AdminsStatisticsSystemCommands.Receivers.Rece
 
         public string Average()
         {
-            double res1 = Convert.ToInt32(query.StorePricesSumForStore(StoreID));
+            double res1 = Convert.ToDouble(query.StorePricesSumForStore(StoreID));
             int res2 = Convert.ToInt32(query.StorePricesCntForStore(StoreID));
             return "Store prices Average for Store ID = " + StoreID + ": " + ((double)res1 / res2).ToString();
         }

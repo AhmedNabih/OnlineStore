@@ -14,11 +14,11 @@ namespace OnlineStore.Users.Admins.AdminsStatisticsSystem.Receivers.ReceiverFact
     {
         public static ISum GetCommand(String str, String arg) // pass null to arg if not used
         {
-            if (str == "User Sum Default")
+            if (str == "User Sum All")
                 return new UserSumDefault();
-            else if (str == "Store Sum Default")
+            else if (str == "Store Sum All")
                 return new StoreSumDefault();
-            else if (str == "Product Sum Default")
+            else if (str == "Product Sum All")
                 return new ProductSumDefault();
             else if (str == "Store Sum User" && arg != null)
                 return new StoreSumUser(arg);

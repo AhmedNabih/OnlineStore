@@ -18,9 +18,9 @@ namespace OnlineStore.Users.Admins.AdminsStatisticsSystemCommands.Receivers.Rece
             this.UserID = UserID;
         }
 
-        public string Average()
+        public String Average()
         {
-            double res1 = Convert.ToInt32(query.StorePricesSumForUser(UserID));
+            double res1 = Convert.ToDouble(query.StorePricesSumForUser(UserID));
             int res2 = Convert.ToInt32(query.StorePricesCntForUser(UserID));
             return "Store prices Average for User ID = " + UserID + ": " + ((double)res1 / res2).ToString();
         }
