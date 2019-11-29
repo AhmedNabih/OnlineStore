@@ -120,40 +120,41 @@
     </Compile>
     <Compile Include="srcFiles\Handler.cs" />
     <Compile Include="srcFiles\MyDataBase.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\IReceiver.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Commands\AverageCommand.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\CommandInvoker.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Commands\ICommand.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Commands\MaxCommand.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Commands\MinCommand.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Commands\SumCommand.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ProductReciver.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\NotSupported\AverageNotSupportedOperation.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\IAverage.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\IMax.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\IMin.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\NotSupported\MaxNotSupportedOperation.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\NotSupported\MinNotSupportedOperation.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\NotSupported\SumNotSupportedOperation.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceDefault.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceStore.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceUser.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceDefault.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceStore.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceUser.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceDefault.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceStore.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceUser.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductSumDefault.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductSumStore.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Products\ProductSumUser.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Stores\StoreAverageDefault.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Stores\StoreSumDefault.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\ISum.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Stores\StoreSumUser.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\ReceiverStrategyPattern\Users\UserSumDefault.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\StoreReceiver.cs" />
-    <Compile Include="Users\Admin\AdminStatCommands\Receivers\UsersReceiver.cs" />
+    <Compile Include="Users\Admin\AdminController.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\IReceiver.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\AverageCommand.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\CommandInvoker.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\ICommand.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\MaxCommand.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\MinCommand.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Commands\SumCommand.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ProductReciver.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\NotSupported\AverageNotSupportedOperation.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\IAverage.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\IMax.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\IMin.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\NotSupported\MaxNotSupportedOperation.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\NotSupported\MinNotSupportedOperation.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\NotSupported\SumNotSupportedOperation.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceDefault.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceStore.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceUser.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceDefault.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceStore.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceUser.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceDefault.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceStore.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceUser.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumDefault.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumStore.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumUser.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Stores\StoreAverageDefault.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Stores\StoreSumDefault.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\ISum.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Stores\StoreSumUser.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\ReceiverStrategyPattern\Users\UserSumDefault.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\StoreReceiver.cs" />
+    <Compile Include="Users\Admin\AdminStaticticesSystem\Receivers\UsersReceiver.cs" />
     <Compile Include="Users\NormalUser\NormalUser.cs" />
     <Compile Include="GUIFiles\Users\NormalUser\NUserPage.cs">
       <SubType>Form</SubType>
@@ -239,7 +240,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Users\Admin\AdminStatCommands\HowToUse.txt" />
+    <Content Include="Users\Admin\AdminStaticticesSystem\HowToUse.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
