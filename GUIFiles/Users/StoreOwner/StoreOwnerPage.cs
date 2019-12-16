@@ -65,7 +65,6 @@ namespace OnlineStore
 
         private void Bexit_Click(object sender, EventArgs e)
         {
-            hand.Exit();
         }
 
         private void Logout_Click(object sender, EventArgs e)

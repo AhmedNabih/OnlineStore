@@ -1,11 +1,7 @@
 ﻿using OnlineStore.Data;
 using OnlineStore.Database_Files;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineStore.Queries_Controllers
 {
@@ -18,19 +14,12 @@ namespace OnlineStore.Queries_Controllers
             this.database = DataBase.GetInstance(connectionString);
         }
 
-        public DataTable GetUsersData()
-        {
-            String cmd = "select UserID, UserName, Name, Email, Role from MyUser";
-            DataTable dataTable = this.database.Query(cmd);
-            return dataTable;
-        }
-
         public UserData SearchUserList(String UN, String PW)
         {
             String cmd = "select * from MyUser Where UserName='" + UN + "' and Password='" + PW + "'";
             DataTable datatable = this.database.Query(cmd);
 
-            if (datatable == null)
+            if (datatable.Rows.Count <= 0)
                 return null;
 
             String[] tpData = new String[datatable.Columns.Count];
@@ -45,6 +34,21 @@ namespace OnlineStore.Queries_Controllers
             }
             UserData tpUD = new UserData(tpData[0], tpData[1], tpData[2], tpData[3], tpData[4], tpData[5]);
             return tpUD;
+        }
+
+        public bool Register(String UN, String PW, String N, String EM, String Role)
+        {
+            try
+            {
+                String cmd = "insert into MyUser( UserName,Password,Name,Email,Role)values('" + UN + "','" + PW + "','" + N + "','" + EM + "','" + Role + "')";
+                this.database.QueryExec(cmd);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OnlineStore.Data;
+using OnlineStore.Database_Files;
 
 namespace OnlineStore.srcFiles
 {
@@ -15,20 +16,30 @@ namespace OnlineStore.srcFiles
         public Statistics SS;
         public Dictionary<String, Statistics> PS;
         public ProductData[] PD;
-        private UserController hand; //con.
+        private DataBase dataBase; //con.
 
 
         public Store(StoreData SD)
         {
+            // My Online MSQL DataBase
+            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
+            // Local MSQL DataBase
+            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
+
+            IConnectionString connectionString = new DataBaseConnection();
+            connectionString.SetConnectionString(connectionStr);
+
+            this.dataBase = DataBase.GetInstance(connectionString);
+
             PS = new Dictionary<string, Statistics>();
             this.SD = SD;
-            this.hand = UserController.GetInstance();
+            
         }
 
         public void GetStat()
         {
             String cmd1 = "select NumOfViews,NumOfSold from MyStatistics MS inner join StoreStat SS on MS.StatID = SS.StatID and SS.StoreID = " + SD.ID;
-            DataTable tp = hand.DB.Query(cmd1);
+            DataTable tp = dataBase.Query(cmd1);
             if (tp.Rows.Count > 0)
             {
                 String[] tpData = new String[2];
@@ -47,7 +58,7 @@ namespace OnlineStore.srcFiles
             }
 
             String cmd2 = "select SS.Product,NumOfViews,NumOfSold from MyStatistics MS inner join StoreProductStat SS on MS.StatID = SS.StatID and SS.StoreID = " + SD.ID;
-            tp = hand.DB.Query(cmd2);
+            tp = dataBase.Query(cmd2);
             if (tp.Rows.Count > 0)
             {
                 foreach (DataRow row in tp.Rows)
@@ -75,7 +86,7 @@ namespace OnlineStore.srcFiles
         {
             int i = 0;
             string cmd = "select ProductID,ProductName,BrandName,BrandType,SPS.amount,SPS.price from Product P inner join StoreProductStat SPS on P.ProductID = SPS.Product and SPS.StoreID =" + SD.ID;
-            DataTable tp = hand.DB.Query(cmd);
+            DataTable tp = dataBase.Query(cmd);
             if (tp.Rows.Count > 0)
             {
                 int sz = tp.Rows.Count;

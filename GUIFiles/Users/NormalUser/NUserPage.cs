@@ -1,4 +1,5 @@
-﻿using OnlineStore.GUIFiles;
+﻿using OnlineStore.Database_Files;
+using OnlineStore.GUIFiles;
 using OnlineStore.srcFiles;
 using OnlineStore.Users.NormalUsers;
 using OnlineStore.Users.UserFactoryPattern;
@@ -17,9 +18,20 @@ namespace OnlineStore
     public partial class NUserPage : Form
     {
         private IUser user;
+        private DataBase dataBase;
 
         public NUserPage(NormalUser user)
         {
+            // My Online MSQL DataBase
+            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
+            // Local MSQL DataBase
+            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
+
+            IConnectionString connectionString = new DataBaseConnection();
+            connectionString.SetConnectionString(connectionStr);
+
+            this.dataBase = DataBase.GetInstance(connectionString);
+
             this.user = user;
             InitializeComponent();
             TuserName.Text = user.Data.userName;
@@ -35,7 +47,6 @@ namespace OnlineStore
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            UserController.GetInstance().Exit();
         }
 
         private void LogOut_Click(object sender, EventArgs e)
@@ -57,7 +68,7 @@ namespace OnlineStore
         private void Refresh_Click(object sender, EventArgs e)
         {
             Store.Items.Clear();
-            DataTable tpData=user.hand.DB.GetAllStores();
+            DataTable tpData= dataBase.GetAllStores();
             foreach (DataRow row in tpData.Rows)
             {
                 String tpStr = "";
@@ -87,7 +98,7 @@ namespace OnlineStore
             {
                 s = Store.Items[inx].ToString().Split(',');
             }
-           DataTable tpData = user.hand.DB.GetProductsInStore(s[1]);
+           DataTable tpData = dataBase.GetProductsInStore(s[1]);
             foreach (DataRow row in tpData.Rows)
             {
                 String tpStr = "";

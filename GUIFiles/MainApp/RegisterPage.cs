@@ -13,22 +13,28 @@ namespace OnlineStore.GUIFiles
 {
     public partial class RegisterPage : Form
     {
-        private UserController hand;
+        private UserController controller;
         public RegisterPage()
         {
-            this.hand = UserController.GetInstance();
+            this.controller = UserController.GetInstance();
             InitializeComponent();
         }
 
         private void Bregister_Click(object sender, EventArgs e)
         {
-            String[] data = {TuserName.Text, Tpassword.Text, Tname.Text, Temail.Text, Trole.SelectedItem.ToString() };
-
-            hand.Register(data);
-            MessageBox.Show("Account Created");
-            this.Hide();
-            loginpage lg = new loginpage();
-            lg.Show();
+            bool DONE = controller.Register(TuserName.Text, Tpassword.Text, Tname.Text, Temail.Text, Trole.SelectedItem.ToString());
+            if(DONE)
+            {
+                MessageBox.Show("Account Created");
+                this.Hide();
+                loginpage lg = new loginpage();
+                lg.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please check your data");
+            }
+            
         }
 
         private void Bback_Click(object sender, EventArgs e)

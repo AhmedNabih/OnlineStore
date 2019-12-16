@@ -45,14 +45,13 @@ namespace OnlineStore.srcFiles
 
         }
 
-        public void Register(String[] data)
+        public bool Register(String UN, String PW, String N, String EM, String Role)
         {
-            String cmdSZ = "select count(UserID) from MyUser";
-            DataTable tp = this.queries.Query(cmdSZ);
-            int sz = System.Convert.ToInt32(tp.Rows[0][0].ToString()) + 1;
-            String ID = sz.ToString();
-            String cmd = "insert into MyUser values(" + ID + ",'" + data[0] + "','" + data[1] + "','" + data[2] + "','" + data[3] + "','" + data[4] + "')";
-            DB.QueryExec(cmd);
+            bool DONE = this.queries.Register(UN, PW, N, EM, Role);
+            if (DONE)
+                return true;
+            else
+                return false;
         }
 
 

@@ -15,10 +15,11 @@ namespace OnlineStore
 
     public partial class loginpage : Form
     {
-        private UserController hand;
+        private UserController controller;
+
         public loginpage()
         {
-            this.hand = UserController.GetInstance();
+            this.controller = UserController.GetInstance();
             InitializeComponent();
         }
 
@@ -26,7 +27,7 @@ namespace OnlineStore
         {
             String UserName = TuserName.Text;
             String Password = Tpassword.Text;
-            if (!hand.Login(UserName, Password))
+            if (!this.controller.Login(UserName, Password))
             {
                 MessageBox.Show("User Not Found");
             }

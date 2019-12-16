@@ -1,4 +1,5 @@
-﻿using OnlineStore.srcFiles;
+﻿using OnlineStore.Database_Files;
+using OnlineStore.srcFiles;
 using OnlineStore.Users.Admins.AdminsStatisticsSystem;
 using OnlineStore.Users.Admins.AdminsStatisticsSystem.Commands;
 using OnlineStore.Users.Admins.AdminsStatisticsSystem.Receivers.ReceiverFactory;
@@ -11,14 +12,20 @@ namespace OnlineStore.GUIFiles.Users.Admins
 {
     public partial class AdminStatistic : Form
     {
-        private UserController hand;
-        private DataBase DB;
+        private DataBase dataBase;
         private bool Users, Store;
 
         public AdminStatistic()
         {
-            hand = UserController.GetInstance();
-            DB = hand.DB;
+            // My Online MSQL DataBase
+            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
+            // Local MSQL DataBase
+            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
+
+            IConnectionString connectionString = new DataBaseConnection();
+            connectionString.SetConnectionString(connectionStr);
+
+            this.dataBase = DataBase.GetInstance(connectionString);
             this.Users = false;
             this.Store = false;
             InitializeComponent();
@@ -32,7 +39,7 @@ namespace OnlineStore.GUIFiles.Users.Admins
             StatBox.Items.Add("All");
 
             // UserID, UserName, Name, Email, Role
-            DataTable tpData = DB.GetUsersData();
+            DataTable tpData = dataBase.GetUsersData();
 
             foreach (DataRow row in tpData.Rows)
             {
@@ -60,12 +67,12 @@ namespace OnlineStore.GUIFiles.Users.Admins
                 if (this.Users && SelectedString != "All")
                 {
                     // StoreID, StoreName, StoreType, StoreLocation, StoreInfo
-                    tpData = DB.GetStore(SelectedString.Split(',')[0]);
+                    tpData = dataBase.GetStore(SelectedString.Split(',')[0]);
                 }
                 else
                 {
                     // UserID, UserName, StoreID, StoreName, StoreType, StoreLocation, StoreInfo
-                    tpData = DB.GetAllStores();
+                    tpData = dataBase.GetAllStores();
                 }
 
                 this.Users = false;
@@ -100,12 +107,12 @@ namespace OnlineStore.GUIFiles.Users.Admins
                 if (this.Store && SelectedString != "All")
                 {
                     // StoreID, ProductName, price, amount
-                    tpData = DB.GetProductsInStore(SelectedString.Split(new String[] { ", "},StringSplitOptions.RemoveEmptyEntries)[2]);
+                    tpData = dataBase.GetProductsInStore(SelectedString.Split(new String[] { ", "},StringSplitOptions.RemoveEmptyEntries)[2]);
                 }
                 else
                 {
                     // // StoreID, ProductName, price, amount
-                    tpData = DB.GetAllProductsInStore();
+                    tpData = dataBase.GetAllProductsInStore();
                 }
 
                 this.Users = false;
@@ -133,7 +140,7 @@ namespace OnlineStore.GUIFiles.Users.Admins
 
         private void BExit_Click(object sender, EventArgs e)
         {
-            hand.Exit();
+            
         }
 
         private void BProcess_Click(object sender, EventArgs e)

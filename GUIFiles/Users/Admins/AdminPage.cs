@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OnlineStore.Database_Files;
 using OnlineStore.GUIFiles;
 using OnlineStore.srcFiles;
 using OnlineStore.Users.Admins;
@@ -16,10 +17,19 @@ namespace OnlineStore.GUIFiles.Users.Admins
     public partial class AdminPage : Form
     {
         private Admin admin;
-        private UserController hand;
+        private DataBase dataBase;
         public AdminPage(Admin admin)
         {
-            this.hand = UserController.GetInstance();
+            // My Online MSQL DataBase
+            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
+            // Local MSQL DataBase
+            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
+
+            IConnectionString connectionString = new DataBaseConnection();
+            connectionString.SetConnectionString(connectionStr);
+
+            this.dataBase = DataBase.GetInstance(connectionString);
+
             this.admin = admin;
             InitializeComponent();
             TuserName.Text = admin.Data.userName;
@@ -39,7 +49,7 @@ namespace OnlineStore.GUIFiles.Users.Admins
         private void RefreshProductsList_Click(object sender, EventArgs e)
         {
             ProductsList.Items.Clear();
-            DataTable tpData = hand.DB.GetProductsData();
+            DataTable tpData = dataBase.GetProductsData();
             foreach (DataRow row in tpData.Rows)
             {
                 String tpStr = "";
@@ -60,13 +70,12 @@ namespace OnlineStore.GUIFiles.Users.Admins
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            hand.Exit();
         }
 
         private void ShowReq_Click(object sender, EventArgs e)
         {
             StoresReq.Items.Clear();
-            DataTable tpData = hand.DB.GetStoreReq();
+            DataTable tpData = dataBase.GetStoreReq();
             foreach (DataRow row in tpData.Rows)
             {
                 String tpStr = "";

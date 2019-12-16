@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OnlineStore.Data;
+using OnlineStore.Database_Files;
 using OnlineStore.srcFiles;
 using OnlineStore.Users.StoreOwners;
 
@@ -17,10 +18,20 @@ namespace OnlineStore.GUIFiles
     {
         private Store store;
         private StoreOwner SO;
-        private UserController hand;
+        private DataBase dataBase;
+
         public StoreLayoutPage(StoreOwner SO, Store SD)
         {
-            this.hand = UserController.GetInstance();
+            // My Online MSQL DataBase
+            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
+            // Local MSQL DataBase
+            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
+
+            IConnectionString connectionString = new DataBaseConnection();
+            connectionString.SetConnectionString(connectionStr);
+
+            this.dataBase = DataBase.GetInstance(connectionString);
+
             this.SO = SO;
             this.store = SD;
             store.GetStat();
@@ -45,7 +56,7 @@ namespace OnlineStore.GUIFiles
         {
             Products.Items.Clear();
             String cmd = "select * from Product";
-            DataTable tpData = hand.DB.Query(cmd);
+            DataTable tpData = dataBase.Query(cmd);
             foreach (DataRow row in tpData.Rows)
             {
                 String tpStr = "";
@@ -71,11 +82,11 @@ namespace OnlineStore.GUIFiles
             foreach (int inx in select)
             {
                 String cmdSZ = "select count(StatID) from MyStatistics";
-                DataTable tp = hand.DB.Query(cmdSZ);
+                DataTable tp = dataBase.Query(cmdSZ);
                 int sz2 = System.Convert.ToInt32(tp.Rows[0][0].ToString()) + new Random().Next(5000);
                 String IDStat = sz2.ToString();
                 String cmdStat = "insert into MyStatistics values(" + IDStat + ",0,0)";
-                hand.DB.QueryExec(cmdStat);
+                dataBase.QueryExec(cmdStat);
 
                 price = 0.0;
                 amount = 0;
@@ -83,7 +94,7 @@ namespace OnlineStore.GUIFiles
                 temp.ShowDialog();
 
                 cmd = "insert into StoreProductStat values (" + store.SD.ID + "," + Products.Items[inx].ToString().Split(',')[0] + "," + IDStat + "," +price+","+amount+")";
-                hand.DB.QueryExec(cmd);
+                dataBase.QueryExec(cmd);
                 MessageBox.Show("Item Added Succesfully");
             }
 

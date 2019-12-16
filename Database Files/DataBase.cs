@@ -12,7 +12,6 @@ namespace OnlineStore.Database_Files
         private IConnectionString connectionString;
         private SqlConnection connection;
         private SqlDataAdapter adpt;
-        private SqlCommand Command;
 
         public static DataBase GetInstance(IConnectionString connectionString)
         {
@@ -27,7 +26,7 @@ namespace OnlineStore.Database_Files
 
             Connect();
         }
-        
+
         private void Connect()
         {
             connection = new SqlConnection(this.connectionString.GetConnectionString());
@@ -40,39 +39,32 @@ namespace OnlineStore.Database_Files
         }
 
         public void QueryExec(String query)
-        {
-            try
-            {
-                adpt.SelectCommand = new SqlCommand(query, connection);
-                adpt.SelectCommand.ExecuteNonQuery();
-            }
-            catch
-            {
-                MessageBox.Show("Can not Execute Query: " + query);
-            }
+        { 
+            adpt.SelectCommand = new SqlCommand(query, connection);
+            adpt.SelectCommand.ExecuteNonQuery();
         }
 
         public DataTable Query(String query)
         {
-            try
-            {
-                DataTable datatable = new DataTable();
-                adpt = new SqlDataAdapter();
-                adpt.SelectCommand = new SqlCommand(query, connection);
-                adpt.Fill(datatable);
-                return datatable;
-            }
-            catch
-            {
-                MessageBox.Show("Can not Execute Query: " + query);
-                return null;
-            } 
+
+            DataTable datatable = new DataTable();
+            adpt = new SqlDataAdapter();
+            adpt.SelectCommand = new SqlCommand(query, connection);
+            adpt.Fill(datatable);
+            return datatable;
         }
 
-        /// <summary>
-        /// ///////////////////////////////////////////
-        /// </summary>
-        /// <returns></returns>
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        public DataTable GetUsersData()
+        {
+            String cmd = "select UserID, UserName, Name, Email, Role from MyUser";
+            DataTable dataTable = Query(cmd);
+            return dataTable;
+        }
+
         public DataTable GetAllStores()
         {
             String cmd = "select f.UserID,UserName, f.StoreID, f.StoreName,f.StoreType,f.StoreLocation,f.StoreInfo from MyUser mu inner join (select UserID, s.StoreID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join UserStore us on s.StoreID = us.StoreID) as f on f.UserID = mu.UserID";
@@ -125,9 +117,9 @@ namespace OnlineStore.Database_Files
             return datatable;
         }
 
-        
 
-        
+
+
     }
 
 }
