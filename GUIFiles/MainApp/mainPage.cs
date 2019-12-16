@@ -46,7 +46,7 @@ namespace OnlineStore
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            Handler.GetInstance().Exit();
+            UserController.GetInstance().Exit();
         }
     }
   

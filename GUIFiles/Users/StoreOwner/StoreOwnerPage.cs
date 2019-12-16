@@ -16,11 +16,11 @@ namespace OnlineStore
     public partial class StoreOwnerPage : Form
     {
         public StoreOwner SO;
-        private Handler hand;
+        private UserController hand;
 
         public StoreOwnerPage(StoreOwner SO)
         {
-            this.hand = Handler.GetInstance();
+            this.hand = UserController.GetInstance();
             this.SO = SO;
             InitializeComponent();
             TuserName.Text = SO.Data.userName;

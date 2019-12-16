@@ -13,10 +13,10 @@ namespace OnlineStore.GUIFiles
 {
     public partial class RegisterPage : Form
     {
-        private Handler hand;
+        private UserController hand;
         public RegisterPage()
         {
-            this.hand = Handler.GetInstance();
+            this.hand = UserController.GetInstance();
             InitializeComponent();
         }
 

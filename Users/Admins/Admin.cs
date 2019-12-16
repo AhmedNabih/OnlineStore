@@ -13,7 +13,7 @@ namespace OnlineStore.Users.Admins
 
         public override void ConnectPage(UserData data)
         {
-            this.hand = Handler.GetInstance();
+            this.hand = UserController.GetInstance();
             this.Data = data;
             AdminPage ap = new AdminPage(this);
             ap.Show();

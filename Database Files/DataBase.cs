@@ -1,47 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using OnlineStore.Data;
 
-namespace OnlineStore.srcFiles
+namespace OnlineStore.Database_Files
 {
-    public class MyDataBase
+    public class DataBase
     {
-        private static MyDataBase instance = null; // For Singelton Pattern
-        private String ConnectionString = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=789789789asd;";
-            //"Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
+        private static DataBase instance = null; // For Singelton Pattern
+        private IConnectionString connectionString;
         private SqlConnection connection;
         private SqlDataAdapter adpt;
         private SqlCommand Command;
-        private bool SafeGarde;
 
-        public static MyDataBase GetInstance()
+        public static DataBase GetInstance(IConnectionString connectionString)
         {
             if (instance == null)
-                instance = new MyDataBase();
+                instance = new DataBase(connectionString);
             return instance;
         }
 
-        private MyDataBase()
+        private DataBase(IConnectionString connectionString)
         {
-            connection = new SqlConnection(ConnectionString);
-            connection.Open();
-            if (connection.State != System.Data.ConnectionState.Open)
-            {
-                MessageBox.Show("Can not Connect to Database");
-                SafeGarde = false;
-            }
-            else
-                SafeGarde = true;
+            this.connectionString = connectionString;
 
+            Connect();
+        }
+        
+        private void Connect()
+        {
+            connection = new SqlConnection(this.connectionString.GetConnectionString());
+            try { connection.Open(); } catch { MessageBox.Show("Can not Connect to Database"); }
         }
 
-        ~MyDataBase()
+        ~DataBase()
         {
             try { connection.Close(); } catch { }
         }
@@ -50,21 +43,18 @@ namespace OnlineStore.srcFiles
         {
             try
             {
-                if (SafeGarde)
-                {
-                    adpt.SelectCommand = new SqlCommand(query, connection);
-                    adpt.SelectCommand.ExecuteNonQuery();
-                }
+                adpt.SelectCommand = new SqlCommand(query, connection);
+                adpt.SelectCommand.ExecuteNonQuery();
             }
             catch
             {
-
+                MessageBox.Show("Can not Execute Query: " + query);
             }
         }
 
         public DataTable Query(String query)
         {
-            if (SafeGarde)
+            try
             {
                 DataTable datatable = new DataTable();
                 adpt = new SqlDataAdapter();
@@ -72,13 +62,17 @@ namespace OnlineStore.srcFiles
                 adpt.Fill(datatable);
                 return datatable;
             }
-            else
+            catch
             {
-                MessageBox.Show("Can not Connect to Database");
+                MessageBox.Show("Can not Execute Query: " + query);
                 return null;
-            }
+            } 
         }
 
+        /// <summary>
+        /// ///////////////////////////////////////////
+        /// </summary>
+        /// <returns></returns>
         public DataTable GetAllStores()
         {
             String cmd = "select f.UserID,UserName, f.StoreID, f.StoreName,f.StoreType,f.StoreLocation,f.StoreInfo from MyUser mu inner join (select UserID, s.StoreID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join UserStore us on s.StoreID = us.StoreID) as f on f.UserID = mu.UserID";
@@ -131,42 +125,9 @@ namespace OnlineStore.srcFiles
             return datatable;
         }
 
-        public DataTable GetUsersData()
-        {
-            String cmd = "select UserID, UserName, Name, Email, Role from MyUser";
-            DataTable dataTable = Query(cmd);
-            return dataTable;
-        }
+        
 
-        public UserData SearchUserList(String UN, string PW)
-        {
-            String cmd = "select * from MyUser Where UserName=@UserName and Password=@UserPass";
-            Command = new SqlCommand(cmd, connection);
-            Command.Parameters.AddWithValue("@UserName", UN);
-            Command.Parameters.AddWithValue("@UserPass", PW);
-            adpt = new SqlDataAdapter(Command);
-
-            DataTable datatable = new DataTable();
-            adpt.Fill(datatable);
-            String[] tpData = new String[datatable.Columns.Count];
-            int i = 0;
-            if (datatable.Rows.Count > 0)
-            {
-                foreach (DataRow row in datatable.Rows)
-                {
-                    foreach (DataColumn col in datatable.Columns)
-                    {
-                        tpData[i] = row[col].ToString();
-                        i++;
-                    }
-                }
-                UserData tpUD = new UserData(tpData[0], tpData[1], tpData[2], tpData[3], tpData[4], tpData[5]);
-                return tpUD;
-            }
-            else
-                return null;
-
-        }
+        
     }
 
 }

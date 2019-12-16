@@ -15,7 +15,7 @@ namespace OnlineStore.Users.NormalUsers
 
         public override void ConnectPage(UserData data)
         {
-            this.hand = Handler.GetInstance();
+            this.hand = UserController.GetInstance();
             this.Data = data;
             NUserPage ap = new NUserPage(this);
             ap.Show();

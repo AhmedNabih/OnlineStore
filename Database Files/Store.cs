@@ -15,14 +15,14 @@ namespace OnlineStore.srcFiles
         public Statistics SS;
         public Dictionary<String, Statistics> PS;
         public ProductData[] PD;
-        private Handler hand; //con.
+        private UserController hand; //con.
 
 
         public Store(StoreData SD)
         {
             PS = new Dictionary<string, Statistics>();
             this.SD = SD;
-            this.hand = Handler.GetInstance();
+            this.hand = UserController.GetInstance();
         }
 
         public void GetStat()

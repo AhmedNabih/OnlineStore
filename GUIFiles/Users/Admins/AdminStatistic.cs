@@ -11,13 +11,13 @@ namespace OnlineStore.GUIFiles.Users.Admins
 {
     public partial class AdminStatistic : Form
     {
-        private Handler hand;
-        private MyDataBase DB;
+        private UserController hand;
+        private DataBase DB;
         private bool Users, Store;
 
         public AdminStatistic()
         {
-            hand = Handler.GetInstance();
+            hand = UserController.GetInstance();
             DB = hand.DB;
             this.Users = false;
             this.Store = false;

@@ -18,7 +18,7 @@ namespace OnlineStore.Users.StoreOwners
 
         public override void ConnectPage(UserData data)
         {
-            this.hand = Handler.GetInstance();
+            this.hand = UserController.GetInstance();
             this.Data = data;
             StoreOwnerPage ap = new StoreOwnerPage(this);
             ap.Show();

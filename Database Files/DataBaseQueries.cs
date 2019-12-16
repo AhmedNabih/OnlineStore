@@ -9,11 +9,11 @@ namespace OnlineStore.srcFiles
 {
     public class DataBaseQueries
     {
-        private MyDataBase dataBase;
+        private DataBase dataBase;
         
         public DataBaseQueries()
         {
-            this.dataBase = MyDataBase.GetInstance();
+            this.dataBase = DataBase.GetInstance();
         }
 
         public String UserTableSum()

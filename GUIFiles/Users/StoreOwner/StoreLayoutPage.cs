@@ -17,10 +17,10 @@ namespace OnlineStore.GUIFiles
     {
         private Store store;
         private StoreOwner SO;
-        private Handler hand;
+        private UserController hand;
         public StoreLayoutPage(StoreOwner SO, Store SD)
         {
-            this.hand = Handler.GetInstance();
+            this.hand = UserController.GetInstance();
             this.SO = SO;
             this.store = SD;
             store.GetStat();

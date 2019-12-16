@@ -11,7 +11,7 @@ namespace OnlineStore.Users.UserFactoryPattern
     public abstract class IUser
     {
         public UserData Data;
-        public Handler hand;
+        public UserController hand;
         public abstract void ConnectPage(UserData data);
     }
 }

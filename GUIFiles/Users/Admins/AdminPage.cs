@@ -16,10 +16,10 @@ namespace OnlineStore.GUIFiles.Users.Admins
     public partial class AdminPage : Form
     {
         private Admin admin;
-        private Handler hand;
+        private UserController hand;
         public AdminPage(Admin admin)
         {
-            this.hand = Handler.GetInstance();
+            this.hand = UserController.GetInstance();
             this.admin = admin;
             InitializeComponent();
             TuserName.Text = admin.Data.userName;

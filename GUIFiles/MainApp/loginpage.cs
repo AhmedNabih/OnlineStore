@@ -15,10 +15,10 @@ namespace OnlineStore
 
     public partial class loginpage : Form
     {
-        private Handler hand;
+        private UserController hand;
         public loginpage()
         {
-            this.hand = Handler.GetInstance();
+            this.hand = UserController.GetInstance();
             InitializeComponent();
         }
 
