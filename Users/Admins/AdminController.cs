@@ -1,4 +1,5 @@
-﻿using OnlineStore.Data;
+﻿using OnlineStore.App.Stores.Data;
+using OnlineStore.Data;
 using OnlineStore.Database_Files;
 using OnlineStore.Queries_Controllers;
 using OnlineStore.Users.UserFactoryPattern;

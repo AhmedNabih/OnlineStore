@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Data;
 using OnlineStore.Data;
 using OnlineStore.Users.UserFactoryPattern;
-using OnlineStore.srcFiles;
 using OnlineStore.GUIFiles.Users.Admins;
 using OnlineStore.Database_Files;
 

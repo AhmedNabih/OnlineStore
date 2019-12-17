@@ -1,6 +1,7 @@
-﻿using OnlineStore.Database_Files;
+﻿using OnlineStore.App.Stores.Data;
+using OnlineStore.Database_Files;
 using OnlineStore.GUIFiles;
-using OnlineStore.srcFiles;
+using OnlineStore.ShoppingCart;
 using OnlineStore.Users.NormalUsers;
 using OnlineStore.Users.UserFactoryPattern;
 using System;
@@ -17,10 +18,12 @@ namespace OnlineStore
 {
     public partial class NUserPage : Form
     {
-        private IUser user;
-        private DataBase dataBase;
+        public static int amount;
+        NormalUserController controller;
+        ShoppingCartController cartController;
+        CartObject cartObject;
 
-        public NUserPage(NormalUser user)
+        public NUserPage(NormalUserController user)
         {
             // My Online MSQL DataBase
             String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
@@ -30,14 +33,14 @@ namespace OnlineStore
             IConnectionString connectionString = new DataBaseConnection();
             connectionString.SetConnectionString(connectionStr);
 
-            this.dataBase = DataBase.GetInstance(connectionString);
-
-            this.user = user;
+            this.controller = user;
             InitializeComponent();
-            TuserName.Text = user.Data.userName;
-            Temail.Text = user.Data.email;
-            Tname.Text = user.Data.name;
-            Trole.Text = user.Data.role;
+            TuserName.Text = controller.normalUser.Data.userName;
+            Temail.Text = controller.normalUser.Data.email;
+            Tname.Text = controller.normalUser.Data.name;
+            Trole.Text = controller.normalUser.Data.role;
+            cartController = new ShoppingCartController();
+            cartObject = new CartObject();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,13 +65,13 @@ namespace OnlineStore
 
         private void NUserPage_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Refresh_Click(object sender, EventArgs e)
         {
             Store.Items.Clear();
-            DataTable tpData= dataBase.GetAllStores();
+            DataTable tpData = controller.GetAllStores();
             foreach (DataRow row in tpData.Rows)
             {
                 String tpStr = "";
@@ -83,7 +86,7 @@ namespace OnlineStore
         private void OpenStore_Click(object sender, EventArgs e)
         {
             Products.Items.Clear();
-            String[] s=null;
+            String[] s = null;
             List<int> select = new List<int>();
 
             for (int i = 0; i < Store.Items.Count; i++)
@@ -98,7 +101,9 @@ namespace OnlineStore
             {
                 s = Store.Items[inx].ToString().Split(',');
             }
-           DataTable tpData = dataBase.GetProductsInStore(s[1]);
+            DataTable tpData = controller.GetProductsInStore(s[2]);
+            if (tpData == null)
+                return;
             foreach (DataRow row in tpData.Rows)
             {
                 String tpStr = "";
@@ -108,7 +113,41 @@ namespace OnlineStore
                 }
                 Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
             }
-        
+
+        }
+
+        private void AddToCart_Click(object sender, EventArgs e)
+        {
+            ProductInfo temp = new ProductInfo();
+            temp.ShowDialog();
+            String[] s = null;
+            List<int> select = new List<int>();
+
+            for (int i = 0; i < Store.Items.Count; i++)
+            {
+                if (Products.GetItemChecked(i))
+                {
+                    select.Add(i);
+                    break;
+                }
+            }
+            foreach (int inx in select)
+            {
+                s = Products.Items[inx].ToString().Split(',');
+            }
+            cartObject = new CartObject(s[7], s[0], System.Convert.ToDouble(s[5]), amount);
+            cartController.addCartItem(cartObject);
+        }
+
+        private void ViewCart_Click(object sender, EventArgs e)
+        {
+            cartController.viewCart();
+        }
+
+        private void CalcTotalPrice_Click(object sender, EventArgs e)
+        {
+            double price =cartController.calcTotalPrice("NormalUser");
+            MessageBox.Show(price.ToString());
         }
     }
 }

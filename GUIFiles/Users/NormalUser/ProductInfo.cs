@@ -12,9 +12,17 @@ namespace OnlineStore.GUIFiles
 {
     public partial class ProductInfo : Form
     {
+       public static int amount;
         public ProductInfo()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NUserPage.amount = System.Convert.ToInt32(textBox1.Text);
+            MessageBox.Show("Done");
+            this.Close();
         }
     }
 }

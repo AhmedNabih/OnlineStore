@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using OnlineStore.App.Stores.Data;
 using OnlineStore.Data;
 using OnlineStore.Users.Admins;
 

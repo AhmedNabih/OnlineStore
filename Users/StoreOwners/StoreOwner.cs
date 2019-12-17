@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OnlineStore.App.Stores;
+using OnlineStore.App.Stores.Data;
 using OnlineStore.Data;
 using OnlineStore.Database_Files;
-using OnlineStore.srcFiles;
+using OnlineStore.ShoppingCart;
 using OnlineStore.Users.UserFactoryPattern;
 
 namespace OnlineStore.Users.StoreOwners
 {
-    public class StoreOwner : IUser
+    public class StoreOwner : IUser, IBuyable
     {
         public Store[] storeslist;
         private DataBase dataBase;
@@ -32,7 +30,7 @@ namespace OnlineStore.Users.StoreOwners
 
         public override void ConnectPage(UserData data)
         {
-            this.hand = UserController.GetInstance();
+           // this.hand = UserController.GetInstance();
             this.Data = data;
             StoreOwnerPage ap = new StoreOwnerPage(this);
             ap.Show();
@@ -58,7 +56,7 @@ namespace OnlineStore.Users.StoreOwners
 
                 StoreRawData tpStoreData = new StoreRawData();
                 tpStoreData.Handler(tpStr.Split(','));
-                storeslist[i] = new Store(tpStoreData);
+                //storeslist[i] = new Store(tpStoreData);
                 i++;
             }
         }
@@ -78,6 +76,11 @@ namespace OnlineStore.Users.StoreOwners
         {
             String cmd = "Delete from Store where StoreID = " + StoreID;
             dataBase.QueryExec(cmd);
+        }
+
+        public double Buy(CartObject obj)
+        {
+            return obj.GetPrice() * 0.15;
         }
     }
 }

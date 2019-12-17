@@ -15,7 +15,7 @@ namespace OnlineStore.GUIFiles
         private StoreController store;
         private StoreOwner SO;
         private DataBase dataBase;
-
+/*
         public StoreLayoutPage(StoreOwner SO, StoreController store)
         {
             // My Online MSQL DataBase
@@ -29,8 +29,8 @@ namespace OnlineStore.GUIFiles
             this.dataBase = DataBase.GetInstance(connectionString);
 
             this.SO = SO;
-            this.store = SD;
-            store.GetStat();
+          //  this.store = SD;
+           // store.GetStat();
             InitializeComponent();
             TuserName.Text = SO.Data.userName;
             Tname.Text = SO.Data.name;
@@ -60,7 +60,7 @@ namespace OnlineStore.GUIFiles
                 {
                     tpStr += row[col].ToString() + ",";
                 }
-                Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
+                //Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
             }
         }
 
@@ -138,6 +138,6 @@ namespace OnlineStore.GUIFiles
                 Statistics context = store.PS[tp];
                 MessageBox.Show(context.CntView+" "+context.CntSold);
             }
-        }
+        }*/
     }
 }

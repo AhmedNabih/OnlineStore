@@ -15,9 +15,9 @@ namespace OnlineStore.App.Stores.Data
             this.products = new List<StoreProduct>();
         }
 
-        public bool AddStoreProduct(StoreProduct product)
-        {
-
-        }
+      //  public bool AddStoreProduct(StoreProduct product)
+        //{
+          //  return;
+       // }
     }
 }

@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using OnlineStore.Data;
 
 namespace OnlineStore.Database_Files
 {

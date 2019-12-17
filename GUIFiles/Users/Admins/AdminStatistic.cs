@@ -27,7 +27,7 @@ namespace OnlineStore.GUIFiles.Users.Admins
             Tname.Text = controller.admin.Data.name;
             Trole.Text = controller.admin.Data.role;
         }
-
+        /*
         private void BShowUsers_Click(object sender, EventArgs e)
         {
             this.Users = true;
@@ -64,12 +64,12 @@ namespace OnlineStore.GUIFiles.Users.Admins
                 if (this.Users && SelectedString != "All")
                 {
                     // StoreID, StoreName, StoreType, StoreLocation, StoreInfo
-                    tpData = dataBase.GetStore(SelectedString.Split(',')[0]);
+                 //   tpData = dataBase.GetStore(SelectedString.Split(',')[0]);
                 }
                 else
                 {
                     // UserID, UserName, StoreID, StoreName, StoreType, StoreLocation, StoreInfo
-                    tpData = dataBase.GetAllStores();
+               //     tpData = dataBase.GetAllStores();
                 }
 
                 this.Users = false;
@@ -104,12 +104,12 @@ namespace OnlineStore.GUIFiles.Users.Admins
                 if (this.Store && SelectedString != "All")
                 {
                     // StoreID, ProductName, price, amount
-                    tpData = dataBase.GetProductsInStore(SelectedString.Split(new String[] { ", "},StringSplitOptions.RemoveEmptyEntries)[2]);
+              //      tpData = dataBase.GetProductsInStore(SelectedString.Split(new String[] { ", "},StringSplitOptions.RemoveEmptyEntries)[2]);
                 }
                 else
                 {
                     // // StoreID, ProductName, price, amount
-                    tpData = dataBase.GetAllProductsInStore();
+                   // tpData = dataBase.GetAllProductsInStore();
                 }
 
                 this.Users = false;
@@ -180,5 +180,5 @@ namespace OnlineStore.GUIFiles.Users.Admins
         {
             this.Close();
         }
-    }
+ */   }
 }

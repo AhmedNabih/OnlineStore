@@ -26,9 +26,9 @@ namespace OnlineStore.App.Stores
             this.queries = new StoreControllerQueries(connectionString);
         }
 
-        public bool AddProduct(StorePr)
+      /*  public bool AddProduct(StorePr)
         {
 
-        }
+        }*/
     }
 }
