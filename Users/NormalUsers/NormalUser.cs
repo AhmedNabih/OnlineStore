@@ -17,7 +17,8 @@ namespace OnlineStore.Users.NormalUsers
         {
             this.hand = UserController.GetInstance();
             this.Data = data;
-            NUserPage ap = new NUserPage(this);
+            NormalUser controller = new NormalUser();
+            NUserPage ap = new NUserPage(controller);
             ap.Show();
         }
     }

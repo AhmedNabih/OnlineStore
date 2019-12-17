@@ -1,114 +1,187 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using OnlineStore.Database_Files;
-using OnlineStore.GUIFiles;
-using OnlineStore.srcFiles;
+using OnlineStore.Data;
 using OnlineStore.Users.Admins;
 
 namespace OnlineStore.GUIFiles.Users.Admins
 {
     public partial class AdminPage : Form
     {
-        private Admin admin;
-        private DataBase dataBase;
-        public AdminPage(Admin admin)
+        private AdminsController controller;
+
+        public AdminPage(AdminsController controller)
         {
-            // My Online MSQL DataBase
-            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
-            // Local MSQL DataBase
-            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
 
-            IConnectionString connectionString = new DataBaseConnection();
-            connectionString.SetConnectionString(connectionStr);
-
-            this.dataBase = DataBase.GetInstance(connectionString);
-
-            this.admin = admin;
+            this.controller = controller;
             InitializeComponent();
-            TuserName.Text = admin.Data.userName;
-            Temail.Text = admin.Data.email;
-            Tname.Text = admin.Data.name;
-            Trole.Text = admin.Data.role;
+
+            TuserName.Text = controller.admin.Data.userName;
+            Temail.Text = controller.admin.Data.email;
+            Tname.Text = controller.admin.Data.name;
+            Trole.Text = controller.admin.Data.role;
         }
 
-        private void AddNewProduct_Click(object sender, EventArgs e)
-        {
-            AddProductsPage app = new AddProductsPage(admin);
-            app.Show();
-
-        }
-
+        ///////////////////////////////////// Product /////////////////////////////////////
 
         private void RefreshProductsList_Click(object sender, EventArgs e)
         {
             ProductsList.Items.Clear();
-            DataTable tpData = dataBase.GetProductsData();
-            foreach (DataRow row in tpData.Rows)
+
+            List<ProductRawData> productList = controller.GetProductsData();
+
+            foreach (ProductRawData product in productList)
             {
-                String tpStr = "";
-                foreach (DataColumn col in tpData.Columns)
-                {
-                    tpStr += row[col].ToString() + ", ";
-                }
-                ProductsList.Items.Add(tpStr.Substring(0, tpStr.Length - 2));
+                ProductsList.Items.Add(product.ToString());
             }
         }
 
+        private void AddNewProduct_Click(object sender, EventArgs e)
+        {
+            AddProductsPage app = new AddProductsPage(controller);
+            app.Show();
+        }
 
         private void RemoveCheckedProduct_Click(object sender, EventArgs e)
         {
+            List<ProductRawData> removeList = new List<ProductRawData>();
+            for (int i = 0; i < ProductsList.Items.Count; i++)
+            {
+                if (ProductsList.GetItemChecked(i))
+                {
+                    ProductRawData tempData = new ProductRawData();
+                    tempData.RefactorString(ProductsList.Items[i].ToString());
+                    removeList.Add(tempData);
+                }
+            }
 
+            for (int i = 0; i < removeList.Count; i++)
+            {
+                bool DONE = controller.RemoveProduct(removeList[i].ID);
+                if (DONE)
+                    MessageBox.Show(removeList[i].ToString() + " Removed");
+                else
+                    MessageBox.Show(removeList[i].ToString() + " Remove Failed");
+            }
 
         }
 
-        private void Exit_Click(object sender, EventArgs e)
+        private void BEditProduct_Click(object sender, EventArgs e)
         {
+
         }
+
+        ///////////////////////////////////// Brand /////////////////////////////////////
+
+        private void BRefreshBrandList_Click(object sender, EventArgs e)
+        {
+            BrandList.Items.Clear();
+
+            List<BrandRawData> brandList = controller.GetBrandsData();
+
+            foreach (BrandRawData brand in brandList)
+            {
+                BrandList.Items.Add(brand.ToString());
+            }
+        }
+
+        private void BAddNewBrand_Click(object sender, EventArgs e)
+        {
+            AddBrandPage addBrandPage = new AddBrandPage(controller);
+            addBrandPage.Show();
+        }
+
+        private void BRemoveBrand_Click(object sender, EventArgs e)
+        {
+            List<BrandRawData> removeList = new List<BrandRawData>();
+            for (int i = 0; i < BrandList.Items.Count; i++)
+            {
+                if (BrandList.GetItemChecked(i))
+                {
+                    BrandRawData tempData = new BrandRawData();
+                    tempData.RefactorString(BrandList.Items[i].ToString());
+                    removeList.Add(tempData);
+                }
+            }
+
+            for (int i = 0; i < removeList.Count; i++)
+            {
+                bool DONE = controller.RemoveBrand(removeList[i].ID);
+                if (DONE)
+                    MessageBox.Show(removeList[i].ToString() + " Removed");
+                else
+                    MessageBox.Show(removeList[i].ToString() + " Remove Failed");
+            }
+        }
+
+        private void BEditBrand_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        ///////////////////////////////////// Store Request /////////////////////////////////////
 
         private void ShowReq_Click(object sender, EventArgs e)
         {
             StoresReq.Items.Clear();
-            DataTable tpData = dataBase.GetStoreReq();
-            foreach (DataRow row in tpData.Rows)
+
+            List<StoreRequest> StoreRequestList = controller.GetStoreRequest();
+
+            foreach (StoreRequest request in StoreRequestList)
             {
-                String tpStr = "";
-                foreach (DataColumn col in tpData.Columns)
-                {
-                    tpStr += row[col].ToString() + ",";
-                }
-                StoresReq.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
+                StoresReq.Items.Add(request.ToString());
             }
         }
 
         private void AddCheckedStoresReq_Click(object sender, EventArgs e)
         {
-            List<String> select = new List<string>();
-            for (int i=0; i<StoresReq.Items.Count; i++)
+            List<StoreRequest> addList = new List<StoreRequest>();
+            for (int i = 0; i < StoresReq.Items.Count; i++)
             {
                 if (StoresReq.GetItemChecked(i))
                 {
-                    select.Add(StoresReq.Items[i].ToString());
+                    StoreRequest tempData = new StoreRequest();
+                    tempData.RefactorString(StoresReq.Items[i].ToString());
+                    addList.Add(tempData);
                 }
             }
-            foreach(String str in select)
+
+            for (int i = 0; i < addList.Count; i++)
             {
-                String[] data = str.Split(',');
-                admin.AddStoreFromReq(data);
+                bool DONE = controller.AcceptStore(addList[i].userID, addList[i].storeData.ID);
+                if (DONE)
+                    MessageBox.Show(addList[i].ToString() + " Added");
+                else
+                    MessageBox.Show(addList[i].ToString() + " Add Failed");
             }
-            MessageBox.Show("Stores Added");
         }
 
         private void RemoveCheckedStoresReq_Click(object sender, EventArgs e)
         {
+            List<StoreRequest> removeList = new List<StoreRequest>();
+            for (int i = 0; i < StoresReq.Items.Count; i++)
+            {
+                if (StoresReq.GetItemChecked(i))
+                {
+                    StoreRequest tempData = new StoreRequest();
+                    tempData.RefactorString(StoresReq.Items[i].ToString());
+                    removeList.Add(tempData);
+                }
+            }
+
+            for (int i = 0; i < removeList.Count; i++)
+            {
+                bool DONE = controller.RejectStore(removeList[i].userID,removeList[i].storeData.ID);
+                if (DONE)
+                    MessageBox.Show(removeList[i].ToString() + " Removed");
+                else
+                    MessageBox.Show(removeList[i].ToString() + " Remove Failed");
+            }
 
         }
+
+        ///////////////////////////////////// Page /////////////////////////////////////
 
         private void LogOut_Click(object sender, EventArgs e)
         {
@@ -116,10 +189,18 @@ namespace OnlineStore.GUIFiles.Users.Admins
             this.Close();
         }
 
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void Statistic_Click(object sender, EventArgs e)
         {
-            AdminStatistic adminStatistic = new AdminStatistic();
+            AdminStatistic adminStatistic = new AdminStatistic(controller);
             adminStatistic.Show();
         }
+
+
+        ///////////////////////////////////// Class End /////////////////////////////////////
     }
 }

@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using OnlineStore.App.Stores;
 using OnlineStore.Data;
 using OnlineStore.Database_Files;
-using OnlineStore.srcFiles;
 using OnlineStore.Users.StoreOwners;
 
 namespace OnlineStore.GUIFiles
 {
     public partial class StoreLayoutPage : Form
     {
-        private Store store;
+        private StoreController store;
         private StoreOwner SO;
         private DataBase dataBase;
 
-        public StoreLayoutPage(StoreOwner SO, Store SD)
+        public StoreLayoutPage(StoreOwner SO, StoreController store)
         {
             // My Online MSQL DataBase
             String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
@@ -54,7 +50,7 @@ namespace OnlineStore.GUIFiles
 
         private void ShowProducts_Click(object sender, EventArgs e)
         {
-            Products.Items.Clear();
+            ProductsList.Items.Clear();
             String cmd = "select * from Product";
             DataTable tpData = dataBase.Query(cmd);
             foreach (DataRow row in tpData.Rows)
@@ -81,10 +77,6 @@ namespace OnlineStore.GUIFiles
             }
             foreach (int inx in select)
             {
-                String cmdSZ = "select count(StatID) from MyStatistics";
-                DataTable tp = dataBase.Query(cmdSZ);
-                int sz2 = System.Convert.ToInt32(tp.Rows[0][0].ToString()) + new Random().Next(5000);
-                String IDStat = sz2.ToString();
                 String cmdStat = "insert into MyStatistics values(" + IDStat + ",0,0)";
                 dataBase.QueryExec(cmdStat);
 

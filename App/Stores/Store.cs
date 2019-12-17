@@ -1,41 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using OnlineStore.App.Stores.Data;
 using OnlineStore.Data;
-using OnlineStore.Database_Files;
 
-namespace OnlineStore.srcFiles
+namespace OnlineStore.App.Stores
 {
     public class Store
     {
-        public StoreData SD; //con.
-        public Statistics SS;
-        public Dictionary<String, Statistics> PS;
-        public ProductData[] PD;
-        private DataBase dataBase; //con.
+        public String UserID;
+        public StoreRawData storeData; //con.
+        public Statistics storeStatistics;
+        public StatisticsController productStatistic;
+        public StoreProductController products;
 
 
-        public Store(StoreData SD)
+        public Store(String UserID, StoreRawData storeData, Statistics storeStatistics)
         {
-            // My Online MSQL DataBase
-            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
-            // Local MSQL DataBase
-            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
-
-            IConnectionString connectionString = new DataBaseConnection();
-            connectionString.SetConnectionString(connectionStr);
-
-            this.dataBase = DataBase.GetInstance(connectionString);
-
-            PS = new Dictionary<string, Statistics>();
-            this.SD = SD;
-            
+            this.UserID = UserID;
+            this.storeData = storeData;
+            this.storeStatistics = storeStatistics;
+            this.productStatistic = new StatisticsController();
+            this.products = new StoreProductController();
         }
 
+        /*
         public void GetStat()
         {
             String cmd1 = "select NumOfViews,NumOfSold from MyStatistics MS inner join StoreStat SS on MS.StatID = SS.StatID and SS.StoreID = " + SD.ID;
@@ -90,9 +78,9 @@ namespace OnlineStore.srcFiles
             if (tp.Rows.Count > 0)
             {
                 int sz = tp.Rows.Count;
-                PD = new ProductData[sz];
+                PD = new ProductRawData[sz];
                 for (int k = 0; k < sz; k++)
-                    PD[k] = new ProductData();
+                    PD[k] = new ProductRawData();
                 foreach (DataRow row in tp.Rows)
                 {
                     String tpStr = "";
@@ -110,6 +98,6 @@ namespace OnlineStore.srcFiles
         {
 
         }
-        
+        */
     }
 }

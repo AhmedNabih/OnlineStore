@@ -1,5 +1,5 @@
 ﻿using OnlineStore.Database_Files;
-using OnlineStore.srcFiles;
+using OnlineStore.Users.Admins;
 using OnlineStore.Users.Admins.AdminsStatisticsSystem;
 using OnlineStore.Users.Admins.AdminsStatisticsSystem.Commands;
 using OnlineStore.Users.Admins.AdminsStatisticsSystem.Receivers.ReceiverFactory;
@@ -12,23 +12,20 @@ namespace OnlineStore.GUIFiles.Users.Admins
 {
     public partial class AdminStatistic : Form
     {
-        private DataBase dataBase;
+        private AdminsController controller;
         private bool Users, Store;
 
-        public AdminStatistic()
+        public AdminStatistic(AdminsController controller)
         {
-            // My Online MSQL DataBase
-            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
-            // Local MSQL DataBase
-            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
-
-            IConnectionString connectionString = new DataBaseConnection();
-            connectionString.SetConnectionString(connectionStr);
-
-            this.dataBase = DataBase.GetInstance(connectionString);
+            this.controller = controller;
             this.Users = false;
             this.Store = false;
             InitializeComponent();
+
+            TuserName.Text = controller.admin.Data.userName;
+            Temail.Text = controller.admin.Data.email;
+            Tname.Text = controller.admin.Data.name;
+            Trole.Text = controller.admin.Data.role;
         }
 
         private void BShowUsers_Click(object sender, EventArgs e)

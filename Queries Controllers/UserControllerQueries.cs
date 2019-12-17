@@ -40,7 +40,7 @@ namespace OnlineStore.Queries_Controllers
         {
             try
             {
-                String cmd = "insert into MyUser( UserName,Password,Name,Email,Role)values('" + UN + "','" + PW + "','" + N + "','" + EM + "','" + Role + "')";
+                String cmd = "insert into MyUser( UserName,Password,Name,Email,Role) values('" + UN + "', '" + PW + "', '" + N + "', '" + EM + "','" + Role + "')";
                 this.database.QueryExec(cmd);
                 return true;
             }

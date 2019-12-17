@@ -1,23 +1,29 @@
-﻿using System;
+﻿using OnlineStore.Users.Admins;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using OnlineStore.Users.Admins;
 
 namespace OnlineStore.GUIFiles.Users.Admins
 {
-    public partial class AddProductsPage : Form
+    public partial class AddBrandPage : Form
     {
         AdminsController controller;
 
-        public AddProductsPage(AdminsController controller)
+        public AddBrandPage(AdminsController controller)
         {
             this.controller = controller;
             InitializeComponent();
         }
 
-        
-        private void AddProduct_Click(object sender, EventArgs e)
+        private void AddBrand_Click(object sender, EventArgs e)
         {
-            bool DONE = this.controller.AddProduct(TProductName.Text, TProductType.Text);
+            bool DONE = this.controller.AddBrand(TBrandName.Text, TBrandType.Text);
             if (DONE)
             {
                 MessageBox.Show("Product Added");
@@ -32,12 +38,11 @@ namespace OnlineStore.GUIFiles.Users.Admins
         {
             this.Close();
         }
-        
+
         private void ClearText_Click(object sender, EventArgs e)
         {
-            TProductName.Clear();
-            TProductType.Clear();
+            TBrandName.Clear();
+            TBrandType.Clear();
         }
-        
     }
 }

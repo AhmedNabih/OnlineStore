@@ -1,12 +1,5 @@
-﻿using OnlineStore.srcFiles;
+﻿using OnlineStore.Users;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OnlineStore.GUIFiles
@@ -22,7 +15,12 @@ namespace OnlineStore.GUIFiles
 
         private void Bregister_Click(object sender, EventArgs e)
         {
-            bool DONE = controller.Register(TuserName.Text, Tpassword.Text, Tname.Text, Temail.Text, Trole.SelectedItem.ToString());
+            String US = TuserName.Text;
+            String PW = Tpassword.Text;
+            String N = Tname.Text;
+            String EM = Temail.Text;
+            String Role = Trole.SelectedItem.ToString();
+            bool DONE = controller.Register(US, PW, N, EM, Role);
             if(DONE)
             {
                 MessageBox.Show("Account Created");

@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OnlineStore.Data;
-using OnlineStore.srcFiles;
+﻿using OnlineStore.Data;
 
 namespace OnlineStore.Users.UserFactoryPattern
 {
     public abstract class IUser
     {
         public UserData Data;
-        public UserController hand;
         public abstract void ConnectPage(UserData data);
     }
 }

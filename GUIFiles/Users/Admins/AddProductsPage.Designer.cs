@@ -28,66 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.TbrandName = new System.Windows.Forms.TextBox();
-            this.Tname = new System.Windows.Forms.TextBox();
-            this.TbrandType = new System.Windows.Forms.TextBox();
-            this.LbrandName = new System.Windows.Forms.Label();
-            this.LbrandType = new System.Windows.Forms.Label();
-            this.Lname = new System.Windows.Forms.Label();
+            this.TProductName = new System.Windows.Forms.TextBox();
+            this.LProductName = new System.Windows.Forms.Label();
             this.AddProduct = new System.Windows.Forms.Button();
             this.ClearText = new System.Windows.Forms.Button();
             this.Bclose = new System.Windows.Forms.Button();
-            this.Lterms = new System.Windows.Forms.Label();
-            this.Tterms = new System.Windows.Forms.TextBox();
+            this.LProductType = new System.Windows.Forms.Label();
+            this.TProductType = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // TbrandName
+            // TProductName
             // 
-            this.TbrandName.Location = new System.Drawing.Point(134, 25);
-            this.TbrandName.Name = "TbrandName";
-            this.TbrandName.Size = new System.Drawing.Size(170, 22);
-            this.TbrandName.TabIndex = 0;
+            this.TProductName.Location = new System.Drawing.Point(142, 73);
+            this.TProductName.Name = "TProductName";
+            this.TProductName.Size = new System.Drawing.Size(170, 22);
+            this.TProductName.TabIndex = 1;
             // 
-            // Tname
+            // LProductName
             // 
-            this.Tname.Location = new System.Drawing.Point(134, 81);
-            this.Tname.Name = "Tname";
-            this.Tname.Size = new System.Drawing.Size(170, 22);
-            this.Tname.TabIndex = 1;
-            // 
-            // TbrandType
-            // 
-            this.TbrandType.Location = new System.Drawing.Point(134, 53);
-            this.TbrandType.Name = "TbrandType";
-            this.TbrandType.Size = new System.Drawing.Size(170, 22);
-            this.TbrandType.TabIndex = 2;
-            // 
-            // LbrandName
-            // 
-            this.LbrandName.AutoSize = true;
-            this.LbrandName.Location = new System.Drawing.Point(35, 30);
-            this.LbrandName.Name = "LbrandName";
-            this.LbrandName.Size = new System.Drawing.Size(87, 17);
-            this.LbrandName.TabIndex = 3;
-            this.LbrandName.Text = "Brand Name";
-            // 
-            // LbrandType
-            // 
-            this.LbrandType.AutoSize = true;
-            this.LbrandType.Location = new System.Drawing.Point(35, 56);
-            this.LbrandType.Name = "LbrandType";
-            this.LbrandType.Size = new System.Drawing.Size(82, 17);
-            this.LbrandType.TabIndex = 4;
-            this.LbrandType.Text = "Brand Type";
-            // 
-            // Lname
-            // 
-            this.Lname.AutoSize = true;
-            this.Lname.Location = new System.Drawing.Point(55, 86);
-            this.Lname.Name = "Lname";
-            this.Lname.Size = new System.Drawing.Size(45, 17);
-            this.Lname.TabIndex = 5;
-            this.Lname.Text = "Name";
+            this.LProductName.AutoSize = true;
+            this.LProductName.Location = new System.Drawing.Point(43, 76);
+            this.LProductName.Name = "LProductName";
+            this.LProductName.Size = new System.Drawing.Size(98, 17);
+            this.LProductName.TabIndex = 5;
+            this.LProductName.Text = "Product Name";
             // 
             // AddProduct
             // 
@@ -119,38 +83,34 @@
             this.Bclose.UseVisualStyleBackColor = true;
             this.Bclose.Click += new System.EventHandler(this.Bclose_Click);
             // 
-            // Lterms
+            // LProductType
             // 
-            this.Lterms.AutoSize = true;
-            this.Lterms.Location = new System.Drawing.Point(55, 114);
-            this.Lterms.Name = "Lterms";
-            this.Lterms.Size = new System.Drawing.Size(48, 17);
-            this.Lterms.TabIndex = 10;
-            this.Lterms.Text = "Terms";
+            this.LProductType.AutoSize = true;
+            this.LProductType.Location = new System.Drawing.Point(43, 104);
+            this.LProductType.Name = "LProductType";
+            this.LProductType.Size = new System.Drawing.Size(93, 17);
+            this.LProductType.TabIndex = 10;
+            this.LProductType.Text = "Product Type";
             // 
-            // Tterms
+            // TProductType
             // 
-            this.Tterms.Location = new System.Drawing.Point(134, 109);
-            this.Tterms.Name = "Tterms";
-            this.Tterms.Size = new System.Drawing.Size(170, 22);
-            this.Tterms.TabIndex = 9;
+            this.TProductType.Location = new System.Drawing.Point(142, 101);
+            this.TProductType.Name = "TProductType";
+            this.TProductType.Size = new System.Drawing.Size(170, 22);
+            this.TProductType.TabIndex = 9;
             // 
             // AddProductsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 229);
-            this.Controls.Add(this.Lterms);
-            this.Controls.Add(this.Tterms);
+            this.Controls.Add(this.LProductType);
+            this.Controls.Add(this.TProductType);
             this.Controls.Add(this.Bclose);
             this.Controls.Add(this.ClearText);
             this.Controls.Add(this.AddProduct);
-            this.Controls.Add(this.Lname);
-            this.Controls.Add(this.LbrandType);
-            this.Controls.Add(this.LbrandName);
-            this.Controls.Add(this.TbrandType);
-            this.Controls.Add(this.Tname);
-            this.Controls.Add(this.TbrandName);
+            this.Controls.Add(this.LProductName);
+            this.Controls.Add(this.TProductName);
             this.Name = "AddProductsPage";
             this.Text = "AddProductPage";
             this.ResumeLayout(false);
@@ -159,17 +119,12 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox TbrandName;
-        private System.Windows.Forms.TextBox Tname;
-        private System.Windows.Forms.TextBox TbrandType;
-        private System.Windows.Forms.Label LbrandName;
-        private System.Windows.Forms.Label LbrandType;
-        private System.Windows.Forms.Label Lname;
+        private System.Windows.Forms.TextBox TProductName;
+        private System.Windows.Forms.Label LProductName;
         private System.Windows.Forms.Button AddProduct;
         private System.Windows.Forms.Button ClearText;
         private System.Windows.Forms.Button Bclose;
-        private System.Windows.Forms.Label Lterms;
-        private System.Windows.Forms.TextBox Tterms;
+        private System.Windows.Forms.Label LProductType;
+        private System.Windows.Forms.TextBox TProductType;
     }
 }

@@ -23,6 +23,7 @@ namespace OnlineStore.Database_Files
         private DataBase(IConnectionString connectionString)
         {
             this.connectionString = connectionString;
+            this.adpt = new SqlDataAdapter();
 
             Connect();
         }
@@ -80,14 +81,7 @@ namespace OnlineStore.Database_Files
         }
 
 
-        public DataTable GetProductsData()
-        {
-            String cmd = "select BrandName,BrandType,ProductName,terms from Product";
-            DataTable datatable = Query(cmd);
-            return datatable;
-
-
-        }
+        
 
         public DataTable GetStoreData()
         {

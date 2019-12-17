@@ -43,21 +43,23 @@
             this.TstoreType = new System.Windows.Forms.TextBox();
             this.TStoreName = new System.Windows.Forms.TextBox();
             this.TstoreLocation = new System.Windows.Forms.TextBox();
-            this.Products = new System.Windows.Forms.CheckedListBox();
             this.AddProduct = new System.Windows.Forms.Button();
             this.BRefresh = new System.Windows.Forms.Button();
             this.ShowProducts = new System.Windows.Forms.Button();
-            this.MyProducts = new System.Windows.Forms.CheckedListBox();
             this.TnumSold = new System.Windows.Forms.TextBox();
             this.TnumViews = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ShowProductStat = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ProductsList = new System.Windows.Forms.ListBox();
+            this.BrandsList = new System.Windows.Forms.ListBox();
+            this.StoreProducts = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // Bclose
             // 
-            this.Bclose.Location = new System.Drawing.Point(856, 395);
+            this.Bclose.Location = new System.Drawing.Point(919, 416);
             this.Bclose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Bclose.Name = "Bclose";
             this.Bclose.Size = new System.Drawing.Size(75, 23);
@@ -69,7 +71,7 @@
             // Lrole
             // 
             this.Lrole.AutoSize = true;
-            this.Lrole.Location = new System.Drawing.Point(787, 18);
+            this.Lrole.Location = new System.Drawing.Point(957, 17);
             this.Lrole.Name = "Lrole";
             this.Lrole.Size = new System.Drawing.Size(37, 17);
             this.Lrole.TabIndex = 24;
@@ -77,7 +79,7 @@
             // 
             // Trole
             // 
-            this.Trole.Location = new System.Drawing.Point(829, 14);
+            this.Trole.Location = new System.Drawing.Point(999, 13);
             this.Trole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Trole.Name = "Trole";
             this.Trole.ReadOnly = true;
@@ -87,7 +89,7 @@
             // Lname
             // 
             this.Lname.AutoSize = true;
-            this.Lname.Location = new System.Drawing.Point(544, 17);
+            this.Lname.Location = new System.Drawing.Point(714, 16);
             this.Lname.Name = "Lname";
             this.Lname.Size = new System.Drawing.Size(45, 17);
             this.Lname.TabIndex = 22;
@@ -96,7 +98,7 @@
             // Lemail
             // 
             this.Lemail.AutoSize = true;
-            this.Lemail.Location = new System.Drawing.Point(301, 17);
+            this.Lemail.Location = new System.Drawing.Point(471, 16);
             this.Lemail.Name = "Lemail";
             this.Lemail.Size = new System.Drawing.Size(42, 17);
             this.Lemail.TabIndex = 21;
@@ -105,7 +107,7 @@
             // LuserName
             // 
             this.LuserName.AutoSize = true;
-            this.LuserName.Location = new System.Drawing.Point(29, 17);
+            this.LuserName.Location = new System.Drawing.Point(199, 16);
             this.LuserName.Name = "LuserName";
             this.LuserName.Size = new System.Drawing.Size(75, 17);
             this.LuserName.TabIndex = 20;
@@ -113,7 +115,7 @@
             // 
             // Temail
             // 
-            this.Temail.Location = new System.Drawing.Point(349, 12);
+            this.Temail.Location = new System.Drawing.Point(519, 11);
             this.Temail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Temail.Name = "Temail";
             this.Temail.ReadOnly = true;
@@ -122,7 +124,7 @@
             // 
             // TuserName
             // 
-            this.TuserName.Location = new System.Drawing.Point(109, 12);
+            this.TuserName.Location = new System.Drawing.Point(279, 11);
             this.TuserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TuserName.Name = "TuserName";
             this.TuserName.ReadOnly = true;
@@ -131,7 +133,7 @@
             // 
             // Tname
             // 
-            this.Tname.Location = new System.Drawing.Point(592, 14);
+            this.Tname.Location = new System.Drawing.Point(762, 13);
             this.Tname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Tname.Name = "Tname";
             this.Tname.ReadOnly = true;
@@ -141,7 +143,7 @@
             // StoreLocation
             // 
             this.StoreLocation.AutoSize = true;
-            this.StoreLocation.Location = new System.Drawing.Point(589, 59);
+            this.StoreLocation.Location = new System.Drawing.Point(836, 65);
             this.StoreLocation.Name = "StoreLocation";
             this.StoreLocation.Size = new System.Drawing.Size(100, 17);
             this.StoreLocation.TabIndex = 30;
@@ -150,7 +152,7 @@
             // StoreType
             // 
             this.StoreType.AutoSize = true;
-            this.StoreType.Location = new System.Drawing.Point(313, 59);
+            this.StoreType.Location = new System.Drawing.Point(560, 65);
             this.StoreType.Name = "StoreType";
             this.StoreType.Size = new System.Drawing.Size(78, 17);
             this.StoreType.TabIndex = 29;
@@ -159,7 +161,7 @@
             // StoreName
             // 
             this.StoreName.AutoSize = true;
-            this.StoreName.Location = new System.Drawing.Point(29, 59);
+            this.StoreName.Location = new System.Drawing.Point(276, 65);
             this.StoreName.Name = "StoreName";
             this.StoreName.Size = new System.Drawing.Size(83, 17);
             this.StoreName.TabIndex = 28;
@@ -167,7 +169,7 @@
             // 
             // TstoreType
             // 
-            this.TstoreType.Location = new System.Drawing.Point(397, 54);
+            this.TstoreType.Location = new System.Drawing.Point(644, 60);
             this.TstoreType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TstoreType.Name = "TstoreType";
             this.TstoreType.ReadOnly = true;
@@ -176,7 +178,7 @@
             // 
             // TStoreName
             // 
-            this.TStoreName.Location = new System.Drawing.Point(117, 57);
+            this.TStoreName.Location = new System.Drawing.Point(364, 63);
             this.TStoreName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TStoreName.Name = "TStoreName";
             this.TStoreName.ReadOnly = true;
@@ -185,25 +187,16 @@
             // 
             // TstoreLocation
             // 
-            this.TstoreLocation.Location = new System.Drawing.Point(695, 54);
+            this.TstoreLocation.Location = new System.Drawing.Point(942, 60);
             this.TstoreLocation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TstoreLocation.Name = "TstoreLocation";
             this.TstoreLocation.ReadOnly = true;
             this.TstoreLocation.Size = new System.Drawing.Size(175, 22);
             this.TstoreLocation.TabIndex = 25;
             // 
-            // Products
-            // 
-            this.Products.FormattingEnabled = true;
-            this.Products.Location = new System.Drawing.Point(16, 112);
-            this.Products.Margin = new System.Windows.Forms.Padding(4);
-            this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(403, 157);
-            this.Products.TabIndex = 33;
-            // 
             // AddProduct
             // 
-            this.AddProduct.Location = new System.Drawing.Point(259, 309);
+            this.AddProduct.Location = new System.Drawing.Point(402, 349);
             this.AddProduct.Margin = new System.Windows.Forms.Padding(4);
             this.AddProduct.Name = "AddProduct";
             this.AddProduct.Size = new System.Drawing.Size(100, 28);
@@ -214,7 +207,7 @@
             // 
             // BRefresh
             // 
-            this.BRefresh.Location = new System.Drawing.Point(865, 289);
+            this.BRefresh.Location = new System.Drawing.Point(1189, 289);
             this.BRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.BRefresh.Name = "BRefresh";
             this.BRefresh.Size = new System.Drawing.Size(100, 28);
@@ -225,7 +218,7 @@
             // 
             // ShowProducts
             // 
-            this.ShowProducts.Location = new System.Drawing.Point(33, 309);
+            this.ShowProducts.Location = new System.Drawing.Point(45, 289);
             this.ShowProducts.Margin = new System.Windows.Forms.Padding(4);
             this.ShowProducts.Name = "ShowProducts";
             this.ShowProducts.Size = new System.Drawing.Size(177, 28);
@@ -233,16 +226,6 @@
             this.ShowProducts.Text = "Show Avaialbe Products";
             this.ShowProducts.UseVisualStyleBackColor = true;
             this.ShowProducts.Click += new System.EventHandler(this.ShowProducts_Click);
-            // 
-            // MyProducts
-            // 
-            this.MyProducts.AllowDrop = true;
-            this.MyProducts.FormattingEnabled = true;
-            this.MyProducts.Location = new System.Drawing.Point(592, 112);
-            this.MyProducts.Margin = new System.Windows.Forms.Padding(4);
-            this.MyProducts.Name = "MyProducts";
-            this.MyProducts.Size = new System.Drawing.Size(403, 157);
-            this.MyProducts.TabIndex = 38;
             // 
             // TnumSold
             // 
@@ -282,7 +265,7 @@
             // 
             // ShowProductStat
             // 
-            this.ShowProductStat.Location = new System.Drawing.Point(620, 289);
+            this.ShowProductStat.Location = new System.Drawing.Point(944, 289);
             this.ShowProductStat.Margin = new System.Windows.Forms.Padding(4);
             this.ShowProductStat.Name = "ShowProductStat";
             this.ShowProductStat.Size = new System.Drawing.Size(177, 28);
@@ -291,21 +274,60 @@
             this.ShowProductStat.UseVisualStyleBackColor = true;
             this.ShowProductStat.Click += new System.EventHandler(this.ShowProductStat_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(495, 289);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 28);
+            this.button1.TabIndex = 46;
+            this.button1.Text = "Show Avaiable Brands";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // ProductsList
+            // 
+            this.ProductsList.FormattingEnabled = true;
+            this.ProductsList.ItemHeight = 16;
+            this.ProductsList.Location = new System.Drawing.Point(32, 112);
+            this.ProductsList.Name = "ProductsList";
+            this.ProductsList.Size = new System.Drawing.Size(403, 148);
+            this.ProductsList.TabIndex = 47;
+            // 
+            // BrandsList
+            // 
+            this.BrandsList.FormattingEnabled = true;
+            this.BrandsList.ItemHeight = 16;
+            this.BrandsList.Location = new System.Drawing.Point(481, 112);
+            this.BrandsList.Name = "BrandsList";
+            this.BrandsList.Size = new System.Drawing.Size(403, 148);
+            this.BrandsList.TabIndex = 48;
+            // 
+            // StoreProducts
+            // 
+            this.StoreProducts.FormattingEnabled = true;
+            this.StoreProducts.ItemHeight = 16;
+            this.StoreProducts.Location = new System.Drawing.Point(930, 112);
+            this.StoreProducts.Name = "StoreProducts";
+            this.StoreProducts.Size = new System.Drawing.Size(403, 148);
+            this.StoreProducts.TabIndex = 49;
+            // 
             // StoreLayoutPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1053, 450);
+            this.ClientSize = new System.Drawing.Size(1367, 450);
+            this.Controls.Add(this.StoreProducts);
+            this.Controls.Add(this.BrandsList);
+            this.Controls.Add(this.ProductsList);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ShowProductStat);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TnumViews);
             this.Controls.Add(this.TnumSold);
-            this.Controls.Add(this.MyProducts);
             this.Controls.Add(this.ShowProducts);
             this.Controls.Add(this.BRefresh);
             this.Controls.Add(this.AddProduct);
-            this.Controls.Add(this.Products);
             this.Controls.Add(this.StoreLocation);
             this.Controls.Add(this.StoreType);
             this.Controls.Add(this.StoreName);
@@ -346,15 +368,17 @@
         private System.Windows.Forms.TextBox TstoreType;
         private System.Windows.Forms.TextBox TStoreName;
         private System.Windows.Forms.TextBox TstoreLocation;
-        private System.Windows.Forms.CheckedListBox Products;
         private System.Windows.Forms.Button AddProduct;
         private System.Windows.Forms.Button BRefresh;
         private System.Windows.Forms.Button ShowProducts;
-        private System.Windows.Forms.CheckedListBox MyProducts;
         private System.Windows.Forms.TextBox TnumSold;
         private System.Windows.Forms.TextBox TnumViews;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ShowProductStat;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox ProductsList;
+        private System.Windows.Forms.ListBox BrandsList;
+        private System.Windows.Forms.ListBox StoreProducts;
     }
 }

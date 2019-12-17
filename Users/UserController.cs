@@ -6,7 +6,7 @@ using OnlineStore.Database_Files;
 using OnlineStore.Queries_Controllers;
 using OnlineStore.Users.UserFactoryPattern;
 
-namespace OnlineStore.srcFiles
+namespace OnlineStore.Users
 {
     public class UserController
     {
@@ -29,8 +29,8 @@ namespace OnlineStore.srcFiles
 
             IConnectionString connectionString = new DataBaseConnection();
             connectionString.SetConnectionString(connectionStr);
-            this.queries = new UserControllerQueries(connectionString);
 
+            this.queries = new UserControllerQueries(connectionString);
         }
 
         public bool Login(string UN, string PW)
@@ -48,6 +48,7 @@ namespace OnlineStore.srcFiles
         public bool Register(String UN, String PW, String N, String EM, String Role)
         {
             bool DONE = this.queries.Register(UN, PW, N, EM, Role);
+            MessageBox.Show("11");
             if (DONE)
                 return true;
             else

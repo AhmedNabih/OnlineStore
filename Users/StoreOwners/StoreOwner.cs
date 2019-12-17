@@ -56,7 +56,7 @@ namespace OnlineStore.Users.StoreOwners
                     tpStr += row[col].ToString() + ",";
                 }
 
-                StoreData tpStoreData = new StoreData();
+                StoreRawData tpStoreData = new StoreRawData();
                 tpStoreData.Handler(tpStr.Split(','));
                 storeslist[i] = new Store(tpStoreData);
                 i++;

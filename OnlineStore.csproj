@@ -50,9 +50,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\AppController.cs" />
+    <Compile Include="App\Stores\Data\StatisticsController.cs" />
+    <Compile Include="App\Stores\Data\StoreProductController.cs" />
+    <Compile Include="App\Stores\StoreController.cs" />
     <Compile Include="Database Files\DataBaseConnection.cs" />
     <Compile Include="Database Files\IConnectionString.cs" />
+    <Compile Include="Data\BrandRawData.cs" />
+    <Compile Include="App\Stores\Data\Offer.cs" />
     <Compile Include="Data\Statistics.cs" />
+    <Compile Include="App\Stores\Data\StoreProduct.cs" />
+    <Compile Include="Data\StoreRequest.cs" />
+    <Compile Include="GUIFiles\Users\Admins\AddBrandPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\Admins\AddBrandPage.Designer.cs">
+      <DependentUpon>AddBrandPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIFiles\Users\Admins\AddProductsPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +114,9 @@
     <Compile Include="GUIFiles\Users\StoreOwner\StoreLayoutPage.Designer.cs">
       <DependentUpon>StoreLayoutPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Queries Controllers\AdminControllerQueries.cs" />
+    <Compile Include="Queries Controllers\StoreControllerQueries.cs" />
+    <Compile Include="Queries Controllers\StoreProductQueries.cs" />
     <Compile Include="Queries Controllers\UserControllerQueries.cs" />
     <Compile Include="Database Files\DataBaseQueries.cs" />
     <Compile Include="Users\Admins\Admin.cs" />
@@ -122,7 +138,7 @@
     <Compile Include="GUIFiles\Users\Admins\AdminPage.Designer.cs">
       <DependentUpon>AdminPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database Files\UserController.cs" />
+    <Compile Include="Users\UserController.cs" />
     <Compile Include="Database Files\DataBase.cs" />
     <Compile Include="Users\Admins\AdminController.cs" />
     <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\AverageCommand.cs" />
@@ -168,9 +184,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Data\ProductData.cs" />
-    <Compile Include="Data\StoreData.cs" />
-    <Compile Include="Database Files\Store.cs" />
+    <Compile Include="Data\ProductRawData.cs" />
+    <Compile Include="App\Stores\Data\StoreRawData.cs" />
+    <Compile Include="App\Stores\Store.cs" />
     <Compile Include="Users\NormalUsers\NormalUserController.cs" />
     <Compile Include="Users\StoreOwners\StoreOwner.cs" />
     <Compile Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.cs">
@@ -183,6 +199,9 @@
     <Compile Include="Users\UsersFactoryPattern\IUser.cs" />
     <Compile Include="Data\UserData.cs" />
     <Compile Include="Users\UsersFactoryPattern\UserFactory.cs" />
+    <EmbeddedResource Include="GUIFiles\Users\Admins\AddBrandPage.resx">
+      <DependentUpon>AddBrandPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\Users\Admins\AddProductsPage.resx">
       <DependentUpon>AddProductsPage.cs</DependentUpon>
     </EmbeddedResource>
