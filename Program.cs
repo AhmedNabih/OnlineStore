@@ -1,9 +1,5 @@
 ﻿using OnlineStore.Database_Files;
-using OnlineStore.srcFiles;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OnlineStore

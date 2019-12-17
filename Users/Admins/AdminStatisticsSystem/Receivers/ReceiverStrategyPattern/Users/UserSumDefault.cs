@@ -1,20 +1,15 @@
-﻿using OnlineStore.Database_Files;
-using OnlineStore.srcFiles;
+﻿using OnlineStore.Queries_Controllers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineStore.Users.Admins.AdminsStatisticsSystemCommands.Receivers.ReceiverStrategyPattern
 {
     public class UserSumDefault : ISum
     {
-        private DataBaseQueries query;
+        private AdminStatisticsCommandPatternQueries query;
 
         public UserSumDefault()
         {
-            query = new DataBaseQueries();
+            query = new AdminStatisticsCommandPatternQueries();
         }
 
         public String Sum()

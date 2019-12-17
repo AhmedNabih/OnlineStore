@@ -1,23 +1,18 @@
-﻿using OnlineStore.Database_Files;
-using OnlineStore.srcFiles;
+﻿using OnlineStore.Queries_Controllers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineStore.Users.Admins.AdminsStatisticsSystemCommands.Receivers.ReceiverStrategyPattern.Products
 {
     public class ProductMaxPriceDefault : IMax
     {
-        private DataBaseQueries query;
+        private AdminStatisticsCommandPatternQueries query;
 
         public ProductMaxPriceDefault()
         {
-            query = new DataBaseQueries();
+            query = new AdminStatisticsCommandPatternQueries();
         }
 
-        public string Max()
+        public String Max()
         {
             return "Max Product Price: " + query.StorePricesMax();
         }

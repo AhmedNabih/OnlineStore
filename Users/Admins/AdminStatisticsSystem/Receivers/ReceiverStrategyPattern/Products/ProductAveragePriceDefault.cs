@@ -1,15 +1,15 @@
-﻿using OnlineStore.Database_Files;
+﻿using OnlineStore.Queries_Controllers;
 using System;
 
 namespace OnlineStore.Users.Admins.AdminsStatisticsSystemCommands.Receivers.ReceiverStrategyPattern.Products
 {
     public class ProductAveragePriceDefault : IAverage
     {
-        private DataBaseQueries query;
+        private AdminStatisticsCommandPatternQueries query;
 
         public ProductAveragePriceDefault()
         {
-            query = new DataBaseQueries();
+            query = new AdminStatisticsCommandPatternQueries();
         }
 
         public String Average()

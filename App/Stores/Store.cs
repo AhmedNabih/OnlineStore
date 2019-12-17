@@ -1,31 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using OnlineStore.App.Stores.Data;
 using OnlineStore.Data;
+using OnlineStore.Database_Files;
 
 namespace OnlineStore.App.Stores
 {
     public class Store
     {
-        public String UserID;
-        public StoreRawData storeData; //con.
-        public Statistics storeStatistics;
+        public UserStoreData storeData;
         public StatisticsController productStatistic;
         public StoreProductController products;
 
-
-        public Store(String UserID, StoreRawData storeData, Statistics storeStatistics)
+        public Store()
         {
-            this.UserID = UserID;
+
+        }
+
+        public Store(UserStoreData storeData)
+        {
             this.storeData = storeData;
-            this.storeStatistics = storeStatistics;
             this.productStatistic = new StatisticsController();
             this.products = new StoreProductController();
         }
 
-        /*
+        
         public void GetStat()
         {
+            /*
             String cmd1 = "select NumOfViews,NumOfSold from MyStatistics MS inner join StoreStat SS on MS.StatID = SS.StatID and SS.StoreID = " + SD.ID;
             DataTable tp = dataBase.Query(cmd1);
             if (tp.Rows.Count > 0)
@@ -42,7 +45,7 @@ namespace OnlineStore.App.Stores
                 }
                 int num1 = System.Convert.ToInt32(tpData[0]);
                 int num2 = System.Convert.ToInt32(tpData[1]);
-                SS = new Statistics(num1, num2);
+                //SS = new Statistics(num1, num2);
             }
 
             String cmd2 = "select SS.Product,NumOfViews,NumOfSold from MyStatistics MS inner join StoreProductStat SS on MS.StatID = SS.StatID and SS.StoreID = " + SD.ID;
@@ -68,10 +71,12 @@ namespace OnlineStore.App.Stores
                     }
                 }
             }
+            */
         }
 
         public void GetProducts()
         {
+            /*
             int i = 0;
             string cmd = "select ProductID,ProductName,BrandName,BrandType,SPS.amount,SPS.price from Product P inner join StoreProductStat SPS on P.ProductID = SPS.Product and SPS.StoreID =" + SD.ID;
             DataTable tp = dataBase.Query(cmd);
@@ -92,12 +97,12 @@ namespace OnlineStore.App.Stores
                     i++;
                 }
             }
-
+            */
         }
         public void addProduct()
         {
 
         }
-        */
+        
     }
 }

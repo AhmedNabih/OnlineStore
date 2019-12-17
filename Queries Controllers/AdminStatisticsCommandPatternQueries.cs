@@ -1,13 +1,14 @@
-﻿using System;
+﻿using OnlineStore.Database_Files;
+using System;
 using System.Data;
 
-namespace OnlineStore.Database_Files
+namespace OnlineStore.Queries_Controllers
 {
-    public class DataBaseQueries
+    public class AdminStatisticsCommandPatternQueries
     {
         private DataBase dataBase;
         
-        public DataBaseQueries()
+        public AdminStatisticsCommandPatternQueries()
         {
             // My Online MSQL DataBase
             String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
@@ -29,7 +30,7 @@ namespace OnlineStore.Database_Files
 
         public String StoreTableSum()
         {
-            String cmd = "select count(StoreID) as cnt from store";
+            String cmd = "select count(StoreID) as cnt from Store";
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
@@ -57,98 +58,108 @@ namespace OnlineStore.Database_Files
         
         public String ProductTableSumForUser(String UserID)
         {
-            String cmd = "select count(StoreID) from StoreProductStat where StoreID in (select StoreID from UserStore where UserID = " + UserID + ")";
+            String cmd = "select count(StoreID) from StoreProducts where StoreID in (select StoreID from UserStore where UserID = " + UserID + ")";
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String ProductTableSumForStore(String StoreID)
         {
-            String cmd = "select count(StoreID) from StoreProductStat where StoreID = " + StoreID;
+            String cmd = "select count(StoreID) from StoreProducts where StoreID = " + StoreID;
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesSum()
         {
-            String cmd = "select sum(price) as cnt from StoreProductStat";
+            String cmd = "select sum(price) as cnt from StoreProducts";
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesCnt()
         {
-            String cmd = "select count(price) as cnt from StoreProductStat";
+            String cmd = "select count(price) as cnt from StoreProducts";
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesSumForUser(String UserID)
         {
-            String cmd = "select sum(price) from StoreProductStat sps inner join UserStore us on us.StoreID = sps.StoreID and us.UserID = " + UserID;
-            DataTable tpData = dataBase.Query(cmd);
-            return tpData.Rows[0][0].ToString();
+            try
+            {
+                String cmd = "select sum(price) from StoreProducts sps inner join UserStore us on us.StoreID = sps.StoreID and us.UserID = " + UserID;
+                DataTable tpData = dataBase.Query(cmd);
+                
+                if (tpData.Rows.Count <= 0 || tpData.Rows == null)
+                    return "0.0";
+                return tpData.Rows[0][0].ToString();
+            }
+            catch
+            {
+                return "0.0";
+            }
         }
         
         public String StorePricesCntForUser(String UserID)
         {
-            String cmd = "select count(price) from StoreProductStat sps inner join UserStore us on us.StoreID = sps.StoreID and us.UserID = " + UserID;
+            String cmd = "select count(price) from StoreProducts inner join UserStore us on us.StoreID = sps.StoreID and us.UserID = " + UserID;
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesSumForStore(String StoreID)
         {
-            String cmd = "select sum(price) from StoreProductStat where StoreID = " + StoreID;
+            String cmd = "select sum(price) from StoreProducts where StoreID = " + StoreID;
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesCntForStore(String StoreID)
         {
-            String cmd = "select count(price) from StoreProductStat where StoreID = " + StoreID;
+            String cmd = "select count(price) from StoreProducts where StoreID = " + StoreID;
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesMax()
         {
-            String cmd = "select Max(price) from StoreProductStat";
+            String cmd = "select Max(price) from StoreProducts";
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesMaxForUser(String UserID)
         {
-            String cmd = "select Max(price) from StoreProductStat sps inner join UserStore us on us.StoreID = sps.StoreID and us.UserID = " + UserID; ;
+            String cmd = "select Max(price) from StoreProducts sps inner join UserStore us on us.StoreID = sps.StoreID and us.UserID = " + UserID; ;
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesMaxForStore(String StoreID)
         {
-            String cmd = "select Max(price) from StoreProductStat where StoreID = " + StoreID;
+            String cmd = "select Max(price) from StoreProducts where StoreID = " + StoreID;
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesMin()
         {
-            String cmd = "select Min(price) from StoreProductStat";
+            String cmd = "select Min(price) from StoreProducts";
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesMinForUser(String UserID)
         {
-            String cmd = "select Min(price) from StoreProductStat sps inner join UserStore us on us.StoreID = sps.StoreID and us.UserID = " + UserID; ;
+            String cmd = "select Min(price) from StoreProducts sps inner join UserStore us on us.StoreID = sps.StoreID and us.UserID = " + UserID; ;
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }
         
         public String StorePricesMinForStore(String StoreID)
         {
-            String cmd = "select Min(price) from StoreProductStat where StoreID = " + StoreID;
+            String cmd = "select Min(price) from StoreProducts where StoreID = " + StoreID;
             DataTable tpData = dataBase.Query(cmd);
             return tpData.Rows[0][0].ToString();
         }

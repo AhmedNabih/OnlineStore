@@ -1,4 +1,5 @@
-﻿using OnlineStore.Database_Files;
+﻿using OnlineStore.App.Stores.Data;
+using OnlineStore.Database_Files;
 using OnlineStore.Queries_Controllers;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace OnlineStore.App.Stores
 
         public StoreController()
         {
+            this.store = new Store();
             // My Online MSQL DataBase
             String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
             // Local MSQL DataBase
@@ -26,9 +28,9 @@ namespace OnlineStore.App.Stores
             this.queries = new StoreControllerQueries(connectionString);
         }
 
-        public bool AddProduct(StorePr)
+        public bool AddProduct(String storeID, StoreProduct product)
         {
-
+            return store.products.AddStoreProduct(storeID, product);
         }
     }
 }

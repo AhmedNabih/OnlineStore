@@ -57,7 +57,7 @@ namespace OnlineStore.Queries_Controllers
         {
             try
             {
-                String cmd = "delete from Product where ProdictID = " + ProductID;
+                String cmd = "delete from Product where ProductID = " + ProductID;
                 dataBase.QueryExec(cmd);
                 return true;
             }
@@ -120,7 +120,7 @@ namespace OnlineStore.Queries_Controllers
         {
             try
             {
-                String cmd = "select sr.UserID, s.StoreID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join StoreRequests sr on s.StoreID = sr.StoreID";
+                String cmd = "select sr.StoreRequestID, sr.UserID, s.StoreID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join StoreRequests sr on s.StoreID = sr.StoreID";
                 DataTable datatable = dataBase.Query(cmd);
 
                 if (datatable.Rows.Count <= 0)
@@ -133,7 +133,7 @@ namespace OnlineStore.Queries_Controllers
             }
         }
 
-        public bool AcceptStore(String UserID, String StoreID)
+        public bool AcceptStore(String storeRequestID, String UserID, String StoreID)
         {
             try
             {
@@ -148,7 +148,7 @@ namespace OnlineStore.Queries_Controllers
                 cmd = "insert into UserStore values(" + UserID + "," + StoreID + "," + statID + ")";
                 dataBase.QueryExec(cmd);
                 // remove request from storeRequest
-                cmd = "delete from StoreRequests where UserID = " + UserID + "and StoreID = " + StoreID;
+                cmd = "delete from StoreRequests where StoreRequestID = " + storeRequestID;
                 dataBase.QueryExec(cmd);
 
                 return true;
@@ -159,7 +159,7 @@ namespace OnlineStore.Queries_Controllers
             }
         }
 
-        public bool RejectStore(String UserID, String StoreID)
+        public bool RejectStore(String storeRequestID, String StoreID)
         {
             try
             {
@@ -167,7 +167,7 @@ namespace OnlineStore.Queries_Controllers
                 String cmd = "delete from Store where StoreID = " + StoreID;
                 dataBase.QueryExec(cmd);
                 // remove request from storeRequest
-                cmd = "delete from StoreRequests where UserID = " + UserID + "and StoreID = " + StoreID;
+                cmd = "delete from StoreRequests where StoreRequestID = " + storeRequestID;
                 dataBase.QueryExec(cmd);
 
                 return true;

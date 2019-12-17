@@ -12,7 +12,7 @@ namespace OnlineStore.GUIFiles
 {
     public partial class StoreLayoutPage : Form
     {
-        private StoreController store;
+        private Store store;
         private StoreOwner SO;
         private DataBase dataBase;
 
@@ -27,11 +27,13 @@ namespace OnlineStore.GUIFiles
             connectionString.SetConnectionString(connectionStr);
 
             this.dataBase = DataBase.GetInstance(connectionString);
-
+            /*
             this.SO = SO;
             this.store = SD;
             store.GetStat();
+            */
             InitializeComponent();
+            /*
             TuserName.Text = SO.Data.userName;
             Tname.Text = SO.Data.name;
             Temail.Text = SO.Data.email;
@@ -41,6 +43,7 @@ namespace OnlineStore.GUIFiles
             TstoreType.Text = store.SD.Type;
             TnumViews.Text = store.SS.CntView.ToString();
             TnumSold.Text = store.SS.CntSold.ToString();
+            */
         }
 
         private void Bclose_Click(object sender, EventArgs e)
@@ -50,6 +53,7 @@ namespace OnlineStore.GUIFiles
 
         private void ShowProducts_Click(object sender, EventArgs e)
         {
+            /*
             ProductsList.Items.Clear();
             String cmd = "select * from Product";
             DataTable tpData = dataBase.Query(cmd);
@@ -62,10 +66,12 @@ namespace OnlineStore.GUIFiles
                 }
                 Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
             }
+            */
         }
 
         private void AddProduct_Click(object sender, EventArgs e)
         {
+            /*
             String cmd;
             List<int> select = new List<int>();
             for (int i = 0; i < Products.Items.Count; i++)
@@ -89,7 +95,7 @@ namespace OnlineStore.GUIFiles
                 dataBase.QueryExec(cmd);
                 MessageBox.Show("Item Added Succesfully");
             }
-
+            */
         }
         
 
@@ -105,6 +111,7 @@ namespace OnlineStore.GUIFiles
         }
         private void BRefresh_Click(object sender, EventArgs e)
         {
+            /*
             MyProducts.Items.Clear();
             try
             {
@@ -119,10 +126,12 @@ namespace OnlineStore.GUIFiles
             {
                 MessageBox.Show("No Data");
             }
+            */
         }
 
         private void ShowProductStat_Click(object sender, EventArgs e)
         {
+            /*
             List<int> select = new List<int>();
             for (int i = 0; i < MyProducts.Items.Count; i++)
             {
@@ -138,6 +147,7 @@ namespace OnlineStore.GUIFiles
                 Statistics context = store.PS[tp];
                 MessageBox.Show(context.CntView+" "+context.CntSold);
             }
+            */
         }
     }
 }

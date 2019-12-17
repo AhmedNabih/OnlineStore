@@ -1,31 +1,31 @@
-﻿using OnlineStore.Database_Files;
+﻿using OnlineStore.App.Stores.Data;
+using OnlineStore.Data;
 using OnlineStore.Users.Admins;
-using OnlineStore.Users.Admins.AdminsStatisticsSystem;
-using OnlineStore.Users.Admins.AdminsStatisticsSystem.Commands;
-using OnlineStore.Users.Admins.AdminsStatisticsSystem.Receivers.ReceiverFactory;
-using OnlineStore.Users.Admins.AdminsStatisticsSystemCommands.Receivers.ReceiverStrategyPattern;
+using OnlineStore.Users.Admins.AdminStatisticsSystem;
 using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace OnlineStore.GUIFiles.Users.Admins
 {
     public partial class AdminStatistic : Form
     {
-        private AdminsController controller;
+        private AdminsController controllerAdmin;
+        private AdminStatisticsController controllerStatistic;
         private bool Users, Store;
 
-        public AdminStatistic(AdminsController controller)
+        public AdminStatistic(AdminsController controllerAdmin, AdminStatisticsController controllerStatistic)
         {
-            this.controller = controller;
+            this.controllerAdmin = controllerAdmin;
+            this.controllerStatistic = controllerStatistic;
             this.Users = false;
             this.Store = false;
             InitializeComponent();
 
-            TuserName.Text = controller.admin.Data.userName;
-            Temail.Text = controller.admin.Data.email;
-            Tname.Text = controller.admin.Data.name;
-            Trole.Text = controller.admin.Data.role;
+            TuserName.Text = controllerAdmin.admin.Data.userName;
+            Temail.Text = controllerAdmin.admin.Data.email;
+            Tname.Text = controllerAdmin.admin.Data.name;
+            Trole.Text = controllerAdmin.admin.Data.role;
         }
 
         private void BShowUsers_Click(object sender, EventArgs e)
@@ -33,26 +33,23 @@ namespace OnlineStore.GUIFiles.Users.Admins
             this.Users = true;
             this.Store = false;
             StatBox.Items.Clear();
-            StatBox.Items.Add("All");
 
             // UserID, UserName, Name, Email, Role
-            DataTable tpData = dataBase.GetUsersData();
+            List<UserData> userList = controllerStatistic.GetAllUsersData();
 
-            foreach (DataRow row in tpData.Rows)
+            if (userList == null)
+                return;
+
+            StatBox.Items.Add("All");
+            foreach (UserData user in userList)
             {
-                String tpStr = "";
-                foreach (DataColumn col in tpData.Columns)
-                {
-                    tpStr += row[col].ToString() + ", ";
-                }
-                StatBox.Items.Add(tpStr.Substring(0, tpStr.Length - 2));
+                StatBox.Items.Add(user.ToString());
             }
         }
 
         private void BShowStores_Click(object sender, EventArgs e)
         {
             String SelectedString;
-            DataTable tpData = new DataTable();
 
             if (StatBox.SelectedItem == null)
             {
@@ -60,30 +57,31 @@ namespace OnlineStore.GUIFiles.Users.Admins
             }
             else
             {
+                List<UserStoreData> userStoresList = new List<UserStoreData>();
                 SelectedString = StatBox.SelectedItem.ToString();
                 if (this.Users && SelectedString != "All")
                 {
-                    // StoreID, StoreName, StoreType, StoreLocation, StoreInfo
-                    tpData = dataBase.GetStore(SelectedString.Split(',')[0]);
+                    UserData tempUserData = new UserData();
+                    tempUserData.RefactorString(SelectedString);
+                    // UserID, StoreID, StoreName, StoreType, StoreLocation, StoreInfo, statID, noOfview, noOfSold
+                    userStoresList = controllerStatistic.GetUserStores(tempUserData.ID);
                 }
                 else
                 {
                     // UserID, UserName, StoreID, StoreName, StoreType, StoreLocation, StoreInfo
-                    tpData = dataBase.GetAllStores();
+                    userStoresList = controllerStatistic.GetAllUserStores();
                 }
+
+                if (userStoresList == null)
+                    return;
 
                 this.Users = false;
                 this.Store = true;
                 StatBox.Items.Clear();
                 StatBox.Items.Add("All");
-                foreach (DataRow row in tpData.Rows)
+                foreach (UserStoreData data in userStoresList)
                 {
-                    String tpStr = "";
-                    foreach (DataColumn col in tpData.Columns)
-                    {
-                        tpStr += row[col].ToString() + ", ";
-                    }
-                    StatBox.Items.Add(tpStr.Substring(0, tpStr.Length - 2));
+                    StatBox.Items.Add(data.ToString());
                 }
             }
 
@@ -92,7 +90,6 @@ namespace OnlineStore.GUIFiles.Users.Admins
         private void BShowProducts_Click(object sender, EventArgs e)
         {
             String SelectedString;
-            DataTable tpData = new DataTable();
 
             if (StatBox.SelectedItem == null)
             {
@@ -100,30 +97,31 @@ namespace OnlineStore.GUIFiles.Users.Admins
             }
             else
             {
+                List<StoreProduct> storeProductsList = new List<StoreProduct>();
                 SelectedString = StatBox.SelectedItem.ToString();
                 if (this.Store && SelectedString != "All")
                 {
-                    // StoreID, ProductName, price, amount
-                    tpData = dataBase.GetProductsInStore(SelectedString.Split(new String[] { ", "},StringSplitOptions.RemoveEmptyEntries)[2]);
+                    UserStoreData tempUserStoreData = new UserStoreData();
+                    tempUserStoreData.RefactorString(SelectedString);
+                    // TODO
+                    storeProductsList = controllerStatistic.GetProductsInStore(tempUserStoreData.storeData.ID);
                 }
                 else
                 {
-                    // // StoreID, ProductName, price, amount
-                    tpData = dataBase.GetAllProductsInStore();
+                    // TODO
+                    storeProductsList = controllerStatistic.GetAllProductsInStore();
                 }
+
+                if (storeProductsList == null)
+                    return;
 
                 this.Users = false;
                 this.Store = false;
                 StatBox.Items.Clear();
                 StatBox.Items.Add("All");
-                foreach (DataRow row in tpData.Rows)
+                foreach (StoreProduct data in storeProductsList)
                 {
-                    String tpStr = "";
-                    foreach (DataColumn col in tpData.Columns)
-                    {
-                        tpStr += row[col].ToString() + ", ";
-                    }
-                    StatBox.Items.Add(tpStr.Substring(0, tpStr.Length - 2));
+                    StatBox.Items.Add(data.ToString());
                 }
             }
         }
@@ -137,7 +135,7 @@ namespace OnlineStore.GUIFiles.Users.Admins
 
         private void BExit_Click(object sender, EventArgs e)
         {
-            
+            Application.Exit();
         }
 
         private void BProcess_Click(object sender, EventArgs e)
@@ -147,30 +145,12 @@ namespace OnlineStore.GUIFiles.Users.Admins
                 MessageBox.Show("select select everything");
             else
             {
-                ICommand cmd;
+                
                 String arg1 = KindBox.SelectedItem.ToString() + " " + OperationBox.SelectedItem.ToString() + " " + OnWhatBox.SelectedItem.ToString();
-                String arg2 = UserStoreID.Text == "" ? null : UserStoreID.Text; 
-                if(OperationBox.SelectedItem.ToString() == "Sum")
-                {
-                    ISum sum = SumFactory.GetCommand(arg1, arg2);
-                    cmd = new SumCommand(sum);
-                }
-                else if(OperationBox.SelectedItem.ToString() == "Average")
-                {
-                    IAverage average = AverageFactory.GetCommand(arg1, arg2);
-                    cmd = new AverageCommand(average);
-                }
-                else if(OperationBox.SelectedItem.ToString() == "Max")
-                {
-                    IMax max = MaxFactory.GetCommand(arg1, arg2);
-                    cmd = new MaxCommand(max);
-                }
-                else
-                {
-                    IMin min = MinFactory.GetCommand(arg1, arg2);
-                    cmd = new MinCommand(min);
-                }
-                String res = CommandInvoker.DoCommand(cmd);
+                String arg2 = UserStoreID.Text == "" ? null : UserStoreID.Text;
+
+                String res = controllerStatistic.Statistic(OperationBox.SelectedItem.ToString(), arg1, arg2);
+                
                 String screen = Output.Text + "\n" + res;
                 Output.Text = screen;
             }

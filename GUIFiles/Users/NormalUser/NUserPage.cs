@@ -1,16 +1,9 @@
 ﻿using OnlineStore.Database_Files;
-using OnlineStore.GUIFiles;
-using OnlineStore.srcFiles;
 using OnlineStore.Users.NormalUsers;
 using OnlineStore.Users.UserFactoryPattern;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OnlineStore
@@ -62,13 +55,14 @@ namespace OnlineStore
 
         private void NUserPage_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Refresh_Click(object sender, EventArgs e)
         {
+            /*
             Store.Items.Clear();
-            DataTable tpData= dataBase.GetAllStores();
+            DataTable tpData = dataBase.GetAllStores();
             foreach (DataRow row in tpData.Rows)
             {
                 String tpStr = "";
@@ -78,12 +72,14 @@ namespace OnlineStore
                 }
                 Store.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
             }
+            */
         }
 
         private void OpenStore_Click(object sender, EventArgs e)
         {
+            /*
             Products.Items.Clear();
-            String[] s=null;
+            String[] s = null;
             List<int> select = new List<int>();
 
             for (int i = 0; i < Store.Items.Count; i++)
@@ -98,7 +94,7 @@ namespace OnlineStore
             {
                 s = Store.Items[inx].ToString().Split(',');
             }
-           DataTable tpData = dataBase.GetProductsInStore(s[1]);
+            DataTable tpData = dataBase.GetProductsInStore(s[1]);
             foreach (DataRow row in tpData.Rows)
             {
                 String tpStr = "";
@@ -108,7 +104,7 @@ namespace OnlineStore
                 }
                 Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
             }
-        
+            */
         }
     }
 }
