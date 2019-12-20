@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A214C2D-F2BF-47F7-8398-B08CBC2CC6DB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OnlineStore</RootNamespace>
+    <AssemblyName>OnlineStore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App\Stores\Data\Offer.cs" />
+    <Compile Include="App\Stores\Data\StatisticsController.cs" />
+    <Compile Include="App\Stores\Data\StoreProduct.cs" />
+    <Compile Include="App\Stores\Data\StoreProductController.cs" />
+    <Compile Include="App\Stores\Data\StoreRawData.cs" />
+    <Compile Include="App\Stores\Data\UserStoreData.cs" />
+    <Compile Include="App\Stores\Store.cs" />
+    <Compile Include="App\Stores\StoreController.cs" />
+    <Compile Include="Database Files\DataBase.cs" />
+    <Compile Include="Database Files\DataBaseConnection.cs" />
+    <Compile Include="Database Files\fileRW.cs" />
+    <Compile Include="Database Files\IConnectionString.cs" />
+    <Compile Include="Data\BrandRawData.cs" />
+    <Compile Include="Data\CartData.cs" />
+    <Compile Include="Data\ProductRawData.cs" />
+    <Compile Include="Data\Statistics.cs" />
+    <Compile Include="Data\StoreRequest.cs" />
+    <Compile Include="Data\UserData.cs" />
+    <Compile Include="GUIFiles\MainApp\loginpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\MainApp\loginpage.Designer.cs">
+      <DependentUpon>loginpage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\MainApp\mainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\MainApp\mainPage.Designer.cs">
+      <DependentUpon>mainPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\MainApp\RegisterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\MainApp\RegisterPage.Designer.cs">
+      <DependentUpon>RegisterPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\Admins\AddBrandPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\Admins\AddBrandPage.Designer.cs">
+      <DependentUpon>AddBrandPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\Admins\AddProductsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\Admins\AddProductsPage.Designer.cs">
+      <DependentUpon>AddProductsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\Admins\AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\Admins\AdminPage.Designer.cs">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\Admins\AdminStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\Admins\AdminStatistic.Designer.cs">
+      <DependentUpon>AdminStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\NormalUser\Cart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\NormalUser\Cart.Designer.cs">
+      <DependentUpon>Cart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\NormalUser\NUserPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\NormalUser\NUserPage.Designer.cs">
+      <DependentUpon>NUserPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\NormalUser\ProductInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\NormalUser\ProductInfo.Designer.cs">
+      <DependentUpon>ProductInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\addStorePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\addStorePage.Designer.cs">
+      <DependentUpon>addStorePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\InputData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\InputData.Designer.cs">
+      <DependentUpon>InputData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\StoreLayoutPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\StoreLayoutPage.Designer.cs">
+      <DependentUpon>StoreLayoutPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.Designer.cs">
+      <DependentUpon>StoreOwnerPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries Controllers\AdminControllerQueries.cs" />
+    <Compile Include="Queries Controllers\AdminStatisticsCommandPatternQueries.cs" />
+    <Compile Include="Queries Controllers\AdminStatisticsControllerQueries.cs" />
+    <Compile Include="Queries Controllers\NormalUserControllerQueries.cs" />
+    <Compile Include="Queries Controllers\StoreControllerQueries.cs" />
+    <Compile Include="Queries Controllers\StoreProductControllerQueries.cs" />
+    <Compile Include="Queries Controllers\UserControllerQueries.cs" />
+    <Compile Include="ShoppingCart\BuyableDecorated.cs" />
+    <Compile Include="ShoppingCart\CartObject.cs" />
+    <Compile Include="ShoppingCart\FirstTimeBuy.cs" />
+    <Compile Include="ShoppingCart\IBuyable.cs" />
+    <Compile Include="ShoppingCart\ShoppingCart.cs" />
+    <Compile Include="ShoppingCart\ShoppingCartController.cs" />
+    <Compile Include="ShoppingCart\ShoppingCartControllerQueries.cs" />
+    <Compile Include="ShoppingCart\TwoOfSameItemBuy.cs" />
+    <Compile Include="ShoppingCart\UserCartFactory.cs" />
+    <Compile Include="Users\Admins\Admin.cs" />
+    <Compile Include="Users\Admins\AdminController.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\AdminStatisticsController.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\CommandInvoker.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\AverageCommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\ICommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\MaxCommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\MinCommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Commands\SumCommand.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverFactory\AverageFactory.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverFactory\MaxFactory.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverFactory\MinFactory.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverFactory\SumFactory.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\IAverage.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\IMax.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\IMin.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\ISum.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\NotSupported\AverageNotSupportedOperation.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\NotSupported\MaxNotSupportedOperation.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\NotSupported\MinNotSupportedOperation.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\NotSupported\SumNotSupportedOperation.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceStore.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductAveragePriceUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceStore.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMaxPriceUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceStore.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductMinPriceUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumStore.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Products\ProductSumUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Stores\StoreAverageDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Stores\StoreSumDefault.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Stores\StoreSumUser.cs" />
+    <Compile Include="Users\Admins\AdminStatisticsSystem\Receivers\ReceiverStrategyPattern\Users\UserSumDefault.cs" />
+    <Compile Include="Users\NormalUsers\NormalUser.cs" />
+    <Compile Include="Users\NormalUsers\NormalUserController.cs" />
+    <Compile Include="Users\StoreOwners\StoreOwner.cs" />
+    <Compile Include="Users\StoreOwners\StoreOwnerController.cs" />
+    <Compile Include="Users\UserController.cs" />
+    <Compile Include="Users\UsersFactoryPattern\IUser.cs" />
+    <Compile Include="Users\UsersFactoryPattern\UserFactory.cs" />
+    <EmbeddedResource Include="GUIFiles\MainApp\loginpage.resx">
+      <DependentUpon>loginpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\MainApp\mainPage.resx">
+      <DependentUpon>mainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\MainApp\RegisterPage.resx">
+      <DependentUpon>RegisterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\Admins\AddBrandPage.resx">
+      <DependentUpon>AddBrandPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\Admins\AddProductsPage.resx">
+      <DependentUpon>AddProductsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\Admins\AdminPage.resx">
+      <DependentUpon>AdminPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\Admins\AdminStatistic.resx">
+      <DependentUpon>AdminStatistic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\NormalUser\Cart.resx">
+      <DependentUpon>Cart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\NormalUser\NUserPage.resx">
+      <DependentUpon>NUserPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\NormalUser\ProductInfo.resx">
+      <DependentUpon>ProductInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\addStorePage.resx">
+      <DependentUpon>addStorePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\InputData.resx">
+      <DependentUpon>InputData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\StoreLayoutPage.resx">
+      <DependentUpon>StoreLayoutPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\StoreOwnerPage.resx">
+      <DependentUpon>StoreOwnerPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\OnlineStore.csprojAssemblyReference.cache" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="Diagrams\Admin-Statistics-System.png" />
+    <Content Include="Diagrams\class-diagram-sprint4.png" />
+    <Content Include="Users\Admins\AdminStatisticsSystem\HowToUse.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

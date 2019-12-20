@@ -8,7 +8,7 @@ namespace OnlineStore.Data
 {
     class CartData
     {
-        public ProductData product;
+        public ProductRawData product;
         public String UserName;
         public double price;
 
