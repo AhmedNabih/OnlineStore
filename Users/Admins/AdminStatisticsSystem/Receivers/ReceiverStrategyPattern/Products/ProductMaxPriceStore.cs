@@ -1,4 +1,4 @@
-﻿using OnlineStore.Queries_Controllers;
+using OnlineStore.Queries_Controllers;
 using System;
 
 namespace OnlineStore.Users.Admins.AdminsStatisticsSystemCommands.Receivers.ReceiverStrategyPattern.Products

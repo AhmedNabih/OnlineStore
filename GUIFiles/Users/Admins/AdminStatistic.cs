@@ -27,7 +27,7 @@ namespace OnlineStore.GUIFiles.Users.Admins
             Tname.Text = controllerAdmin.admin.Data.name;
             Trole.Text = controllerAdmin.admin.Data.role;
         }
-
+        
         private void BShowUsers_Click(object sender, EventArgs e)
         {
             this.Users = true;

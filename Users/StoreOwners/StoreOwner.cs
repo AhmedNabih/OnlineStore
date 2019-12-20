@@ -1,14 +1,15 @@
-﻿using System;
+using System;
 using System.Data;
 using OnlineStore.App.Stores;
 using OnlineStore.App.Stores.Data;
 using OnlineStore.Data;
 using OnlineStore.Database_Files;
+using OnlineStore.ShoppingCart;
 using OnlineStore.Users.UserFactoryPattern;
 
 namespace OnlineStore.Users.StoreOwners
 {
-    public class StoreOwner : IUser
+    public class StoreOwner : IUser, IBuyable
     {
         public Store[] storeslist;
         private DataBase dataBase;
@@ -74,6 +75,11 @@ namespace OnlineStore.Users.StoreOwners
         {
             String cmd = "Delete from Store where StoreID = " + StoreID;
             dataBase.QueryExec(cmd);
+        }
+
+        public double Buy(CartObject obj)
+        {
+            return obj.GetPrice() * 0.15;
         }
     }
 }

@@ -18,6 +18,7 @@ namespace OnlineStore.GUIFiles
 
         public StoreLayoutPage(StoreOwner SO, StoreController store)
         {
+            /*
             // My Online MSQL DataBase
             String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
             // Local MSQL DataBase
@@ -29,9 +30,9 @@ namespace OnlineStore.GUIFiles
             this.dataBase = DataBase.GetInstance(connectionString);
             /*
             this.SO = SO;
-            this.store = SD;
-            store.GetStat();
-            */
+            //this.store = SD;
+            //store.GetStat();
+
             InitializeComponent();
             /*
             TuserName.Text = SO.Data.userName;
@@ -64,7 +65,7 @@ namespace OnlineStore.GUIFiles
                 {
                     tpStr += row[col].ToString() + ",";
                 }
-                Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
+                //Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
             }
             */
         }
@@ -149,5 +150,6 @@ namespace OnlineStore.GUIFiles
             }
             */
         }
+
     }
 }

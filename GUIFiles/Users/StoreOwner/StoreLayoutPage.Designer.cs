@@ -66,7 +66,7 @@
             this.Bclose.TabIndex = 0;
             this.Bclose.Text = "Close";
             this.Bclose.UseVisualStyleBackColor = true;
-            this.Bclose.Click += new System.EventHandler(this.Bclose_Click);
+         //   this.Bclose.Click += new System.EventHandler(this.Bclose_Click);
             // 
             // Lrole
             // 
@@ -203,7 +203,7 @@
             this.AddProduct.TabIndex = 35;
             this.AddProduct.Text = "Add Product";
             this.AddProduct.UseVisualStyleBackColor = true;
-            this.AddProduct.Click += new System.EventHandler(this.AddProduct_Click);
+           // this.AddProduct.Click += new System.EventHandler(this.AddProduct_Click);
             // 
             // BRefresh
             // 
@@ -214,7 +214,7 @@
             this.BRefresh.TabIndex = 36;
             this.BRefresh.Text = "Refresh";
             this.BRefresh.UseVisualStyleBackColor = true;
-            this.BRefresh.Click += new System.EventHandler(this.BRefresh_Click);
+            //this.BRefresh.Click += new System.EventHandler(this.BRefresh_Click);
             // 
             // ShowProducts
             // 
@@ -225,7 +225,7 @@
             this.ShowProducts.TabIndex = 37;
             this.ShowProducts.Text = "Show Avaialbe Products";
             this.ShowProducts.UseVisualStyleBackColor = true;
-            this.ShowProducts.Click += new System.EventHandler(this.ShowProducts_Click);
+            //this.ShowProducts.Click += new System.EventHandler(this.ShowProducts_Click);
             // 
             // TnumSold
             // 
@@ -272,7 +272,7 @@
             this.ShowProductStat.TabIndex = 43;
             this.ShowProductStat.Text = "Show Product Stat.";
             this.ShowProductStat.UseVisualStyleBackColor = true;
-            this.ShowProductStat.Click += new System.EventHandler(this.ShowProductStat_Click);
+            //this.ShowProductStat.Click += new System.EventHandler(this.ShowProductStat_Click);
             // 
             // button1
             // 

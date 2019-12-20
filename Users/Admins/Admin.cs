@@ -1,4 +1,4 @@
-﻿using OnlineStore.Data;
+using OnlineStore.Data;
 using OnlineStore.Users.UserFactoryPattern;
 using OnlineStore.GUIFiles.Users.Admins;
 

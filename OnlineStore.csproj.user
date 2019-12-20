@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\MainApp\loginpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\MainApp\mainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\MainApp\RegisterPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\Admins\AddBrandPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\Admins\AddProductsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\Admins\AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\Admins\AdminStatistic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\NormalUser\Cart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\NormalUser\NUserPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\NormalUser\ProductInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\StoreOwner\addStorePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\StoreOwner\InputData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\StoreOwner\StoreLayoutPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="GUIFiles\Users\StoreOwner\StoreOwnerPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>

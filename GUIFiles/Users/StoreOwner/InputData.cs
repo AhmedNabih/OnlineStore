@@ -25,8 +25,8 @@ namespace OnlineStore.GUIFiles
         {
             double price = System.Convert.ToDouble(data1.Text);
             int amount = Convert.ToInt32(data2.Text);
-            StoreLayoutPage.setPrice(price);
-            StoreLayoutPage.setAmount(amount);
+          //  StoreLayoutPage.setPrice(price);
+            //StoreLayoutPage.setAmount(amount);
             this.Close();
         }
 
