@@ -41,7 +41,8 @@ namespace OnlineStore.App.Stores.Data
             {
                 String[] tempData = str.Split(new String[] { " -> " }, StringSplitOptions.RemoveEmptyEntries);
                 product.RefactorString(tempData[0]);
-                String[] Refactor = tempData[1].Split(' ');
+                String[] re = tempData[1].Split(' ');
+                String[] Refactor = { re[2], re[5] };
                 Handler(Refactor);
             }
             catch

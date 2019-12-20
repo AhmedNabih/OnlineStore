@@ -6,9 +6,6 @@ using OnlineStore.Users.UserFactoryPattern;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineStore.Users.Admins
 {
@@ -29,11 +26,6 @@ namespace OnlineStore.Users.Admins
 
             this.queries = new AdminControllerQueries(connectionString);
             this.admin = admin;
-        }
-
-        public void Statictices()
-        {
-
         }
 
         ///////////////////////////////////// Product /////////////////////////////////////
@@ -126,31 +118,32 @@ namespace OnlineStore.Users.Admins
                     tpStr[i] = row[col].ToString();
                     i++;
                 }
+
+                String StoreRequestID = tpStr[0];
+                String UserID = tpStr[1];
+                String[] storeString = new String[tpStr.Length - 2];
                 
-                String UserID = tpStr[0];
-                String[] storeString = new String[tpStr.Length - 1];
-                
-                for (int j = 1; j < tpStr.Length; j++)
+                for (int j = 2; j < tpStr.Length; j++)
                     storeString[j - 1] = tpStr[j];
                 
                 StoreRawData storeData = new StoreRawData();
                 storeData.Handler(storeString);
 
-                StoreRequest tempData = new StoreRequest(UserID, storeData);
+                StoreRequest tempData = new StoreRequest(StoreRequestID, UserID, storeData);
                 requestList.Add(tempData);
             }
 
             return requestList;
         }
 
-        public bool AcceptStore(String UserID, String StoreID)
+        public bool AcceptStore(String storeRequestID, String UserID, String StoreID)
         {
-            return queries.AcceptStore(UserID, StoreID);
+            return queries.AcceptStore(storeRequestID, UserID, StoreID);
         }
 
-        public bool RejectStore(String UserID, String StoreID)
+        public bool RejectStore(String storeRequestID, String StoreID)
         {
-            return queries.RejectStore(UserID, StoreID);
+            return queries.RejectStore(storeRequestID, StoreID);
         }
 
 

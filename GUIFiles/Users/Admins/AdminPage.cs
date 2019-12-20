@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using OnlineStore.App.Stores.Data;
 using OnlineStore.Data;
 using OnlineStore.Users.Admins;
+using OnlineStore.Users.Admins.AdminStatisticsSystem;
 
 namespace OnlineStore.GUIFiles.Users.Admins
 {
@@ -32,6 +33,9 @@ namespace OnlineStore.GUIFiles.Users.Admins
 
             List<ProductRawData> productList = controller.GetProductsData();
 
+            if (productList == null)
+                return;
+
             foreach (ProductRawData product in productList)
             {
                 ProductsList.Items.Add(product.ToString());
@@ -41,7 +45,8 @@ namespace OnlineStore.GUIFiles.Users.Admins
         private void AddNewProduct_Click(object sender, EventArgs e)
         {
             AddProductsPage app = new AddProductsPage(controller);
-            app.Show();
+            app.ShowDialog();
+            RefreshProductsList_Click(sender, e);
         }
 
         private void RemoveCheckedProduct_Click(object sender, EventArgs e)
@@ -66,6 +71,7 @@ namespace OnlineStore.GUIFiles.Users.Admins
                     MessageBox.Show(removeList[i].ToString() + " Remove Failed");
             }
 
+            RefreshProductsList_Click(sender, e);
         }
 
         private void BEditProduct_Click(object sender, EventArgs e)
@@ -90,7 +96,8 @@ namespace OnlineStore.GUIFiles.Users.Admins
         private void BAddNewBrand_Click(object sender, EventArgs e)
         {
             AddBrandPage addBrandPage = new AddBrandPage(controller);
-            addBrandPage.Show();
+            addBrandPage.ShowDialog();
+            BRefreshBrandList_Click(sender, e);
         }
 
         private void BRemoveBrand_Click(object sender, EventArgs e)
@@ -114,6 +121,8 @@ namespace OnlineStore.GUIFiles.Users.Admins
                 else
                     MessageBox.Show(removeList[i].ToString() + " Remove Failed");
             }
+
+            BRefreshBrandList_Click(sender, e);
         }
 
         private void BEditBrand_Click(object sender, EventArgs e)
@@ -128,6 +137,9 @@ namespace OnlineStore.GUIFiles.Users.Admins
             StoresReq.Items.Clear();
 
             List<StoreRequest> StoreRequestList = controller.GetStoreRequest();
+
+            if (StoreRequestList == null)
+                return;
 
             foreach (StoreRequest request in StoreRequestList)
             {
@@ -150,12 +162,14 @@ namespace OnlineStore.GUIFiles.Users.Admins
 
             for (int i = 0; i < addList.Count; i++)
             {
-                bool DONE = controller.AcceptStore(addList[i].userID, addList[i].storeData.ID);
+                bool DONE = controller.AcceptStore(addList[i].storeRequestID, addList[i].userID, addList[i].storeData.ID);
                 if (DONE)
                     MessageBox.Show(addList[i].ToString() + " Added");
                 else
                     MessageBox.Show(addList[i].ToString() + " Add Failed");
             }
+
+            ShowReq_Click(sender, e);
         }
 
         private void RemoveCheckedStoresReq_Click(object sender, EventArgs e)
@@ -173,13 +187,14 @@ namespace OnlineStore.GUIFiles.Users.Admins
 
             for (int i = 0; i < removeList.Count; i++)
             {
-                bool DONE = controller.RejectStore(removeList[i].userID,removeList[i].storeData.ID);
+                bool DONE = controller.RejectStore(removeList[i].storeRequestID,removeList[i].storeData.ID);
                 if (DONE)
                     MessageBox.Show(removeList[i].ToString() + " Removed");
                 else
                     MessageBox.Show(removeList[i].ToString() + " Remove Failed");
             }
 
+            ShowReq_Click(sender, e);
         }
 
         ///////////////////////////////////// Page /////////////////////////////////////
@@ -197,7 +212,8 @@ namespace OnlineStore.GUIFiles.Users.Admins
 
         private void Statistic_Click(object sender, EventArgs e)
         {
-            AdminStatistic adminStatistic = new AdminStatistic(controller);
+            AdminStatisticsController controllerStatistic = new AdminStatisticsController();
+            AdminStatistic adminStatistic = new AdminStatistic(controller, controllerStatistic);
             adminStatistic.Show();
         }
 

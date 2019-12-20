@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Data;
 using OnlineStore.App.Stores;
 using OnlineStore.App.Stores.Data;
@@ -30,7 +30,6 @@ namespace OnlineStore.Users.StoreOwners
 
         public override void ConnectPage(UserData data)
         {
-           // this.hand = UserController.GetInstance();
             this.Data = data;
             StoreOwnerPage ap = new StoreOwnerPage(this);
             ap.Show();

@@ -13,8 +13,8 @@ namespace OnlineStore.Users.UserFactoryPattern
                 return new Admin();
             else if (UserRole == "NormalUser")
                 return new NormalUser();
-            else if (UserRole == "StoreOwner")
-                return new StoreOwner();
+            //else if (UserRole == "StoreOwner")
+                //return new StoreOwner();
             else
                 throw new NotSupportedException("No User With Role " + UserRole);
         }

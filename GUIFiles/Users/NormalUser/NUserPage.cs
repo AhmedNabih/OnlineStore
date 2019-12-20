@@ -1,4 +1,4 @@
-﻿using OnlineStore.App.Stores.Data;
+using OnlineStore.App.Stores.Data;
 using OnlineStore.Database_Files;
 using OnlineStore.GUIFiles;
 using OnlineStore.ShoppingCart;
@@ -6,12 +6,7 @@ using OnlineStore.Users.NormalUsers;
 using OnlineStore.Users.UserFactoryPattern;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OnlineStore
@@ -70,6 +65,7 @@ namespace OnlineStore
 
         private void Refresh_Click(object sender, EventArgs e)
         {
+            /*
             Store.Items.Clear();
             DataTable tpData = controller.GetAllStores();
             foreach (DataRow row in tpData.Rows)
@@ -81,6 +77,7 @@ namespace OnlineStore
                 }
                 Store.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
             }
+            */
         }
 
         private void OpenStore_Click(object sender, EventArgs e)
@@ -113,7 +110,6 @@ namespace OnlineStore
                 }
                 Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
             }
-
         }
 
         private void AddToCart_Click(object sender, EventArgs e)

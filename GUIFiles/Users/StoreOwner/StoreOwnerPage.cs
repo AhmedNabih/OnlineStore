@@ -10,11 +10,9 @@ namespace OnlineStore
     public partial class StoreOwnerPage : Form
     {
         public StoreOwner SO;
-        private UserController hand;
 
         public StoreOwnerPage(StoreOwner SO)
         {
-            this.hand = UserController.GetInstance();
             this.SO = SO;
             InitializeComponent();
             TuserName.Text = SO.Data.userName;
@@ -41,8 +39,8 @@ namespace OnlineStore
             }
             foreach (int inx in select)
             {                
-               // StoreLayoutPage slp = new StoreLayoutPage(SO,SO.storeslist[inx]);
-             //   slp.Show();
+                //StoreLayoutPage slp = new StoreLayoutPage(SO,);
+                //slp.Show();
             }
         }
 
@@ -52,7 +50,8 @@ namespace OnlineStore
             MyStores.Items.Clear();
             for(int i=0; i<SO.storeslist.Length; i++)
             {
-               // String tp = SO.storeslist[i].SD.ID+","+ SO.storeslist[i].SD.Name +","+ SO.storeslist[i].SD.Type+","+ SO.storeslist[i].SD.Location+","+ SO.storeslist[i].SD.Info;
+
+                //String tp = SO.storeslist[i].SD.ID+","+ SO.storeslist[i].SD.Name +","+ SO.storeslist[i].SD.Type+","+ SO.storeslist[i].SD.Location+","+ SO.storeslist[i].SD.Info;
                 //MyStores.Items.Add(tp);
             }
         }

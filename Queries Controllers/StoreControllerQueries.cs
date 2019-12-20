@@ -15,5 +15,7 @@ namespace OnlineStore.Queries_Controllers
         {
             this.dataBase = DataBase.GetInstance(connectionString);
         }
+
+        
     }
 }

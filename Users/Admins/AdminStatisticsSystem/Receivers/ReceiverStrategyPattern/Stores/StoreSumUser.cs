@@ -1,20 +1,20 @@
-﻿using OnlineStore.Database_Files;
+using OnlineStore.Queries_Controllers;
 using System;
 
 namespace OnlineStore.Users.Admins.AdminsStatisticsSystemCommands.Receivers.ReceiverStrategyPattern.Stores
 {
     public class StoreSumUser : ISum
     {
-        private DataBaseQueries query;
+        private AdminStatisticsCommandPatternQueries query;
         private String UserID;
 
         public StoreSumUser(String UserID)
         {
-            query = new DataBaseQueries();
+            query = new AdminStatisticsCommandPatternQueries();
             this.UserID = UserID;
         }
 
-        public string Sum()
+        public String Sum()
         {
             return "Stores Sum For User ID = " + UserID + ": " + query.StoreTableSumForUser(this.UserID);
         }

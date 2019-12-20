@@ -1,4 +1,4 @@
-﻿using OnlineStore.Data;
+using OnlineStore.Data;
 using OnlineStore.ShoppingCart;
 using OnlineStore.Users.UserFactoryPattern;
 
