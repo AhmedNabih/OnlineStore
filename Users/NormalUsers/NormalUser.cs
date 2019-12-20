@@ -1,17 +1,26 @@
+using OnlineStore.CartSystem;
+using OnlineStore.CartSystem.Cart;
 using OnlineStore.Data;
-using OnlineStore.ShoppingCart;
 using OnlineStore.Users.UserFactoryPattern;
+using System;
 
 namespace OnlineStore.Users.NormalUsers
 {
     public class NormalUser : IUser, IBuyable
     {
 
-        public NormalUser() { }
+        private ShoppingCartController controllerCart;
 
-        public double Buy(CartObject obj)
+        public NormalUser()
         {
-            return obj.GetPrice();
+            ShoppingCart CartData = new ShoppingCart();
+            this.controllerCart = new ShoppingCartController(CartData);
+        }
+
+        public double Buy()
+        {
+            Double res = controllerCart.calcTotalPrice("NormalUser");
+            return res;
         }
 
         public override void ConnectPage(UserData data)

@@ -2,21 +2,25 @@ using System;
 using System.Data;
 using OnlineStore.App.Stores;
 using OnlineStore.App.Stores.Data;
+using OnlineStore.CartSystem;
+using OnlineStore.CartSystem.Cart;
 using OnlineStore.Data;
 using OnlineStore.Database_Files;
-using OnlineStore.ShoppingCart;
 using OnlineStore.Users.UserFactoryPattern;
 
 namespace OnlineStore.Users.StoreOwners
 {
     public class StoreOwner : IUser, IBuyable
     {
+        private ShoppingCartController controllerCart;
         public Store[] storeslist;
         private DataBase dataBase;
 
 
         public StoreOwner()
         {
+            ShoppingCart CartData = new ShoppingCart();
+            this.controllerCart = new ShoppingCartController(CartData);
             // My Online MSQL DataBase
             String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
             // Local MSQL DataBase
@@ -77,9 +81,10 @@ namespace OnlineStore.Users.StoreOwners
             dataBase.QueryExec(cmd);
         }
 
-        public double Buy(CartObject obj)
+        public double Buy()
         {
-            return obj.GetPrice() * 0.15;
+            Double res = controllerCart.calcTotalPrice("NormalUser");
+            return res;
         }
     }
 }
