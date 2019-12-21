@@ -1,6 +1,5 @@
 ﻿using OnlineStore.Database_Files;
 using OnlineStore.Queries_Controllers;
-using OnlineStore.ShoppingCart;
 using OnlineStore.Users.UserFactoryPattern;
 using System;
 using System.Data;

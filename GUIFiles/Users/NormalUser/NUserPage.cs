@@ -1,9 +1,8 @@
-using OnlineStore.App.Stores.Data;
+using OnlineStore.CartSystem;
+using OnlineStore.CartSystem.Cart;
 using OnlineStore.Database_Files;
 using OnlineStore.GUIFiles;
-using OnlineStore.ShoppingCart;
 using OnlineStore.Users.NormalUsers;
-using OnlineStore.Users.UserFactoryPattern;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,7 +15,7 @@ namespace OnlineStore
         public static int amount;
         NormalUserController controller;
         ShoppingCartController cartController;
-        CartObject cartObject;
+        CartItem cartObject;
 
         public NUserPage(NormalUserController user)
         {
@@ -34,8 +33,9 @@ namespace OnlineStore
             Temail.Text = controller.normalUser.Data.email;
             Tname.Text = controller.normalUser.Data.name;
             Trole.Text = controller.normalUser.Data.role;
-            cartController = new ShoppingCartController();
-            cartObject = new CartObject();
+            ShoppingCart shoppingCart = new ShoppingCart();
+            cartController = new ShoppingCartController(shoppingCart);
+            cartObject = new CartItem();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,7 +65,7 @@ namespace OnlineStore
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            /*
+            
             Store.Items.Clear();
             DataTable tpData = controller.GetAllStores();
             foreach (DataRow row in tpData.Rows)
@@ -77,7 +77,7 @@ namespace OnlineStore
                 }
                 Store.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
             }
-            */
+            
         }
 
         private void OpenStore_Click(object sender, EventArgs e)
@@ -131,7 +131,7 @@ namespace OnlineStore
             {
                 s = Products.Items[inx].ToString().Split(',');
             }
-            cartObject = new CartObject(s[7], s[0], System.Convert.ToDouble(s[5]), amount);
+            cartObject = new CartItem(s[7], s[0], System.Convert.ToDouble(s[5]), amount, false);
             cartController.addCartItem(cartObject);
         }
 
@@ -142,7 +142,7 @@ namespace OnlineStore
 
         private void CalcTotalPrice_Click(object sender, EventArgs e)
         {
-            double price =cartController.calcTotalPrice("NormalUser");
+            Double price = cartController.calcTotalPrice("NormalUser");
             MessageBox.Show(price.ToString());
         }
     }
