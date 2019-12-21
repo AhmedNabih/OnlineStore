@@ -138,6 +138,8 @@ namespace OnlineStore
         private void ViewCart_Click(object sender, EventArgs e)
         {
             cartController.viewCart();
+            Cart cart = new Cart(cartController);
+            cart.ShowDialog();
         }
 
         private void CalcTotalPrice_Click(object sender, EventArgs e)

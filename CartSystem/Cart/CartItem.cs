@@ -37,7 +37,10 @@ namespace OnlineStore.CartSystem.Cart
         {
             return this.amonut;
         }
-
+        public string GetName()
+        {
+            return this.productName;
+        }
         public bool FirstTime()
         {
             return this.firstTime;
