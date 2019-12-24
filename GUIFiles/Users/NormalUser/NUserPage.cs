@@ -21,6 +21,7 @@ namespace OnlineStore
         public CartItem cartObject;
         public string StoreID;
         public string ActualAmount;
+        public string statID;
         public NUserPage(NormalUserController user, ShoppingCartController cartController, IBuyable buyable)
         {
             // My Online MSQL DataBase
@@ -104,6 +105,9 @@ namespace OnlineStore
             }
             StoreID = s[2];
             DataTable tpData = controller.GetProductsInStore(s[2]);
+            DataTable StatID=queries.GetStatID(s[2]);
+          statID=StatID.Rows[0].ItemArray[0].ToString();
+            queries.UpdateViews(statID);
             if (tpData == null)
                 return;
             foreach (DataRow row in tpData.Rows)
@@ -156,14 +160,9 @@ namespace OnlineStore
         private void ViewCart_Click(object sender, EventArgs e)
         {
             cartController.viewCart();
-            Cart cart = new Cart(cartController,controller,buyable,StoreID,ActualAmount);
+            Cart cart = new Cart(cartController,controller,buyable,StoreID,ActualAmount,statID);
             cart.ShowDialog();
         }
 
-        private void CalcTotalPrice_Click(object sender, EventArgs e)
-        {
-            Double price = buyable.Buy();
-            MessageBox.Show(price.ToString());
-        }
     }
 }
