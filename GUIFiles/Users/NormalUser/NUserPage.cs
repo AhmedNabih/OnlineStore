@@ -2,6 +2,7 @@ using OnlineStore.CartSystem;
 using OnlineStore.CartSystem.Cart;
 using OnlineStore.Database_Files;
 using OnlineStore.GUIFiles;
+using OnlineStore.Users;
 using OnlineStore.Users.NormalUsers;
 using System;
 using System.Collections.Generic;
@@ -142,7 +143,8 @@ namespace OnlineStore
 
         private void CalcTotalPrice_Click(object sender, EventArgs e)
         {
-            Double price = cartController.calcTotalPrice("NormalUser");
+            IBuyable buy = new NormalUser();
+            Double price = buy.Buy();
             MessageBox.Show(price.ToString());
         }
     }

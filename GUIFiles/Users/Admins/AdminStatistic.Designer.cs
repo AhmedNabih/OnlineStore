@@ -82,7 +82,7 @@
             this.BShowStores.TabIndex = 4;
             this.BShowStores.Text = "Show Stores";
             this.BShowStores.UseVisualStyleBackColor = true;
-       //     this.BShowStores.Click += new System.EventHandler(this.BShowStores_Click);
+            this.BShowStores.Click += new System.EventHandler(this.BShowStores_Click);
             // 
             // BShowUsers
             // 
@@ -92,7 +92,7 @@
             this.BShowUsers.TabIndex = 5;
             this.BShowUsers.Text = "Show Users";
             this.BShowUsers.UseVisualStyleBackColor = true;
-         //   this.BShowUsers.Click += new System.EventHandler(this.BShowUsers_Click);
+            this.BShowUsers.Click += new System.EventHandler(this.BShowUsers_Click);
             // 
             // BClose
             // 
@@ -102,7 +102,7 @@
             this.BClose.TabIndex = 10;
             this.BClose.Text = "Close";
             this.BClose.UseVisualStyleBackColor = true;
-           // this.BClose.Click += new System.EventHandler(this.BClose_Click);
+            this.BClose.Click += new System.EventHandler(this.BClose_Click);
             // 
             // BExit
             // 
@@ -112,7 +112,7 @@
             this.BExit.TabIndex = 11;
             this.BExit.Text = "Exit";
             this.BExit.UseVisualStyleBackColor = true;
-            //this.BExit.Click += new System.EventHandler(this.BExit_Click);
+            this.BExit.Click += new System.EventHandler(this.BExit_Click);
             // 
             // BShowProducts
             // 
@@ -122,7 +122,7 @@
             this.BShowProducts.TabIndex = 12;
             this.BShowProducts.Text = "Show Products";
             this.BShowProducts.UseVisualStyleBackColor = true;
-            //this.BShowProducts.Click += new System.EventHandler(this.BShowProducts_Click);
+            this.BShowProducts.Click += new System.EventHandler(this.BShowProducts_Click);
             // 
             // BClear
             // 
@@ -132,7 +132,7 @@
             this.BClear.TabIndex = 13;
             this.BClear.Text = "Clear";
             this.BClear.UseVisualStyleBackColor = true;
-            //this.BClear.Click += new System.EventHandler(this.BClear_Click);
+            this.BClear.Click += new System.EventHandler(this.BClear_Click);
             // 
             // BProcess
             // 
@@ -142,7 +142,7 @@
             this.BProcess.TabIndex = 14;
             this.BProcess.Text = "Process";
             this.BProcess.UseVisualStyleBackColor = true;
-            //this.BProcess.Click += new System.EventHandler(this.BProcess_Click);
+            this.BProcess.Click += new System.EventHandler(this.BProcess_Click);
             // 
             // label1
             // 

@@ -1,63 +1,86 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using OnlineStore.App.Stores.Data;
 using OnlineStore.GUIFiles;
-using OnlineStore.Users;
 using OnlineStore.Users.StoreOwners;
 
 namespace OnlineStore
 {
     public partial class StoreOwnerPage : Form
     {
-        public StoreOwner SO;
+        private StoreOwnerController controllerSO;
 
-        public StoreOwnerPage(StoreOwner SO)
+        public StoreOwnerPage(StoreOwnerController controllerSO)
         {
-            this.SO = SO;
+            this.controllerSO = controllerSO;
             InitializeComponent();
-            TuserName.Text = SO.Data.userName;
-            Tname.Text = SO.Data.name;
-            Temail.Text = SO.Data.email;
-            Trole.Text = SO.Data.role;
+            TuserName.Text = controllerSO.storeOwner.Data.userName;
+            Tname.Text = controllerSO.storeOwner.Data.name;
+            Temail.Text = controllerSO.storeOwner.Data.email;
+            Trole.Text = controllerSO.storeOwner.Data.role;
         }
 
         private void AddStore_Click(object sender, EventArgs e)
         {
-            addStorePage asp = new addStorePage(SO);
+            addStorePage asp = new addStorePage(controllerSO);
             asp.Show();
         }
 
-        private void ShowStore_Click(object sender, EventArgs e)
+        private void DeleteStores_Click(object sender, EventArgs e)
         {
-            List<int> select = new List<int>();
-            for (int i = 0; i < MyStores.Items.Count; i++)
-            {
-                if (MyStores.GetItemChecked(i))
-                {
-                    select.Add(i);
-                }
-            }
-            foreach (int inx in select)
-            {                
-                //StoreLayoutPage slp = new StoreLayoutPage(SO,);
-                //slp.Show();
-            }
+            if (MyStores.SelectedItem == null)
+                return;
+
+            String SelectedItem = MyStores.SelectedItem.ToString();
+            StoreRawData tempData = new StoreRawData();
+            tempData.RefactorString(SelectedItem);
+
+            String UserID = controllerSO.storeOwner.Data.ID;
+            String StoreID = tempData.ID;
+
+            bool DONE = this.controllerSO.DeleteStore(UserID, StoreID);
+            if (DONE)
+                MessageBox.Show("Store Deleted");
+            else
+                MessageBox.Show("Store Deletion failed");
+
+            this.RefreshStoreList_Click(sender, e);
         }
 
         private void RefreshStoreList_Click(object sender, EventArgs e)
         {
-            SO.RefreshData();
             MyStores.Items.Clear();
-            for(int i=0; i<SO.storeslist.Length; i++)
-            {
 
-                //String tp = SO.storeslist[i].SD.ID+","+ SO.storeslist[i].SD.Name +","+ SO.storeslist[i].SD.Type+","+ SO.storeslist[i].SD.Location+","+ SO.storeslist[i].SD.Info;
-                //MyStores.Items.Add(tp);
+            List<StoreRawData> StoresList = controllerSO.GetStoresData(controllerSO.storeOwner.Data.ID);
+
+            if (StoresList == null)
+                return;
+
+            foreach (StoreRawData storeData in StoresList)
+            {
+                MyStores.Items.Add(storeData.ToString());
             }
+        }
+
+        private void ShowStore_Click(object sender, EventArgs e)
+        {
+            if (MyStores.SelectedItem == null)
+                return;
+
+            String SelectedItem = MyStores.SelectedItem.ToString();
+            StoreRawData tempData = new StoreRawData();
+            tempData.RefactorString(SelectedItem);
+            String UserID = controllerSO.storeOwner.Data.ID;
+            String StoreID = tempData.ID;
+
+
+
         }
 
         private void Bexit_Click(object sender, EventArgs e)
         {
+            Application.Exit();
         }
 
         private void Logout_Click(object sender, EventArgs e)
@@ -66,21 +89,7 @@ namespace OnlineStore
             this.Close();
         }
 
-        private void DeleteStores_Click(object sender, EventArgs e)
-        {
-            List<int> select = new List<int>();
-            for (int i = 0; i < MyStores.Items.Count; i++)
-            {
-                if (MyStores.GetItemChecked(i))
-                {
-                    select.Add(i);
-                }
-            }
-            foreach (int inx in select)
-            {
-                SO.DeleteStore(MyStores.Items[inx].ToString().Split(',')[0]);
-                MessageBox.Show("Store Deleted");
-            }
-        }
+
+        ///////////////////////////////////// Class End /////////////////////////////////////
     }
 }

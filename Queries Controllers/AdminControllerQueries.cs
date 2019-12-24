@@ -1,11 +1,6 @@
-﻿using OnlineStore.Data;
-using OnlineStore.Database_Files;
+﻿using OnlineStore.Database_Files;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OnlineStore.Queries_Controllers
 {

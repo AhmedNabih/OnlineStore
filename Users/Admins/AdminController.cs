@@ -123,8 +123,8 @@ namespace OnlineStore.Users.Admins
                 String UserID = tpStr[1];
                 String[] storeString = new String[tpStr.Length - 2];
                 
-                for (int j = 2; j < tpStr.Length; j++)
-                    storeString[j - 1] = tpStr[j];
+                for (int j = 2,k=0; j < tpStr.Length; j++,k++)
+                    storeString[k] = tpStr[j];
                 
                 StoreRawData storeData = new StoreRawData();
                 storeData.Handler(storeString);

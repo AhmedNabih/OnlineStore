@@ -1,30 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using OnlineStore.Data;
 using OnlineStore.Users.StoreOwners;
 
 namespace OnlineStore.GUIFiles
 {
     public partial class addStorePage : Form
     {
-        private StoreOwner SO;
-        public addStorePage(StoreOwner SO)
+        private StoreOwnerController controllerSO;
+
+        public addStorePage(StoreOwnerController controllerSO)
         {
-            this.SO = SO;
+            this.controllerSO = controllerSO;
             InitializeComponent();
         }
 
         private void Submit_Click(object sender, EventArgs e)
         {
-            SO.AddStore(StoreName.Text, StoreType.Text,StoreLocation.SelectedItem.ToString(), StoreInfo.Text);
-            MessageBox.Show("Request sent");
+            String UserID = controllerSO.storeOwner.Data.ID;
+            bool DONE = this.controllerSO.SendStoreRequest(UserID,StoreName.Text, StoreType.Text, StoreLocation.SelectedItem.ToString(), StoreInfo.Text);
+            if (DONE)
+            {
+                MessageBox.Show("Request sent");
+            }
+            else
+            {
+                MessageBox.Show("Request sent failed");
+            }
         }
 
         private void Bclose_Click(object sender, EventArgs e)
