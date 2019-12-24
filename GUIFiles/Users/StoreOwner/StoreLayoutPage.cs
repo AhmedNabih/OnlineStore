@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 using OnlineStore.App.Stores;
-using OnlineStore.Data;
 using OnlineStore.Database_Files;
 using OnlineStore.Users.StoreOwners;
 
@@ -16,7 +12,7 @@ namespace OnlineStore.GUIFiles
         private StoreOwner SO;
         private DataBase dataBase;
 
-        public StoreLayoutPage(StoreOwner SO, StoreController store)
+        public StoreLayoutPage(StoreOwnerController controllerSO, StoreController controllerStore)
         {
             /*
             // My Online MSQL DataBase

@@ -49,7 +49,7 @@
             // 
             // StoreType
             // 
-            this.StoreType.Location = new System.Drawing.Point(119, 77);
+            this.StoreType.Location = new System.Drawing.Point(119, 49);
             this.StoreType.Name = "StoreType";
             this.StoreType.Size = new System.Drawing.Size(186, 22);
             this.StoreType.TabIndex = 2;
@@ -73,7 +73,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 82);
+            this.label2.Location = new System.Drawing.Point(40, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 17);
             this.label2.TabIndex = 5;
@@ -82,7 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 54);
+            this.label3.Location = new System.Drawing.Point(51, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 17);
             this.label3.TabIndex = 6;
@@ -123,7 +123,7 @@
             this.StoreLocation.Items.AddRange(new object[] {
             "Online",
             "Onsite"});
-            this.StoreLocation.Location = new System.Drawing.Point(119, 47);
+            this.StoreLocation.Location = new System.Drawing.Point(119, 75);
             this.StoreLocation.Name = "StoreLocation";
             this.StoreLocation.Size = new System.Drawing.Size(186, 24);
             this.StoreLocation.TabIndex = 11;

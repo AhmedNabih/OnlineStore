@@ -35,7 +35,8 @@ namespace OnlineStore.Users.StoreOwners
         public override void ConnectPage(UserData data)
         {
             this.Data = data;
-            StoreOwnerPage ap = new StoreOwnerPage(this);
+            StoreOwnerController controllerSO = new StoreOwnerController(this);
+            StoreOwnerPage ap = new StoreOwnerPage(controllerSO);
             ap.Show();
         }
 
