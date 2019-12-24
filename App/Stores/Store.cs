@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using OnlineStore.App.Stores.Data;
-using OnlineStore.Data;
-using OnlineStore.Database_Files;
+﻿using OnlineStore.App.Stores.Data;
 
 namespace OnlineStore.App.Stores
 {
@@ -15,6 +10,9 @@ namespace OnlineStore.App.Stores
 
         public Store()
         {
+            this.storeData = new UserStoreData();
+            this.productStatistic = new StatisticsController();
+            this.products = new StoreProductController();
 
         }
 

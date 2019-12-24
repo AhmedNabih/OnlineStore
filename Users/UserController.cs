@@ -48,7 +48,6 @@ namespace OnlineStore.Users
         public bool Register(String UN, String PW, String N, String EM, String Role)
         {
             bool DONE = this.queries.Register(UN, PW, N, EM, Role);
-            MessageBox.Show("11");
             if (DONE)
                 return true;
             else

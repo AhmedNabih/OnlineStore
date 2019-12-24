@@ -161,6 +161,7 @@
     <Compile Include="Queries Controllers\AdminStatisticsControllerQueries.cs" />
     <Compile Include="Queries Controllers\NormalUserControllerQueries.cs" />
     <Compile Include="Queries Controllers\StoreControllerQueries.cs" />
+    <Compile Include="Queries Controllers\StoreOwnerControllerQueries.cs" />
     <Compile Include="Queries Controllers\StoreProductControllerQueries.cs" />
     <Compile Include="Queries Controllers\UserControllerQueries.cs" />
     <Compile Include="CartSystem\DecoratedClasses\CartDecorated.cs" />
