@@ -13,15 +13,22 @@ namespace OnlineStore.GUIFiles
     public partial class ProductInfo : Form
     {
        public static int amount;
-        public ProductInfo()
+        public int actualAmount;
+        public ProductInfo(int am)
         {
             InitializeComponent();
+            actualAmount = am;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(System.Convert.ToInt32(textBox1.Text)<=actualAmount)
             NUserPage.amount = System.Convert.ToInt32(textBox1.Text);
-            MessageBox.Show("Done");
+            else
+            {
+                MessageBox.Show("insufficient amount");
+
+            }
             this.Close();
         }
     }

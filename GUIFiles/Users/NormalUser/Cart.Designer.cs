@@ -48,6 +48,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Proceed to checkout";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Cart
             // 
@@ -58,6 +59,7 @@
             this.Controls.Add(this.checkedListBox1);
             this.Name = "Cart";
             this.Text = "Cart";
+            this.Load += new System.EventHandler(this.Cart_Load);
             this.ResumeLayout(false);
 
         }

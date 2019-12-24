@@ -4,7 +4,7 @@ namespace OnlineStore.CartSystem.Cart
 {
     public class CartItem : ICartItem
     {
-        private String productID;
+        private string productID;
         private String productName;
         private double price;
         private int amonut;
@@ -37,10 +37,17 @@ namespace OnlineStore.CartSystem.Cart
         {
             return this.amonut;
         }
-
+        public string GetName()
+        {
+            return this.productName;
+        }
         public bool FirstTime()
         {
             return this.firstTime;
+        }
+        public string GetProductID()
+        {
+            return this.productID;
         }
     }
 }

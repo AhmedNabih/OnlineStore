@@ -27,7 +27,8 @@ namespace OnlineStore.Users.NormalUsers
         {
             this.Data = data;
             NormalUserController controller = new NormalUserController(this);
-            NUserPage ap = new NUserPage(controller);
+
+            NUserPage ap = new NUserPage(controller, controllerCart, this);
             ap.Show();
         }
     }
