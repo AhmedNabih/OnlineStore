@@ -11,7 +11,6 @@ namespace OnlineStore.GUIFiles
 {
     public partial class Cart : Form
     {
-        ShoppingCartController cartController;
         ShoppingCartControllerQueries querie;
         public NormalUserController controller;
         List<CartItem> ListItem;
