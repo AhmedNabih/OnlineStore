@@ -2,6 +2,7 @@ using OnlineStore.CartSystem;
 using OnlineStore.CartSystem.Cart;
 using OnlineStore.Database_Files;
 using OnlineStore.GUIFiles;
+using OnlineStore.Users;
 using OnlineStore.Users.NormalUsers;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,14 @@ namespace OnlineStore
     public partial class NUserPage : Form
     {
         public static int amount;
-        NormalUserController controller;
-        ShoppingCartController cartController;
-        CartItem cartObject;
-
-        public NUserPage(NormalUserController user)
+        private NormalUserController controller;
+        private ShoppingCartController cartController;
+        private ShoppingCartControllerQueries queries;
+        private IBuyable buyable;
+        public CartItem cartObject;
+        public string StoreID;
+        public string ActualAmount;
+        public NUserPage(NormalUserController user, ShoppingCartController cartController, IBuyable buyable)
         {
             // My Online MSQL DataBase
             String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
@@ -26,15 +30,15 @@ namespace OnlineStore
 
             IConnectionString connectionString = new DataBaseConnection();
             connectionString.SetConnectionString(connectionStr);
-
+            queries = new ShoppingCartControllerQueries(connectionString);
             this.controller = user;
             InitializeComponent();
             TuserName.Text = controller.normalUser.Data.userName;
             Temail.Text = controller.normalUser.Data.email;
             Tname.Text = controller.normalUser.Data.name;
             Trole.Text = controller.normalUser.Data.role;
-            ShoppingCart shoppingCart = new ShoppingCart();
-            cartController = new ShoppingCartController(shoppingCart);
+            this.cartController = cartController;
+            this.buyable = buyable;
             cartObject = new CartItem();
         }
 
@@ -98,6 +102,7 @@ namespace OnlineStore
             {
                 s = Store.Items[inx].ToString().Split(',');
             }
+            StoreID = s[2];
             DataTable tpData = controller.GetProductsInStore(s[2]);
             if (tpData == null)
                 return;
@@ -114,12 +119,11 @@ namespace OnlineStore
 
         private void AddToCart_Click(object sender, EventArgs e)
         {
-            ProductInfo temp = new ProductInfo();
-            temp.ShowDialog();
+            
             String[] s = null;
             List<int> select = new List<int>();
 
-            for (int i = 0; i < Store.Items.Count; i++)
+            for (int i = 0; i < Products.Items.Count; i++)
             {
                 if (Products.GetItemChecked(i))
                 {
@@ -131,20 +135,34 @@ namespace OnlineStore
             {
                 s = Products.Items[inx].ToString().Split(',');
             }
-            cartObject = new CartItem(s[7], s[0], System.Convert.ToDouble(s[5]), amount, false);
-            cartController.addCartItem(cartObject);
+            ActualAmount = s[6];
+            ProductInfo temp = new ProductInfo(System.Convert.ToInt32(ActualAmount));
+            temp.ShowDialog();
+            if (amount != 0)
+            {
+                DataTable firstTime = queries.isItFirstTime(controller.normalUser.Data.ID);
+                if (firstTime.Rows.Count <= 0)
+                    cartObject = new CartItem(s[7], s[0], System.Convert.ToDouble(s[5]), amount, true);
+                else
+                {
+                    cartObject = new CartItem(s[7], s[0], System.Convert.ToDouble(s[5]), amount, false);
+                }
+                cartController.addCartItem(cartObject);
+            }
+            else
+                MessageBox.Show("failed to add items to the cart");
         }
 
         private void ViewCart_Click(object sender, EventArgs e)
         {
             cartController.viewCart();
-            Cart cart = new Cart(cartController);
+            Cart cart = new Cart(cartController,controller,buyable,StoreID,ActualAmount);
             cart.ShowDialog();
         }
 
         private void CalcTotalPrice_Click(object sender, EventArgs e)
         {
-            Double price = cartController.calcTotalPrice("NormalUser");
+            Double price = buyable.Buy();
             MessageBox.Show(price.ToString());
         }
     }
