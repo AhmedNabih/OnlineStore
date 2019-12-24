@@ -11,14 +11,14 @@ namespace OnlineStore.GUIFiles
 {
     public partial class Cart : Form
     {
-        ShoppingCartController cartController;
         ShoppingCartControllerQueries querie;
         public NormalUserController controller;
         List<CartItem> ListItem;
         private IBuyable buyable;
         public string StoreID;
         public string Actualamount;
-        public Cart(ShoppingCartController cartController, NormalUserController controller, IBuyable buyable,string s,string amount)
+        public string statID;
+        public Cart(ShoppingCartController cartController, NormalUserController controller, IBuyable buyable,string s,string amount,string statID)
         {
             // My Online MSQL DataBase
             String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
@@ -34,6 +34,7 @@ namespace OnlineStore.GUIFiles
             ListItem = cartController.viewCart();
             this.StoreID = s;
             this.Actualamount = amount;
+            this.statID = statID;
             this.querie = new ShoppingCartControllerQueries(connectionString);
         }
 
@@ -66,6 +67,7 @@ namespace OnlineStore.GUIFiles
             {
 
                 querie.UpdateAmount(StoreID, (System.Convert.ToInt32(Actualamount) - ListItem[i].GetAmount()).ToString());
+                querie.UpdateNumOfSold(statID,ListItem[i].GetAmount().ToString());
             }
         }
     }

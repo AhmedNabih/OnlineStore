@@ -45,7 +45,6 @@
             this.Products = new System.Windows.Forms.CheckedListBox();
             this.AddToCart = new System.Windows.Forms.Button();
             this.ViewCart = new System.Windows.Forms.Button();
-            this.CalcTotalPrice = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Lrole
@@ -209,22 +208,11 @@
             this.ViewCart.UseVisualStyleBackColor = true;
             this.ViewCart.Click += new System.EventHandler(this.ViewCart_Click);
             // 
-            // CalcTotalPrice
-            // 
-            this.CalcTotalPrice.Location = new System.Drawing.Point(472, 380);
-            this.CalcTotalPrice.Name = "CalcTotalPrice";
-            this.CalcTotalPrice.Size = new System.Drawing.Size(132, 23);
-            this.CalcTotalPrice.TabIndex = 29;
-            this.CalcTotalPrice.Text = "CalcTotalPrice";
-            this.CalcTotalPrice.UseVisualStyleBackColor = true;
-            this.CalcTotalPrice.Click += new System.EventHandler(this.CalcTotalPrice_Click);
-            // 
             // NUserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(760, 450);
-            this.Controls.Add(this.CalcTotalPrice);
             this.Controls.Add(this.ViewCart);
             this.Controls.Add(this.AddToCart);
             this.Controls.Add(this.Products);
@@ -268,6 +256,5 @@
         private System.Windows.Forms.CheckedListBox Products;
         private System.Windows.Forms.Button AddToCart;
         private System.Windows.Forms.Button ViewCart;
-        private System.Windows.Forms.Button CalcTotalPrice;
     }
 }
