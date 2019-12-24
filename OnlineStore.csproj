@@ -136,6 +136,12 @@
     <Compile Include="GUIFiles\Users\StoreOwner\addStorePage.Designer.cs">
       <DependentUpon>addStorePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\CollaboratorsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\CollaboratorsPage.Designer.cs">
+      <DependentUpon>CollaboratorsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIFiles\Users\StoreOwner\InputData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\Users\StoreOwner\addStorePage.resx">
       <DependentUpon>addStorePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\CollaboratorsPage.resx">
+      <DependentUpon>CollaboratorsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\Users\StoreOwner\InputData.resx">
       <DependentUpon>InputData.cs</DependentUpon>

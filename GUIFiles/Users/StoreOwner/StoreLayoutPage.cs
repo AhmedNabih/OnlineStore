@@ -147,5 +147,9 @@ namespace OnlineStore.GUIFiles
             */
         }
 
+        private void ShowProducts_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
