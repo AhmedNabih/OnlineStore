@@ -87,6 +87,9 @@ namespace OnlineStore.GUIFiles.Users.Admins
 
             List<BrandRawData> brandList = controller.GetBrandsData();
 
+            if (brandList == null)
+                return;
+
             foreach (BrandRawData brand in brandList)
             {
                 BrandList.Items.Add(brand.ToString());

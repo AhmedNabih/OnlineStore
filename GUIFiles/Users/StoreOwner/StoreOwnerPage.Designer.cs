@@ -43,6 +43,10 @@
             this.Bexit = new System.Windows.Forms.Button();
             this.DeleteStores = new System.Windows.Forms.Button();
             this.MyStores = new System.Windows.Forms.ListBox();
+            this.BNormalUser = new System.Windows.Forms.Button();
+            this.OtherStores = new System.Windows.Forms.ListBox();
+            this.BRefreshCollaboratorList = new System.Windows.Forms.Button();
+            this.BOpenOtherStore = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Lrole
@@ -152,7 +156,7 @@
             // 
             // Logout
             // 
-            this.Logout.Location = new System.Drawing.Point(352, 470);
+            this.Logout.Location = new System.Drawing.Point(418, 636);
             this.Logout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Logout.Name = "Logout";
             this.Logout.Size = new System.Drawing.Size(152, 27);
@@ -163,7 +167,7 @@
             // 
             // Bexit
             // 
-            this.Bexit.Location = new System.Drawing.Point(509, 470);
+            this.Bexit.Location = new System.Drawing.Point(575, 636);
             this.Bexit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Bexit.Name = "Bexit";
             this.Bexit.Size = new System.Drawing.Size(152, 27);
@@ -192,11 +196,57 @@
             this.MyStores.Size = new System.Drawing.Size(801, 276);
             this.MyStores.TabIndex = 24;
             // 
+            // BNormalUser
+            // 
+            this.BNormalUser.Location = new System.Drawing.Point(260, 636);
+            this.BNormalUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BNormalUser.Name = "BNormalUser";
+            this.BNormalUser.Size = new System.Drawing.Size(152, 27);
+            this.BNormalUser.TabIndex = 25;
+            this.BNormalUser.Text = "Go As A Normal User";
+            this.BNormalUser.UseVisualStyleBackColor = true;
+            this.BNormalUser.Click += new System.EventHandler(this.BNormalUser_Click);
+            // 
+            // OtherStores
+            // 
+            this.OtherStores.FormattingEnabled = true;
+            this.OtherStores.ItemHeight = 16;
+            this.OtherStores.Location = new System.Drawing.Point(89, 394);
+            this.OtherStores.Name = "OtherStores";
+            this.OtherStores.Size = new System.Drawing.Size(801, 148);
+            this.OtherStores.TabIndex = 30;
+            // 
+            // BRefreshCollaboratorList
+            // 
+            this.BRefreshCollaboratorList.Location = new System.Drawing.Point(494, 547);
+            this.BRefreshCollaboratorList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BRefreshCollaboratorList.Name = "BRefreshCollaboratorList";
+            this.BRefreshCollaboratorList.Size = new System.Drawing.Size(233, 39);
+            this.BRefreshCollaboratorList.TabIndex = 28;
+            this.BRefreshCollaboratorList.Text = "Refresh Collaborator Store List";
+            this.BRefreshCollaboratorList.UseVisualStyleBackColor = true;
+            this.BRefreshCollaboratorList.Click += new System.EventHandler(this.BRefreshCollaboratorList_Click);
+            // 
+            // BOpenOtherStore
+            // 
+            this.BOpenOtherStore.Location = new System.Drawing.Point(255, 547);
+            this.BOpenOtherStore.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BOpenOtherStore.Name = "BOpenOtherStore";
+            this.BOpenOtherStore.Size = new System.Drawing.Size(233, 39);
+            this.BOpenOtherStore.TabIndex = 27;
+            this.BOpenOtherStore.Text = "Open Collaborator Store";
+            this.BOpenOtherStore.UseVisualStyleBackColor = true;
+            this.BOpenOtherStore.Click += new System.EventHandler(this.BOpenOtherStore_Click);
+            // 
             // StoreOwnerPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 522);
+            this.ClientSize = new System.Drawing.Size(1029, 673);
+            this.Controls.Add(this.OtherStores);
+            this.Controls.Add(this.BRefreshCollaboratorList);
+            this.Controls.Add(this.BOpenOtherStore);
+            this.Controls.Add(this.BNormalUser);
             this.Controls.Add(this.MyStores);
             this.Controls.Add(this.DeleteStores);
             this.Controls.Add(this.Bexit);
@@ -237,5 +287,9 @@
         private System.Windows.Forms.Button Bexit;
         private System.Windows.Forms.Button DeleteStores;
         private System.Windows.Forms.ListBox MyStores;
+        private System.Windows.Forms.Button BNormalUser;
+        private System.Windows.Forms.ListBox OtherStores;
+        private System.Windows.Forms.Button BRefreshCollaboratorList;
+        private System.Windows.Forms.Button BOpenOtherStore;
     }
 }

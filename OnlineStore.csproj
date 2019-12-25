@@ -49,7 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\Stores\Data\Offer.cs" />
-    <Compile Include="App\Stores\Data\StatisticsController.cs" />
     <Compile Include="App\Stores\Data\StoreProduct.cs" />
     <Compile Include="App\Stores\Data\StoreProductController.cs" />
     <Compile Include="App\Stores\Data\StoreRawData.cs" />
@@ -66,6 +65,8 @@
     <Compile Include="Database Files\fileRW.cs" />
     <Compile Include="Database Files\IConnectionString.cs" />
     <Compile Include="Data\BrandRawData.cs" />
+    <Compile Include="Data\Collaborator.cs" />
+    <Compile Include="Data\CollaboratorController.cs" />
     <Compile Include="Data\ProductRawData.cs" />
     <Compile Include="Data\Statistics.cs" />
     <Compile Include="Data\StoreRequest.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Queries Controllers\AdminControllerQueries.cs" />
     <Compile Include="Queries Controllers\AdminStatisticsCommandPatternQueries.cs" />
     <Compile Include="Queries Controllers\AdminStatisticsControllerQueries.cs" />
+    <Compile Include="Queries Controllers\CollaboratorControllerQueries.cs" />
     <Compile Include="Queries Controllers\NormalUserControllerQueries.cs" />
     <Compile Include="Queries Controllers\StoreControllerQueries.cs" />
     <Compile Include="Queries Controllers\StoreOwnerControllerQueries.cs" />

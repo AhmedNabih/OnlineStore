@@ -1,155 +1,185 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using OnlineStore.App.Stores;
-using OnlineStore.Database_Files;
+using OnlineStore.App.Stores.Data;
+using OnlineStore.Data;
+using OnlineStore.GUIFiles.Users.StoreOwner;
 using OnlineStore.Users.StoreOwners;
 
 namespace OnlineStore.GUIFiles
 {
     public partial class StoreLayoutPage : Form
     {
-        private Store store;
-        private StoreOwner SO;
-        private DataBase dataBase;
+        private StoreController controllerStore;
+        private StoreOwnerController controllerSO;
+        private StoreProductController controllerStoreProduct;
+        private static double price = 0.0;
+        private static int amount = 0;
+        private bool collMode = false;
+        public static void SetPrice(double p) { price = p; }
+        public static void SetAmount(int a) { amount = a; }
 
-        public StoreLayoutPage(StoreOwnerController controllerSO, StoreController controllerStore)
+        public StoreLayoutPage(StoreOwnerController controllerSO, StoreController controllerStore, StoreProductController controllerStoreProduct, bool b)
         {
-            /*
-            // My Online MSQL DataBase
-            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
-            // Local MSQL DataBase
-            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
-
-            IConnectionString connectionString = new DataBaseConnection();
-            connectionString.SetConnectionString(connectionStr);
-
-            this.dataBase = DataBase.GetInstance(connectionString);
-            /*
-            this.SO = SO;
-            //this.store = SD;
-            //store.GetStat();
-
             InitializeComponent();
-            /*
-            TuserName.Text = SO.Data.userName;
-            Tname.Text = SO.Data.name;
-            Temail.Text = SO.Data.email;
-            Trole.Text = SO.Data.role;
-            TStoreName.Text = store.SD.Name;
-            TstoreLocation.Text = store.SD.Location;
-            TstoreType.Text = store.SD.Type;
-            TnumViews.Text = store.SS.CntView.ToString();
-            TnumSold.Text = store.SS.CntSold.ToString();
-            */
+            this.collMode = b;
+            this.TuserName.Text = controllerSO.storeOwner.Data.ID;
+            this.Temail.Text = controllerSO.storeOwner.Data.email;
+            this.Tname.Text = controllerSO.storeOwner.Data.name;
+            this.Trole.Text = controllerSO.storeOwner.Data.role;
+            this.controllerSO = controllerSO;
+            this.controllerStore = controllerStore;
+            this.controllerStoreProduct = controllerStoreProduct;
+            this.TStoreName.Text = controllerStore.store.storeData.storeData.Name;
+            this.TstoreType.Text = controllerStore.store.storeData.storeData.Type;
+            this.TstoreLocation.Text = controllerStore.store.storeData.storeData.Location;
         }
+
+        ///////////////////////////////////// Store Products /////////////////////////////////////
+
+        private void BShowStoreProduct_Click(object sender, EventArgs e)
+        {
+            this.ProductList.Items.Clear();
+            List<StoreProduct> storeProductList = controllerStoreProduct.GetStoreProducts(controllerStore.store.storeData.storeData.ID);
+
+            if (storeProductList == null)
+                return;
+
+            foreach (StoreProduct product in storeProductList)
+            {
+                this.ProductList.Items.Add(product.ToString());
+            }
+        }
+
+        private void BAddStoreProduct_Click(object sender, EventArgs e)
+        {
+            if(SystemProductsList.SelectedItem == null || SystemBrandsList.SelectedItem == null)
+            {
+                MessageBox.Show("Please select brand and product");
+                return;
+            }
+
+            String product = SystemProductsList.SelectedItem.ToString();
+            String Brand = SystemBrandsList.SelectedItem.ToString();
+            
+            ProductRawData productRawData = new ProductRawData();
+            productRawData.RefactorString(product);
+
+            BrandRawData brandRawData = new BrandRawData();
+            brandRawData.RefactorString(Brand);
+
+            InputData inputData = new InputData("price", "amount", "Submit Product");
+            inputData.ShowDialog();
+
+            StoreProduct storeProduct = new StoreProduct("0", controllerStore.GetStoreID(), productRawData, brandRawData, price, amount);
+            bool DONE = controllerStoreProduct.AddStoreProduct(controllerStore.GetStoreID(), storeProduct);
+            if (DONE)
+                MessageBox.Show("Product Added");
+            else
+                MessageBox.Show("Product Add failed");
+
+            BShowStoreProduct_Click(sender, e);
+        }
+
+        private void BEditStoreProduct_Click(object sender, EventArgs e)
+        {
+            // TODO
+        }
+
+        private void BDeleteStoreProduct_Click(object sender, EventArgs e)
+        {
+            if (ProductList.SelectedItem == null)
+            {
+                MessageBox.Show("Please select product");
+                return;
+            }
+            String product = ProductList.SelectedItem.ToString();
+            StoreProduct storeProduct = new StoreProduct();
+            storeProduct.RefactorString(product);
+
+            bool DONE = controllerStoreProduct.RemoveStoreProduct(controllerStore.GetStoreID(), storeProduct.storeProductID);
+            if (DONE)
+                MessageBox.Show("Product Deleted");
+            else
+                MessageBox.Show("Product Deleted failed");
+
+            BShowStoreProduct_Click(sender, e);
+        }
+
+        private void BShowProductStat_Click(object sender, EventArgs e)
+        {
+            if (ProductList.SelectedItem == null)
+            {
+                MessageBox.Show("Please select product");
+                return;
+            }
+            String product = ProductList.SelectedItem.ToString();
+            StoreProduct storeProduct = new StoreProduct();
+            storeProduct.RefactorString(product);
+
+            Statistics stat = controllerStoreProduct.GetProductStat(storeProduct.storeProductID);
+
+            this.TProductView.Text = stat.CntView.ToString();
+            this.TProductSold.Text = stat.CntSold.ToString();
+        }
+
+        ///////////////////////////////////// System Products /////////////////////////////////////
+
+        private void ShowProducts_Click(object sender, EventArgs e)
+        {
+            this.SystemProductsList.Items.Clear();
+            List<ProductRawData> productsList = controllerSO.GetSystemProducts();
+            if (productsList == null)
+                return;
+
+            foreach (ProductRawData product in productsList)
+            {
+                this.SystemProductsList.Items.Add(product.ToString());
+            }
+        }
+
+        ///////////////////////////////////// System Brands /////////////////////////////////////
+
+        private void BShowBrands_Click(object sender, EventArgs e)
+        {
+            this.SystemBrandsList.Items.Clear();
+            List<BrandRawData> brandsList = controllerSO.GetSystemBrands();
+            if (brandsList == null)
+                return;
+
+            foreach (BrandRawData brand in brandsList)
+            {
+                this.SystemBrandsList.Items.Add(brand.ToString());
+            }
+        }
+
+
+        ///////////////////////////////////// Collaborators /////////////////////////////////////
+
+        private void CurrentStore_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BCollaborators_Click(object sender, EventArgs e)
+        {
+            CollaboratorController collaboratorController = new CollaboratorController(controllerSO.storeOwner.Data.ID, controllerStore.store.storeData.storeData.ID);
+            CollaboratorsPage collaboratorsPage = new CollaboratorsPage(collaboratorController);
+            collaboratorsPage.Show();
+        }
+
+        ///////////////////////////////////// Others /////////////////////////////////////
 
         private void Bclose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void ShowProducts_Click(object sender, EventArgs e)
-        {
-            /*
-            ProductsList.Items.Clear();
-            String cmd = "select * from Product";
-            DataTable tpData = dataBase.Query(cmd);
-            foreach (DataRow row in tpData.Rows)
-            {
-                String tpStr = "";
-                foreach (DataColumn col in tpData.Columns)
-                {
-                    tpStr += row[col].ToString() + ",";
-                }
-                //Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
-            }
-            */
-        }
 
-        private void AddProduct_Click(object sender, EventArgs e)
-        {
-            /*
-            String cmd;
-            List<int> select = new List<int>();
-            for (int i = 0; i < Products.Items.Count; i++)
-            {
-                if (Products.GetItemChecked(i))
-                {
-                    select.Add(i);
-                }
-            }
-            foreach (int inx in select)
-            {
-                String cmdStat = "insert into MyStatistics values(" + IDStat + ",0,0)";
-                dataBase.QueryExec(cmdStat);
 
-                price = 0.0;
-                amount = 0;
-                InputData temp = new InputData("Enter Price", "Enter Amount", Products.Items[inx].ToString().Split(',')[3]);
-                temp.ShowDialog();
 
-                cmd = "insert into StoreProductStat values (" + store.SD.ID + "," + Products.Items[inx].ToString().Split(',')[0] + "," + IDStat + "," +price+","+amount+")";
-                dataBase.QueryExec(cmd);
-                MessageBox.Show("Item Added Succesfully");
-            }
-            */
-        }
-        
 
-        private static double price = 0.0;
-        private static int amount = 0;
-        public static void setPrice(double val)
-        {
-            price = val;
-        }
-        public static void setAmount(int val)
-        {
-            amount = val;
-        }
-        private void BRefresh_Click(object sender, EventArgs e)
-        {
-            /*
-            MyProducts.Items.Clear();
-            try
-            {
-                store.GetProducts();
-                for (int i = 0; i < store.PD.Length; i++)
-                {
-                    String tp = store.PD[i].ID+","+store.PD[i].Name + "," + store.PD[i].BrandName + "," + store.PD[i].BrandType +","+store.PD[i].amount+","+store.PD[i].price;
-                    MyProducts.Items.Add(tp);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("No Data");
-            }
-            */
-        }
-
-        private void ShowProductStat_Click(object sender, EventArgs e)
-        {
-            /*
-            List<int> select = new List<int>();
-            for (int i = 0; i < MyProducts.Items.Count; i++)
-            {
-                if (MyProducts.GetItemChecked(i))
-                {
-                    select.Add(i);
-                }
-            }
-            store.GetStat();
-            foreach (int inx in select)
-            {
-                String tp = MyProducts.Items[inx].ToString().Split(',')[0];
-                Statistics context = store.PS[tp];
-                MessageBox.Show(context.CntView+" "+context.CntSold);
-            }
-            */
-        }
-
-        private void ShowProducts_Click_1(object sender, EventArgs e)
-        {
-
-        }
+        ///////////////////////////////////// Class End /////////////////////////////////////
     }
 }

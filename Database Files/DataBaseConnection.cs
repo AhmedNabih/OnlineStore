@@ -4,7 +4,6 @@ namespace OnlineStore.Database_Files
 {
     public class DataBaseConnection : IConnectionString
     {
-        private DataBaseConnection instance;
         private String ConnctionString;
 
         public DataBaseConnection()

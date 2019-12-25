@@ -1,13 +1,14 @@
-﻿using OnlineStore.Database_Files;
+﻿using OnlineStore.Data;
+using OnlineStore.Database_Files;
 using OnlineStore.Queries_Controllers;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace OnlineStore.App.Stores.Data
 {
     public class StoreProductController
     {
-        private List<StoreProduct> products;
         private StoreProductControllerQueries queries;
 
         public StoreProductController()
@@ -21,12 +22,71 @@ namespace OnlineStore.App.Stores.Data
             connectionString.SetConnectionString(connectionStr);
 
             this.queries = new StoreProductControllerQueries(connectionString);
-            this.products = new List<StoreProduct>();
         }
 
         public bool AddStoreProduct(String storeID, StoreProduct product)
         {
             return queries.AddStoreProduct(storeID, product);
         }
+
+        public bool RemoveStoreProduct(String StoreID, String StoreProductID)
+        {
+            return queries.RemoveStoreProduct(StoreID, StoreProductID);
+        }
+
+        public bool EditStoreProduct(String StoreID, String StoreProductID)
+        {
+            return queries.EditStoreProduct(StoreID, StoreProductID);
+        }
+
+        public List<StoreProduct> GetStoreProducts(String StoreID)
+        {
+            // storeProductID, StoreID, ProductID, productName, ProductType, BrandID, BrandName, BrandType, price, amount
+            DataTable dataTable = queries.GetStoreProducts(StoreID);
+            if (dataTable == null)
+                return null;
+
+            List<StoreProduct> storeProductList = new List<StoreProduct>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                String[] tpStr = new String[dataTable.Columns.Count];
+                int i = 0;
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    tpStr[i] = row[col].ToString();
+                    i++;
+                }
+                StoreProduct tempData = new StoreProduct();
+                tempData.Handler(tpStr);
+                storeProductList.Add(tempData);
+            }
+
+            return storeProductList;
+        }
+
+        public Statistics GetProductStat(String storeProductID)
+        {
+            DataTable dataTable = queries.GetProductStat(storeProductID);
+            if (dataTable == null)
+                return null;
+            Statistics statistics = new Statistics();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                String[] tpStr = new String[dataTable.Columns.Count];
+                int i = 0;
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    tpStr[i] = row[col].ToString();
+                    i++;
+                }
+                statistics.Handler(tpStr);
+            }
+
+            return statistics;
+        }
+
+        ///////////////////////////////////// Class End /////////////////////////////////////
     }
 }

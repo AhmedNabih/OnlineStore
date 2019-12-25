@@ -1,4 +1,5 @@
 ﻿using OnlineStore.App.Stores.Data;
+using OnlineStore.Data;
 using OnlineStore.Database_Files;
 using OnlineStore.Queries_Controllers;
 using OnlineStore.Users.UserFactoryPattern;
@@ -10,7 +11,7 @@ namespace OnlineStore.Users.StoreOwners
 {
     public class StoreOwnerController
     {
-        public IUser storeOwner;
+        public StoreOwner storeOwner;
         private StoreOwnerControllerQueries queries;
 
         public StoreOwnerController(StoreOwner storeOwner)
@@ -59,6 +60,100 @@ namespace OnlineStore.Users.StoreOwners
         public bool DeleteStore(String userID,String StoreID)
         {
             return this.queries.DeleteStore(userID, StoreID);
+        }
+
+        public List<ProductRawData> GetSystemProducts()
+        {
+            DataTable dataTable = queries.GetSystemProducts();
+            if (dataTable == null)
+                return null;
+            List<ProductRawData> productsList = new List<ProductRawData>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                String[] tpStr = new String[dataTable.Columns.Count];
+                int i = 0;
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    tpStr[i] = row[col].ToString();
+                    i++;
+                }
+                ProductRawData tempData = new ProductRawData();
+                tempData.Handler(tpStr);
+                productsList.Add(tempData);
+            }
+
+            return productsList;
+        }
+
+        public List<BrandRawData> GetSystemBrands()
+        {
+            DataTable dataTable = queries.GetSystemBrands();
+            if (dataTable == null)
+                return null;
+            List<BrandRawData> brandsList = new List<BrandRawData>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                String[] tpStr = new String[dataTable.Columns.Count];
+                int i = 0;
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    tpStr[i] = row[col].ToString();
+                    i++;
+                }
+                BrandRawData tempData = new BrandRawData();
+                tempData.Handler(tpStr);
+                brandsList.Add(tempData);
+            }
+
+            return brandsList;
+        }
+
+        public Statistics GetStoreStat(String StoreID)
+        {
+            DataTable dataTable = queries.GetStoreStat(StoreID);
+            if (dataTable == null)
+                return null;
+            Statistics stat = new Statistics();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                String[] tpStr = new String[dataTable.Columns.Count];
+                int i = 0;
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    tpStr[i] = row[col].ToString();
+                    i++;
+                }
+                stat.Handler(tpStr);
+            }
+
+            return stat;
+        }
+
+        public List<StoreRawData> GetCollaboratorStores(String UserID)
+        {
+            DataTable dataTable = queries.GetCollaboratorStores(UserID);
+            if (dataTable == null)
+                return null;
+            List<StoreRawData> StoresList = new List<StoreRawData>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                String[] tpStr = new String[dataTable.Columns.Count];
+                int i = 0;
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    tpStr[i] = row[col].ToString();
+                    i++;
+                }
+                StoreRawData tempData = new StoreRawData();
+                tempData.Handler(tpStr);
+                StoresList.Add(tempData);
+            }
+
+            return StoresList;
         }
 
 

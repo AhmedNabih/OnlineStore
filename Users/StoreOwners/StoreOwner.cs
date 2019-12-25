@@ -12,7 +12,7 @@ namespace OnlineStore.Users.StoreOwners
 {
     public class StoreOwner : IUser, IBuyable
     {
-        private ShoppingCartController controllerCart;
+        public ShoppingCartController controllerCart;
         public Store[] storeslist;
         private DataBase dataBase;
 

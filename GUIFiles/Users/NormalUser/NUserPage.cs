@@ -106,7 +106,7 @@ namespace OnlineStore
             StoreID = s[2];
             DataTable tpData = controller.GetProductsInStore(s[2]);
             DataTable StatID=queries.GetStatID(s[2]);
-          statID=StatID.Rows[0].ItemArray[0].ToString();
+            statID=StatID.Rows[0].ItemArray[0].ToString();
             queries.UpdateViews(statID);
             if (tpData == null)
                 return;
@@ -164,5 +164,9 @@ namespace OnlineStore
             cart.ShowDialog();
         }
 
+        private void BClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

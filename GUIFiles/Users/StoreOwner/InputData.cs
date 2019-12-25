@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OnlineStore.GUIFiles
@@ -24,8 +17,8 @@ namespace OnlineStore.GUIFiles
         {
             double price = System.Convert.ToDouble(data1.Text);
             int amount = Convert.ToInt32(data2.Text);
-          //  StoreLayoutPage.setPrice(price);
-            //StoreLayoutPage.setAmount(amount);
+            StoreLayoutPage.SetPrice(price);
+            StoreLayoutPage.SetAmount(amount);
             this.Close();
         }
 

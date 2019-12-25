@@ -10,7 +10,6 @@ namespace OnlineStore.App.Stores.Data
         public String storeID;
         public ProductRawData product;
         public BrandRawData brand;
-        public Statistics statistics;
         public double price;
         public int amount;
 
@@ -20,18 +19,16 @@ namespace OnlineStore.App.Stores.Data
             this.storeID = null;
             this.product = new ProductRawData();
             this.brand = new BrandRawData();
-            this.statistics = new Statistics();
             this.price = 0.0;
             this.amount = 0;
         }
 
-        public StoreProduct(String storeProductID, String storeID, ProductRawData product, BrandRawData brand, Statistics statistics, double price, int amount)
+        public StoreProduct(String storeProductID, String storeID, ProductRawData product, BrandRawData brand, double price, int amount)
         {
             this.storeProductID = storeProductID;
             this.storeID = storeID;
             this.product = product;
             this.brand = brand;
-            this.statistics = statistics;
             this.price = price;
             this.amount = amount;
         }
@@ -41,29 +38,25 @@ namespace OnlineStore.App.Stores.Data
             this.storeProductID = data[0];
             this.storeID = data[1];
             
-            int i = 2;
             String[] dumy = new String[3];
-            for (int j = 0; i < 5; i++,j++)
-                dumy[j] = data[i];
+            dumy[0] = data[2];
+            dumy[1] = data[3];
+            dumy[2] = data[4];
             this.product.Handler(dumy);
 
             dumy = new String[3];
-            for (int j = 0; i < 9; i++,j++)
-                dumy[j] = data[i];
+            dumy[0] = data[5];
+            dumy[1] = data[6];
+            dumy[2] = data[7];
             this.brand.Handler(dumy);
 
-            dumy = new String[4];
-            for (int j = 0; i < 13; i++, j++)
-                dumy[j] = data[i];
-            this.statistics.Handler(dumy);
-
-            this.price = System.Convert.ToDouble(data[i]);
-            this.amount = System.Convert.ToInt32(data[i+1]);
+            this.price = System.Convert.ToDouble(data[8]);
+            this.amount = System.Convert.ToInt32(data[9]);
         }
 
         public override String ToString()
         {
-            return "Store Product ID: " + storeProductID + " Store ID: " + storeID + " Product Price: " + price + " Product Amount: " + amount + " -> " + product.ToString() + " -> " + brand.ToString() + " -> " + statistics.ToString();
+            return "Store Product ID: " + storeProductID + " Store ID: " + storeID + " Product Price: " + price + " Product Amount: " + amount + " -> " + product.ToString() + " -> " + brand.ToString();
         }
 
         public void RefactorString(String str)
@@ -78,7 +71,6 @@ namespace OnlineStore.App.Stores.Data
                 this.amount = System.Convert.ToInt32(re[12]);
                 product.RefactorString(tempData[1]);
                 brand.RefactorString(tempData[2]);
-                statistics.RefactorString(tempData[3]);
             }
             catch
             {

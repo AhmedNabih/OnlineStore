@@ -90,6 +90,74 @@ namespace OnlineStore.Queries_Controllers
             }
         }
 
+        public DataTable GetSystemProducts()
+        {
+            try
+            {
+                String cmd = "select * from product";
+                DataTable datatable = dataBase.Query(cmd);
+
+                if (datatable.Rows.Count <= 0)
+                    return null;
+                return datatable;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public DataTable GetSystemBrands()
+        {
+            try
+            {
+                String cmd = "select * from brand";
+                DataTable datatable = dataBase.Query(cmd);
+
+                if (datatable.Rows.Count <= 0)
+                    return null;
+                return datatable;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public DataTable GetStoreStat(String StoreID)
+        {
+            try
+            {
+                String cmd = "select s.StatID, s.NumOfViews, s.NumOfSold from Statistic s inner join UserStore us on s.StatID = us.StatID and us.StoreID = " + StoreID;
+                DataTable datatable = dataBase.Query(cmd);
+
+                if (datatable.Rows.Count <= 0)
+                    return null;
+                return datatable;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public DataTable GetCollaboratorStores(String UserID)
+        {
+            try
+            {
+                String cmd = "select s.StoreID,s.StoreName,s.StoreType,s.StoreLocation,s.StoreInfo from Store s inner join collaborators c on s.StoreID = c.StoreID and c.UserID = " + UserID;
+                DataTable datatable = dataBase.Query(cmd);
+
+                if (datatable.Rows.Count <= 0)
+                    return null;
+                return datatable;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
 
         ///////////////////////////////////// Class End /////////////////////////////////////
     }

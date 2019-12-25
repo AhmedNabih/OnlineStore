@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using OnlineStore.App.Stores;
 using OnlineStore.App.Stores.Data;
+using OnlineStore.Data;
 using OnlineStore.GUIFiles;
+using OnlineStore.Users;
+using OnlineStore.Users.NormalUsers;
 using OnlineStore.Users.StoreOwners;
 
 namespace OnlineStore
@@ -71,11 +75,22 @@ namespace OnlineStore
             String SelectedItem = MyStores.SelectedItem.ToString();
             StoreRawData tempData = new StoreRawData();
             tempData.RefactorString(SelectedItem);
-            String UserID = controllerSO.storeOwner.Data.ID;
             String StoreID = tempData.ID;
 
+            String UserID = controllerSO.storeOwner.Data.ID;
+            StoreRawData storeRawData = new StoreRawData();
+            storeRawData.RefactorString(MyStores.SelectedItem.ToString());
+            Statistics statistics = controllerSO.GetStoreStat(storeRawData.ID);
 
+            UserStoreData userStoreData = new UserStoreData(UserID, storeRawData, statistics);
 
+            Store store = new Store(userStoreData);
+
+            StoreController storeController = new StoreController(store);
+            StoreProductController storeProductController = new StoreProductController();
+
+            StoreLayoutPage storeLayoutPage = new StoreLayoutPage(controllerSO, storeController, storeProductController, false);
+            storeLayoutPage.Show();
         }
 
         private void Bexit_Click(object sender, EventArgs e)
@@ -87,6 +102,52 @@ namespace OnlineStore
         {
             mainPage.GetInstance().Show();
             this.Close();
+        }
+
+        private void BNormalUser_Click(object sender, EventArgs e)
+        {
+            IBuyable buyable = controllerSO.storeOwner;
+            NormalUserController normalUserController = new NormalUserController(controllerSO.storeOwner);
+            NUserPage nUserPage = new NUserPage(normalUserController, controllerSO.storeOwner.controllerCart, buyable);
+            nUserPage.Show();
+        }
+
+        private void BRefreshCollaboratorList_Click(object sender, EventArgs e)
+        {
+            OtherStores.Items.Clear();
+
+            List<StoreRawData> StoresList = controllerSO.GetCollaboratorStores(controllerSO.storeOwner.Data.ID);
+
+            if (StoresList == null)
+                return;
+
+            foreach (StoreRawData storeData in StoresList)
+            {
+                OtherStores.Items.Add(storeData.ToString());
+            }
+        }
+
+        private void BOpenOtherStore_Click(object sender, EventArgs e)
+        {
+            String SelectedItem = OtherStores.SelectedItem.ToString();
+            StoreRawData tempData = new StoreRawData();
+            tempData.RefactorString(SelectedItem);
+            String StoreID = tempData.ID;
+
+            String UserID = controllerSO.storeOwner.Data.ID;
+            StoreRawData storeRawData = new StoreRawData();
+            storeRawData.RefactorString(OtherStores.SelectedItem.ToString());
+            Statistics statistics = controllerSO.GetStoreStat(storeRawData.ID);
+
+            UserStoreData userStoreData = new UserStoreData(UserID, storeRawData, statistics);
+
+            Store store = new Store(userStoreData);
+
+            StoreController storeController = new StoreController(store);
+            StoreProductController storeProductController = new StoreProductController();
+
+            StoreLayoutPage storeLayoutPage = new StoreLayoutPage(controllerSO, storeController, storeProductController, true);
+            storeLayoutPage.Show();
         }
 
 

@@ -24,6 +24,20 @@ namespace OnlineStore.Users.NormalUsers
             this.quiere = new NormalUserControllerQueries(connectionString);
 
         }
+
+        public NormalUserController(IUser user)
+        {
+            this.normalUser = user;
+            // My Online MSQL DataBase
+            String connectionStr = "Data Source=SQL5047.site4now.net;Initial Catalog=DB_A5071D_OnlineStore;User Id=DB_A5071D_OnlineStore_admin;Password=01152160972Ah;";
+            // Local MSQL DataBase
+            //String connectionStr = "Data Source=DESKTOP-JEM2R23\\;Initial Catalog=OnlineStore;Integrated Security=True";
+
+            IConnectionString connectionString = new DataBaseConnection();
+            connectionString.SetConnectionString(connectionStr);
+            this.quiere = new NormalUserControllerQueries(connectionString);
+        }
+
         public DataTable GetAllStores()
         {
             return quiere.GetAllStores();

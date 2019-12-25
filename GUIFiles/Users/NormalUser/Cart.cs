@@ -13,6 +13,7 @@ namespace OnlineStore.GUIFiles
     {
         ShoppingCartControllerQueries querie;
         public NormalUserController controller;
+        public ShoppingCartController cartController;
         List<CartItem> ListItem;
         private IBuyable buyable;
         public string StoreID;
@@ -57,7 +58,6 @@ namespace OnlineStore.GUIFiles
         {
             Double price = buyable.Buy();
             MessageBox.Show(price.ToString());
-            string[] s = null ;
             for(int i=0;i<ListItem.Count;i++)
             {
 
