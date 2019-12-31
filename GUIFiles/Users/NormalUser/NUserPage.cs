@@ -43,29 +43,15 @@ namespace OnlineStore
             cartObject = new CartItem();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Exit_Click(object sender, EventArgs e)
         {
+            Application.Exit();
         }
 
         private void LogOut_Click(object sender, EventArgs e)
         {
             mainPage.GetInstance().Show();
             this.Close();
-        }
-
-        private void Store_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void NUserPage_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void Refresh_Click(object sender, EventArgs e)

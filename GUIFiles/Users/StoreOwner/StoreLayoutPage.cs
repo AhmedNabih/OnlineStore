@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using OnlineStore.App.StoreCommand;
+using OnlineStore.App.StoreCommand.Commands;
 using OnlineStore.App.Stores;
 using OnlineStore.App.Stores.Data;
 using OnlineStore.Data;
@@ -16,7 +18,7 @@ namespace OnlineStore.GUIFiles
         private StoreProductController controllerStoreProduct;
         private static double price = 0.0;
         private static int amount = 0;
-        private bool collMode = false;
+        private bool collMode;
         public static void SetPrice(double p) { price = p; }
         public static void SetAmount(int a) { amount = a; }
 
@@ -34,6 +36,13 @@ namespace OnlineStore.GUIFiles
             this.TStoreName.Text = controllerStore.store.storeData.storeData.Name;
             this.TstoreType.Text = controllerStore.store.storeData.storeData.Type;
             this.TstoreLocation.Text = controllerStore.store.storeData.storeData.Location;
+
+            if (collMode)
+            {
+                this.CollabHistory.Visible = false;
+                this.BCollaborators.Visible = false;
+            }
+                
         }
 
         ///////////////////////////////////// Store Products /////////////////////////////////////
@@ -73,9 +82,25 @@ namespace OnlineStore.GUIFiles
             inputData.ShowDialog();
 
             StoreProduct storeProduct = new StoreProduct("0", controllerStore.GetStoreID(), productRawData, brandRawData, price, amount);
-            bool DONE = controllerStoreProduct.AddStoreProduct(controllerStore.GetStoreID(), storeProduct);
+            StoreCommandInvoker invoker = new StoreCommandInvoker();
+            
+            IStoreCommand command = new AddCommand();
+            CommandData commandData = new CommandData();
+            commandData.UserIDCollab = controllerSO.storeOwner.Data.ID;
+            commandData.UsernameCollab = controllerSO.storeOwner.Data.userName;
+            commandData.CmdType = "Add";
+            commandData.ProductID = storeProduct.storeProductID;
+            commandData.ProductName = storeProduct.product.Name;
+            commandData.PAmount = storeProduct.amount;
+            commandData.Price = storeProduct.price;
+            commandData.StoreID = storeProduct.storeID;
+
+            bool DONE = invoker.DoCommand(command, commandData, this.collMode, storeProduct);
+                //controllerStoreProduct.AddStoreProduct(controllerStore.GetStoreID(), storeProduct);
             if (DONE)
+            {
                 MessageBox.Show("Product Added");
+            }
             else
                 MessageBox.Show("Product Add failed");
 
@@ -98,7 +123,22 @@ namespace OnlineStore.GUIFiles
             StoreProduct storeProduct = new StoreProduct();
             storeProduct.RefactorString(product);
 
-            bool DONE = controllerStoreProduct.RemoveStoreProduct(controllerStore.GetStoreID(), storeProduct.storeProductID);
+            StoreCommandInvoker invoker = new StoreCommandInvoker();
+
+            IStoreCommand command = new DeleteCommand();
+            CommandData commandData = new CommandData();
+            commandData.UserIDCollab = controllerSO.storeOwner.Data.ID;
+            commandData.UsernameCollab = controllerSO.storeOwner.Data.userName;
+            commandData.CmdType = "Delete";
+            commandData.ProductID = storeProduct.storeProductID;
+            commandData.ProductName = storeProduct.product.Name;
+            commandData.PAmount = storeProduct.amount;
+            commandData.Price = storeProduct.price;
+            commandData.StoreID = storeProduct.storeID;
+
+            bool DONE = invoker.DoCommand(command, commandData, this.collMode, storeProduct);
+
+            //bool DONE = controllerStoreProduct.RemoveStoreProduct(controllerStore.GetStoreID(), storeProduct.storeProductID);
             if (DONE)
                 MessageBox.Show("Product Deleted");
             else
@@ -174,6 +214,12 @@ namespace OnlineStore.GUIFiles
         private void Bclose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CollabHistory_Click(object sender, EventArgs e)
+        {
+            CollabHistory button = new CollabHistory(controllerStore.GetStoreID());
+            button.Show();
         }
 
 

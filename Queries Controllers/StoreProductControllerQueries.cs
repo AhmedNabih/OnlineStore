@@ -14,7 +14,7 @@ namespace OnlineStore.Queries_Controllers
             this.dataBase = DataBase.GetInstance(connectionString);
         }
 
-        public bool AddStoreProduct(String StoreID, StoreProduct product)
+        public String AddStoreProduct(String StoreID, StoreProduct product)
         {
             // storeID, brandID, productID, statID, price, amount
             try
@@ -24,7 +24,35 @@ namespace OnlineStore.Queries_Controllers
                 DataTable dataTable = dataBase.Query(cmd);
                 String statID = dataTable.Rows[0][0].ToString();
                 // add all to Store Product
-                cmd = "insert into StoreProducts(StoreID,BrandID,ProductID,StatID,price,amount) values(" + StoreID + "," + product.brand.ID + "," + product.product.ID + "," + statID + "," + product.price + "," + product.amount + ")";
+                cmd = "insert into StoreProducts(StoreID,BrandID,ProductID,StatID,price,amount,visable) output Inserted.StoreProductID values(" + StoreID + "," + product.brand.ID + "," + product.product.ID + "," + statID + "," + product.price + "," + product.amount + ",1)";
+                DataTable dataTable1 = dataBase.Query(cmd);
+                return dataTable1.Rows[0][0].ToString();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public bool AddStoreProductVisable(String StoreProductID)
+        {
+            try
+            {
+                String cmd = "UPDATE StoreProducts set visable = 1 where StoreProductID = " + StoreProductID;
+                dataBase.QueryExec(cmd);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public bool RemoveStoreProductVisable(String StoreProductID)
+        {
+            try
+            {
+                String cmd = "UPDATE StoreProducts set visable = 0 where StoreProductID = " + StoreProductID;
                 dataBase.QueryExec(cmd);
                 return true;
             }
@@ -79,7 +107,7 @@ namespace OnlineStore.Queries_Controllers
             // storeProductID, StoreID, ProductID, productName, ProductType, BrandID, BrandName, BrandType, price, amount
             try
             {
-                String cmd = "select NT.StoreProductID, NT.StoreID, NT.ProductID, NT.ProductName, NT.ProductType, b.BrandID, b.BrandName, b.BrandType, NT.price, NT.amount from (select sp.StoreProductID,sp.StoreID,sp.BrandID,p.ProductID,p.ProductName,p.ProductType,sp.price,sp.amount from StoreProducts sp inner join Product p on sp.ProductID = p.ProductID and sp.StoreID = " + StoreID + ") as NT inner join brand b on b.BrandID = NT.BrandID";
+                String cmd = "select NT.StoreProductID, NT.StoreID, NT.ProductID, NT.ProductName, NT.ProductType, b.BrandID, b.BrandName, b.BrandType, NT.price, NT.amount from (select sp.StoreProductID,sp.StoreID,sp.BrandID,p.ProductID,p.ProductName,p.ProductType,sp.price,sp.amount from StoreProducts sp inner join Product p on sp.ProductID = p.ProductID and sp.StoreID = " + StoreID + " and sp.visable=1) as NT inner join brand b on b.BrandID = NT.BrandID";
                 DataTable dataTable = dataBase.Query(cmd);
                 if (dataTable.Rows.Count <= 0)
                     return null;

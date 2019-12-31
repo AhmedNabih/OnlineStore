@@ -65,6 +65,7 @@
             this.LSystemBrandList = new System.Windows.Forms.Label();
             this.BCollaborators = new System.Windows.Forms.Button();
             this.BShowStoreProduct = new System.Windows.Forms.Button();
+            this.CollabHistory = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Bclose
@@ -418,11 +419,23 @@
             this.BShowStoreProduct.UseVisualStyleBackColor = true;
             this.BShowStoreProduct.Click += new System.EventHandler(this.BShowStoreProduct_Click);
             // 
+            // CollabHistory
+            // 
+            this.CollabHistory.Location = new System.Drawing.Point(1054, 800);
+            this.CollabHistory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CollabHistory.Name = "CollabHistory";
+            this.CollabHistory.Size = new System.Drawing.Size(158, 23);
+            this.CollabHistory.TabIndex = 68;
+            this.CollabHistory.Text = "Collaborators History";
+            this.CollabHistory.UseVisualStyleBackColor = true;
+            this.CollabHistory.Click += new System.EventHandler(this.CollabHistory_Click);
+            // 
             // StoreLayoutPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1482, 834);
+            this.Controls.Add(this.CollabHistory);
             this.Controls.Add(this.BShowStoreProduct);
             this.Controls.Add(this.BCollaborators);
             this.Controls.Add(this.LSystemBrandList);
@@ -507,5 +520,6 @@
         private System.Windows.Forms.Label LSystemBrandList;
         private System.Windows.Forms.Button BCollaborators;
         private System.Windows.Forms.Button BShowStoreProduct;
+        private System.Windows.Forms.Button CollabHistory;
     }
 }

@@ -48,6 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\StoreCommand\CommandData.cs" />
+    <Compile Include="App\StoreCommand\Commands\AddCommand.cs" />
+    <Compile Include="App\StoreCommand\Commands\DeleteCommand.cs" />
+    <Compile Include="App\StoreCommand\Commands\StoreCommandFactory.cs" />
+    <Compile Include="App\StoreCommand\IStoreCommand.cs" />
+    <Compile Include="App\StoreCommand\StoreCommandController.cs" />
+    <Compile Include="App\StoreCommand\StoreCommandInvoker.cs" />
     <Compile Include="App\Stores\Data\Offer.cs" />
     <Compile Include="App\Stores\Data\StoreProduct.cs" />
     <Compile Include="App\Stores\Data\StoreProductController.cs" />
@@ -62,11 +69,11 @@
     <Compile Include="CartSystem\TotalPriceDecorator\SimpleTotalPrice.cs" />
     <Compile Include="Database Files\DataBase.cs" />
     <Compile Include="Database Files\DataBaseConnection.cs" />
-    <Compile Include="Database Files\fileRW.cs" />
     <Compile Include="Database Files\IConnectionString.cs" />
     <Compile Include="Data\BrandRawData.cs" />
     <Compile Include="Data\Collaborator.cs" />
     <Compile Include="Data\CollaboratorController.cs" />
+    <Compile Include="Data\IData.cs" />
     <Compile Include="Data\ProductRawData.cs" />
     <Compile Include="Data\Statistics.cs" />
     <Compile Include="Data\StoreRequest.cs" />
@@ -137,6 +144,12 @@
     <Compile Include="GUIFiles\Users\StoreOwner\addStorePage.Designer.cs">
       <DependentUpon>addStorePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\CollabHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIFiles\Users\StoreOwner\CollabHistory.Designer.cs">
+      <DependentUpon>CollabHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIFiles\Users\StoreOwner\CollaboratorsPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,6 +181,7 @@
     <Compile Include="Queries Controllers\AdminStatisticsControllerQueries.cs" />
     <Compile Include="Queries Controllers\CollaboratorControllerQueries.cs" />
     <Compile Include="Queries Controllers\NormalUserControllerQueries.cs" />
+    <Compile Include="Queries Controllers\StoreCommandControllerQueries.cs" />
     <Compile Include="Queries Controllers\StoreControllerQueries.cs" />
     <Compile Include="Queries Controllers\StoreOwnerControllerQueries.cs" />
     <Compile Include="Queries Controllers\StoreProductControllerQueries.cs" />
@@ -260,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\Users\StoreOwner\addStorePage.resx">
       <DependentUpon>addStorePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIFiles\Users\StoreOwner\CollabHistory.resx">
+      <DependentUpon>CollabHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUIFiles\Users\StoreOwner\CollaboratorsPage.resx">
       <DependentUpon>CollaboratorsPage.cs</DependentUpon>

@@ -24,9 +24,19 @@ namespace OnlineStore.App.Stores.Data
             this.queries = new StoreProductControllerQueries(connectionString);
         }
 
-        public bool AddStoreProduct(String storeID, StoreProduct product)
+        public string AddStoreProduct(String storeID, StoreProduct product)
         {
             return queries.AddStoreProduct(storeID, product);
+        }
+
+        public bool AddStoreProductVisable(String StoreProductID)
+        {
+            return queries.AddStoreProductVisable(StoreProductID);
+        }
+
+        public bool RemoveStoreProductVisable(String StoreProductID)
+        {
+            return queries.RemoveStoreProductVisable(StoreProductID);
         }
 
         public bool RemoveStoreProduct(String StoreID, String StoreProductID)
