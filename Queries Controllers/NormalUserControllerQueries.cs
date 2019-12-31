@@ -17,10 +17,20 @@ namespace OnlineStore.Queries_Controllers
         }
         public DataTable GetAllStores()
         {
-            String cmd = "select f.UserID,UserName, f.StoreID, f.StoreName,f.StoreType,f.StoreLocation,f.StoreInfo from MyUser mu inner join (select UserID, s.StoreID, StoreName, StoreType, StoreLocation, StoreInfo from Store s inner join UserStore us on s.StoreID = us.StoreID) as f on f.UserID = mu.UserID";
-            DataTable datatable = dataBase.Query(cmd);
-            return datatable;
+            try
+            {
+                String cmd = "select * from store where visable = 1";
+                DataTable datatable = dataBase.Query(cmd);
+                if (datatable.Rows.Count <= 0)
+                    return null;
+                return datatable;
+            }
+            catch
+            {
+                return null;
+            }
         }
+
         public DataTable GetProductsInStore(String StoreID)
         {
             try

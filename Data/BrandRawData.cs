@@ -41,7 +41,7 @@ namespace OnlineStore.Data
             try
             {
                 String[] tempData = str.Split(' ');
-                String[] Refactor = { tempData[2], tempData[4], tempData[6] };
+                String[] Refactor = { tempData[2], tempData[5], tempData[8] };
                 Handler(Refactor);
             }
             catch

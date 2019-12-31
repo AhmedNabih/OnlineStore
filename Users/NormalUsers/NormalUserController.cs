@@ -1,7 +1,9 @@
-﻿using OnlineStore.Database_Files;
+﻿using OnlineStore.App.Stores.Data;
+using OnlineStore.Database_Files;
 using OnlineStore.Queries_Controllers;
 using OnlineStore.Users.UserFactoryPattern;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace OnlineStore.Users.NormalUsers
@@ -9,7 +11,7 @@ namespace OnlineStore.Users.NormalUsers
     public class NormalUserController
     {
         public IUser normalUser;
-        private NormalUserControllerQueries quiere;
+        private NormalUserControllerQueries queries;
 
         public NormalUserController(NormalUser normalUser)
         {
@@ -21,7 +23,7 @@ namespace OnlineStore.Users.NormalUsers
 
             IConnectionString connectionString = new DataBaseConnection();
             connectionString.SetConnectionString(connectionStr);
-            this.quiere = new NormalUserControllerQueries(connectionString);
+            this.queries = new NormalUserControllerQueries(connectionString);
 
         }
 
@@ -35,16 +37,35 @@ namespace OnlineStore.Users.NormalUsers
 
             IConnectionString connectionString = new DataBaseConnection();
             connectionString.SetConnectionString(connectionStr);
-            this.quiere = new NormalUserControllerQueries(connectionString);
+            this.queries = new NormalUserControllerQueries(connectionString);
         }
 
-        public DataTable GetAllStores()
+        public List<StoreRawData> GetAllStores()
         {
-            return quiere.GetAllStores();
+            DataTable dataTable = queries.GetAllStores();
+            if (dataTable == null)
+                return null;
+            List<StoreRawData> storeList = new List<StoreRawData>();
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                String[] tpStr = new String[dataTable.Columns.Count];
+                int i = 0;
+                foreach (DataColumn col in dataTable.Columns)
+                {
+                    tpStr[i] = row[col].ToString();
+                    i++;
+                }
+                StoreRawData tempData = new StoreRawData();
+                tempData.Handler(tpStr);
+                storeList.Add(tempData);
+            }
+
+            return storeList;
         }
         public DataTable GetProductsInStore(String StoreID)
         {
-            return quiere.GetProductsInStore(StoreID);
+            return queries.GetProductsInStore(StoreID);
         }
     }
 }

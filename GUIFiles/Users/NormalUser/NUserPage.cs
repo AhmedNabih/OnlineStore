@@ -1,3 +1,4 @@
+using OnlineStore.App.Stores.Data;
 using OnlineStore.CartSystem;
 using OnlineStore.CartSystem.Cart;
 using OnlineStore.Database_Files;
@@ -15,6 +16,7 @@ namespace OnlineStore
     {
         public static int amount;
         private NormalUserController controller;
+        private StoreProductController controllerStoreProduct;
         private ShoppingCartController cartController;
         private ShoppingCartControllerQueries queries;
         private IBuyable buyable;
@@ -41,6 +43,7 @@ namespace OnlineStore
             this.cartController = cartController;
             this.buyable = buyable;
             cartObject = new CartItem();
+            controllerStoreProduct = new StoreProductController();
         }
 
         private void Exit_Click(object sender, EventArgs e)
@@ -56,17 +59,14 @@ namespace OnlineStore
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            
             Store.Items.Clear();
-            DataTable tpData = controller.GetAllStores();
-            foreach (DataRow row in tpData.Rows)
+            List<StoreRawData> storeList = controller.GetAllStores();
+            if (storeList == null)
+                return;
+
+            foreach (StoreRawData store in storeList)
             {
-                String tpStr = "";
-                foreach (DataColumn col in tpData.Columns)
-                {
-                    tpStr += row[col].ToString() + ",";
-                }
-                Store.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
+                Store.Items.Add(store.ToString());
             }
             
         }
@@ -74,68 +74,41 @@ namespace OnlineStore
         private void OpenStore_Click(object sender, EventArgs e)
         {
             Products.Items.Clear();
-            String[] s = null;
-            List<int> select = new List<int>();
 
-            for (int i = 0; i < Store.Items.Count; i++)
-            {
-                if (Store.GetItemChecked(i))
-                {
-                    select.Add(i);
-                    break;
-                }
-            }
-            foreach (int inx in select)
-            {
-                s = Store.Items[inx].ToString().Split(',');
-            }
-            StoreID = s[2];
-            DataTable tpData = controller.GetProductsInStore(s[2]);
-            DataTable StatID=queries.GetStatID(s[2]);
-            statID=StatID.Rows[0].ItemArray[0].ToString();
-            queries.UpdateViews(statID);
-            if (tpData == null)
+            if (Store.SelectedItem == null)
                 return;
-            foreach (DataRow row in tpData.Rows)
-            {
-                String tpStr = "";
-                foreach (DataColumn col in tpData.Columns)
-                {
-                    tpStr += row[col].ToString() + ",";
-                }
-                Products.Items.Add(tpStr.Substring(0, tpStr.Length - 1));
-            }
+
+            String selected = Store.SelectedItem.ToString();
+            StoreRawData storeRawData = new StoreRawData();
+            storeRawData.RefactorString(selected);
+
+            List<StoreProduct> storeProducts = controllerStoreProduct.GetStoreProducts(storeRawData.ID);
+            if (storeProducts == null)
+                return;
+            foreach (StoreProduct product in storeProducts)
+                Products.Items.Add(product.ToString());
         }
 
         private void AddToCart_Click(object sender, EventArgs e)
         {
-            
-            String[] s = null;
-            List<int> select = new List<int>();
+            if (Products.SelectedItem == null)
+                return;
 
-            for (int i = 0; i < Products.Items.Count; i++)
-            {
-                if (Products.GetItemChecked(i))
-                {
-                    select.Add(i);
-                    break;
-                }
-            }
-            foreach (int inx in select)
-            {
-                s = Products.Items[inx].ToString().Split(',');
-            }
-            ActualAmount = s[6];
-            ProductInfo temp = new ProductInfo(System.Convert.ToInt32(ActualAmount));
+            String selected = Products.SelectedItem.ToString();
+            StoreProduct storeProduct = new StoreProduct();
+            storeProduct.RefactorString(selected);
+
+            int ActualAmount = storeProduct.amount;
+            ProductInfo temp = new ProductInfo(ActualAmount);
             temp.ShowDialog();
             if (amount != 0)
             {
                 DataTable firstTime = queries.isItFirstTime(controller.normalUser.Data.ID);
                 if (firstTime.Rows.Count <= 0)
-                    cartObject = new CartItem(s[7], s[0], System.Convert.ToDouble(s[5]), amount, true);
+                    cartObject = new CartItem(storeProduct.storeProductID, storeProduct.product.Name, storeProduct.price, storeProduct.amount, true);
                 else
                 {
-                    cartObject = new CartItem(s[7], s[0], System.Convert.ToDouble(s[5]), amount, false);
+                    cartObject = new CartItem(storeProduct.storeProductID, storeProduct.product.Name, storeProduct.price, storeProduct.amount, false);
                 }
                 cartController.addCartItem(cartObject);
             }

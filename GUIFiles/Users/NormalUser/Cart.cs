@@ -70,5 +70,10 @@ namespace OnlineStore.GUIFiles
                 querie.UpdateNumOfSold(statID,ListItem[i].GetAmount().ToString());
             }
         }
+
+        private void BClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

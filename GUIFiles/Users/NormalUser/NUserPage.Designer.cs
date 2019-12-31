@@ -41,17 +41,18 @@
             this.BRefresh = new System.Windows.Forms.Button();
             this.OpenStore = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.Store = new System.Windows.Forms.CheckedListBox();
-            this.Products = new System.Windows.Forms.CheckedListBox();
             this.AddToCart = new System.Windows.Forms.Button();
             this.ViewCart = new System.Windows.Forms.Button();
             this.BClose = new System.Windows.Forms.Button();
+            this.Store = new System.Windows.Forms.ListBox();
+            this.Products = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Lrole
             // 
             this.Lrole.AutoSize = true;
-            this.Lrole.Location = new System.Drawing.Point(767, 21);
+            this.Lrole.Location = new System.Drawing.Point(792, 18);
             this.Lrole.Name = "Lrole";
             this.Lrole.Size = new System.Drawing.Size(37, 17);
             this.Lrole.TabIndex = 16;
@@ -59,7 +60,7 @@
             // 
             // Trole
             // 
-            this.Trole.Location = new System.Drawing.Point(809, 16);
+            this.Trole.Location = new System.Drawing.Point(834, 13);
             this.Trole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Trole.Name = "Trole";
             this.Trole.ReadOnly = true;
@@ -69,7 +70,7 @@
             // Lname
             // 
             this.Lname.AutoSize = true;
-            this.Lname.Location = new System.Drawing.Point(524, 18);
+            this.Lname.Location = new System.Drawing.Point(549, 15);
             this.Lname.Name = "Lname";
             this.Lname.Size = new System.Drawing.Size(45, 17);
             this.Lname.TabIndex = 14;
@@ -78,7 +79,7 @@
             // Lemail
             // 
             this.Lemail.AutoSize = true;
-            this.Lemail.Location = new System.Drawing.Point(283, 18);
+            this.Lemail.Location = new System.Drawing.Point(308, 15);
             this.Lemail.Name = "Lemail";
             this.Lemail.Size = new System.Drawing.Size(42, 17);
             this.Lemail.TabIndex = 13;
@@ -87,7 +88,7 @@
             // LuserName
             // 
             this.LuserName.AutoSize = true;
-            this.LuserName.Location = new System.Drawing.Point(9, 18);
+            this.LuserName.Location = new System.Drawing.Point(34, 15);
             this.LuserName.Name = "LuserName";
             this.LuserName.Size = new System.Drawing.Size(75, 17);
             this.LuserName.TabIndex = 12;
@@ -95,7 +96,7 @@
             // 
             // Temail
             // 
-            this.Temail.Location = new System.Drawing.Point(331, 14);
+            this.Temail.Location = new System.Drawing.Point(356, 11);
             this.Temail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Temail.Name = "Temail";
             this.Temail.ReadOnly = true;
@@ -104,7 +105,7 @@
             // 
             // TuserName
             // 
-            this.TuserName.Location = new System.Drawing.Point(91, 14);
+            this.TuserName.Location = new System.Drawing.Point(116, 11);
             this.TuserName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TuserName.Name = "TuserName";
             this.TuserName.ReadOnly = true;
@@ -113,7 +114,7 @@
             // 
             // Tname
             // 
-            this.Tname.Location = new System.Drawing.Point(572, 16);
+            this.Tname.Location = new System.Drawing.Point(597, 13);
             this.Tname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Tname.Name = "Tname";
             this.Tname.ReadOnly = true;
@@ -122,8 +123,8 @@
             // 
             // LogOut
             // 
-            this.LogOut.Location = new System.Drawing.Point(56, 498);
-            this.LogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LogOut.Location = new System.Drawing.Point(58, 730);
+            this.LogOut.Margin = new System.Windows.Forms.Padding(4);
             this.LogOut.Name = "LogOut";
             this.LogOut.Size = new System.Drawing.Size(100, 28);
             this.LogOut.TabIndex = 20;
@@ -133,8 +134,8 @@
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(331, 498);
-            this.Exit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Exit.Location = new System.Drawing.Point(164, 730);
+            this.Exit.Margin = new System.Windows.Forms.Padding(4);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(100, 28);
             this.Exit.TabIndex = 21;
@@ -144,8 +145,8 @@
             // 
             // BRefresh
             // 
-            this.BRefresh.Location = new System.Drawing.Point(336, 262);
-            this.BRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BRefresh.Location = new System.Drawing.Point(381, 338);
+            this.BRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.BRefresh.Name = "BRefresh";
             this.BRefresh.Size = new System.Drawing.Size(100, 28);
             this.BRefresh.TabIndex = 25;
@@ -155,8 +156,8 @@
             // 
             // OpenStore
             // 
-            this.OpenStore.Location = new System.Drawing.Point(336, 144);
-            this.OpenStore.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.OpenStore.Location = new System.Drawing.Point(510, 338);
+            this.OpenStore.Margin = new System.Windows.Forms.Padding(4);
             this.OpenStore.Name = "OpenStore";
             this.OpenStore.Size = new System.Drawing.Size(100, 28);
             this.OpenStore.TabIndex = 24;
@@ -167,35 +168,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(88, 100);
+            this.label1.Location = new System.Drawing.Point(55, 67);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 17);
             this.label1.TabIndex = 23;
             this.label1.Text = "Available stores";
             // 
-            // Store
-            // 
-            this.Store.FormattingEnabled = true;
-            this.Store.Location = new System.Drawing.Point(35, 119);
-            this.Store.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Store.Name = "Store";
-            this.Store.Size = new System.Drawing.Size(231, 225);
-            this.Store.TabIndex = 22;
-            // 
-            // Products
-            // 
-            this.Products.FormattingEnabled = true;
-            this.Products.Location = new System.Drawing.Point(587, 105);
-            this.Products.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Products.Name = "Products";
-            this.Products.Size = new System.Drawing.Size(379, 225);
-            this.Products.TabIndex = 26;
-            // 
             // AddToCart
             // 
-            this.AddToCart.Location = new System.Drawing.Point(528, 399);
-            this.AddToCart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AddToCart.Location = new System.Drawing.Point(447, 654);
+            this.AddToCart.Margin = new System.Windows.Forms.Padding(4);
             this.AddToCart.Name = "AddToCart";
             this.AddToCart.Size = new System.Drawing.Size(100, 28);
             this.AddToCart.TabIndex = 27;
@@ -205,8 +188,8 @@
             // 
             // ViewCart
             // 
-            this.ViewCart.Location = new System.Drawing.Point(729, 399);
-            this.ViewCart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ViewCart.Location = new System.Drawing.Point(847, 709);
+            this.ViewCart.Margin = new System.Windows.Forms.Padding(4);
             this.ViewCart.Name = "ViewCart";
             this.ViewCart.Size = new System.Drawing.Size(100, 28);
             this.ViewCart.TabIndex = 28;
@@ -216,7 +199,7 @@
             // 
             // BClose
             // 
-            this.BClose.Location = new System.Drawing.Point(439, 498);
+            this.BClose.Location = new System.Drawing.Point(272, 730);
             this.BClose.Margin = new System.Windows.Forms.Padding(4);
             this.BClose.Name = "BClose";
             this.BClose.Size = new System.Drawing.Size(100, 28);
@@ -225,19 +208,48 @@
             this.BClose.UseVisualStyleBackColor = true;
             this.BClose.Click += new System.EventHandler(this.BClose_Click);
             // 
+            // Store
+            // 
+            this.Store.FormattingEnabled = true;
+            this.Store.ItemHeight = 16;
+            this.Store.Location = new System.Drawing.Point(37, 87);
+            this.Store.Name = "Store";
+            this.Store.Size = new System.Drawing.Size(935, 244);
+            this.Store.TabIndex = 48;
+            // 
+            // Products
+            // 
+            this.Products.FormattingEnabled = true;
+            this.Products.ItemHeight = 16;
+            this.Products.Location = new System.Drawing.Point(37, 403);
+            this.Products.Name = "Products";
+            this.Products.Size = new System.Drawing.Size(935, 244);
+            this.Products.TabIndex = 49;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(55, 383);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(176, 17);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Available Products in store";
+            // 
             // NUserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1013, 554);
+            this.ClientSize = new System.Drawing.Size(1032, 771);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.Products);
+            this.Controls.Add(this.Store);
             this.Controls.Add(this.BClose);
             this.Controls.Add(this.ViewCart);
             this.Controls.Add(this.AddToCart);
-            this.Controls.Add(this.Products);
             this.Controls.Add(this.BRefresh);
             this.Controls.Add(this.OpenStore);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Store);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.LogOut);
             this.Controls.Add(this.Lrole);
@@ -248,7 +260,7 @@
             this.Controls.Add(this.Temail);
             this.Controls.Add(this.TuserName);
             this.Controls.Add(this.Tname);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NUserPage";
             this.Text = "NUserPage";
             this.ResumeLayout(false);
@@ -270,10 +282,11 @@
         private System.Windows.Forms.Button BRefresh;
         private System.Windows.Forms.Button OpenStore;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckedListBox Store;
-        private System.Windows.Forms.CheckedListBox Products;
         private System.Windows.Forms.Button AddToCart;
         private System.Windows.Forms.Button ViewCart;
         private System.Windows.Forms.Button BClose;
+        private System.Windows.Forms.ListBox Store;
+        private System.Windows.Forms.ListBox Products;
+        private System.Windows.Forms.Label label2;
     }
 }

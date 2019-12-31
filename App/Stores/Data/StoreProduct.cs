@@ -67,8 +67,9 @@ namespace OnlineStore.App.Stores.Data
                 String[] re = tempData[0].Split(' ');
                 this.storeProductID = re[3];
                 this.storeID = re[6];
-                this.price = System.Convert.ToDouble(re[9]);
-                this.amount = System.Convert.ToInt32(re[12]);
+                MessageBox.Show(re[9] + "11" + re[12]);
+                this.price = Convert.ToDouble((String)re[9]);
+                this.amount = Convert.ToInt32((String)re[12]);
                 product.RefactorString(tempData[1]);
                 brand.RefactorString(tempData[2]);
             }
