@@ -107,11 +107,6 @@ namespace OnlineStore.GUIFiles
             BShowStoreProduct_Click(sender, e);
         }
 
-        private void BEditStoreProduct_Click(object sender, EventArgs e)
-        {
-            // TODO
-        }
-
         private void BDeleteStoreProduct_Click(object sender, EventArgs e)
         {
             if (ProductList.SelectedItem == null)

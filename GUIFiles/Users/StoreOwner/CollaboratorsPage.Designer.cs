@@ -30,7 +30,6 @@
         {
             this.LCollaboratorsList = new System.Windows.Forms.Label();
             this.CollaboratorsList = new System.Windows.Forms.ListBox();
-            this.BEditCollaborator = new System.Windows.Forms.Button();
             this.BDeleteCollaborator = new System.Windows.Forms.Button();
             this.BAddCollaborator = new System.Windows.Forms.Button();
             this.BClose = new System.Windows.Forms.Button();
@@ -55,17 +54,6 @@
             this.CollaboratorsList.Name = "CollaboratorsList";
             this.CollaboratorsList.Size = new System.Drawing.Size(550, 260);
             this.CollaboratorsList.TabIndex = 70;
-            // 
-            // BEditCollaborator
-            // 
-            this.BEditCollaborator.Location = new System.Drawing.Point(9, 151);
-            this.BEditCollaborator.Margin = new System.Windows.Forms.Padding(4);
-            this.BEditCollaborator.Name = "BEditCollaborator";
-            this.BEditCollaborator.Size = new System.Drawing.Size(120, 44);
-            this.BEditCollaborator.TabIndex = 69;
-            this.BEditCollaborator.Text = "Edit Collaborator";
-            this.BEditCollaborator.UseVisualStyleBackColor = true;
-            this.BEditCollaborator.Click += new System.EventHandler(this.BEditCollaborator_Click);
             // 
             // BDeleteCollaborator
             // 
@@ -128,7 +116,6 @@
             this.Controls.Add(this.BClose);
             this.Controls.Add(this.LCollaboratorsList);
             this.Controls.Add(this.CollaboratorsList);
-            this.Controls.Add(this.BEditCollaborator);
             this.Controls.Add(this.BDeleteCollaborator);
             this.Controls.Add(this.BAddCollaborator);
             this.Name = "CollaboratorsPage";
@@ -142,7 +129,6 @@
 
         private System.Windows.Forms.Label LCollaboratorsList;
         private System.Windows.Forms.ListBox CollaboratorsList;
-        private System.Windows.Forms.Button BEditCollaborator;
         private System.Windows.Forms.Button BDeleteCollaborator;
         private System.Windows.Forms.Button BAddCollaborator;
         private System.Windows.Forms.Button BClose;

@@ -51,8 +51,6 @@
             this.BRefreshBrandList = new System.Windows.Forms.Button();
             this.BrandList = new System.Windows.Forms.CheckedListBox();
             this.BAddNewBrand = new System.Windows.Forms.Button();
-            this.BEditProduct = new System.Windows.Forms.Button();
-            this.BEditBrand = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddNewProduct
@@ -285,35 +283,11 @@
             this.BAddNewBrand.UseVisualStyleBackColor = true;
             this.BAddNewBrand.Click += new System.EventHandler(this.BAddNewBrand_Click);
             // 
-            // BEditProduct
-            // 
-            this.BEditProduct.Location = new System.Drawing.Point(267, 401);
-            this.BEditProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BEditProduct.Name = "BEditProduct";
-            this.BEditProduct.Size = new System.Drawing.Size(149, 50);
-            this.BEditProduct.TabIndex = 23;
-            this.BEditProduct.Text = "Edit Selected Product";
-            this.BEditProduct.UseVisualStyleBackColor = true;
-            this.BEditProduct.Click += new System.EventHandler(this.BEditProduct_Click);
-            // 
-            // BEditBrand
-            // 
-            this.BEditBrand.Location = new System.Drawing.Point(737, 401);
-            this.BEditBrand.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BEditBrand.Name = "BEditBrand";
-            this.BEditBrand.Size = new System.Drawing.Size(149, 50);
-            this.BEditBrand.TabIndex = 24;
-            this.BEditBrand.Text = "Edit Selected Brand";
-            this.BEditBrand.UseVisualStyleBackColor = true;
-            this.BEditBrand.Click += new System.EventHandler(this.BEditBrand_Click);
-            // 
             // AdminPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1410, 554);
-            this.Controls.Add(this.BEditBrand);
-            this.Controls.Add(this.BEditProduct);
             this.Controls.Add(this.BRemoveBrand);
             this.Controls.Add(this.BRefreshBrandList);
             this.Controls.Add(this.BrandList);
@@ -370,7 +344,5 @@
         private System.Windows.Forms.Button BRefreshBrandList;
         private System.Windows.Forms.CheckedListBox BrandList;
         private System.Windows.Forms.Button BAddNewBrand;
-        private System.Windows.Forms.Button BEditProduct;
-        private System.Windows.Forms.Button BEditBrand;
     }
 }

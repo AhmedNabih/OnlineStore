@@ -50,11 +50,6 @@ namespace OnlineStore.GUIFiles.Users.StoreOwner
             this.BShowCollaborator_Click(sender, e);
         }
 
-        private void BEditCollaborator_Click(object sender, EventArgs e)
-        {
-            // TODO
-        }
-
         private void BDeleteCollaborator_Click(object sender, EventArgs e)
         {
             if (CollaboratorsList.SelectedItem == null)

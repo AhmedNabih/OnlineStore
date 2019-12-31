@@ -58,7 +58,6 @@
             this.TProductView = new System.Windows.Forms.TextBox();
             this.TProductSold = new System.Windows.Forms.TextBox();
             this.BAddStoreProduct = new System.Windows.Forms.Button();
-            this.BEditStoreProduct = new System.Windows.Forms.Button();
             this.BDeleteStoreProduct = new System.Windows.Forms.Button();
             this.LProductsList = new System.Windows.Forms.Label();
             this.LSystemProductList = new System.Windows.Forms.Label();
@@ -348,17 +347,6 @@
             this.BAddStoreProduct.UseVisualStyleBackColor = true;
             this.BAddStoreProduct.Click += new System.EventHandler(this.BAddStoreProduct_Click);
             // 
-            // BEditStoreProduct
-            // 
-            this.BEditStoreProduct.Location = new System.Drawing.Point(994, 589);
-            this.BEditStoreProduct.Margin = new System.Windows.Forms.Padding(4);
-            this.BEditStoreProduct.Name = "BEditStoreProduct";
-            this.BEditStoreProduct.Size = new System.Drawing.Size(120, 44);
-            this.BEditStoreProduct.TabIndex = 61;
-            this.BEditStoreProduct.Text = "Edit Product";
-            this.BEditStoreProduct.UseVisualStyleBackColor = true;
-            this.BEditStoreProduct.Click += new System.EventHandler(this.BEditStoreProduct_Click);
-            // 
             // BDeleteStoreProduct
             // 
             this.BDeleteStoreProduct.Location = new System.Drawing.Point(994, 641);
@@ -442,7 +430,6 @@
             this.Controls.Add(this.LSystemProductList);
             this.Controls.Add(this.LProductsList);
             this.Controls.Add(this.BDeleteStoreProduct);
-            this.Controls.Add(this.BEditStoreProduct);
             this.Controls.Add(this.BAddStoreProduct);
             this.Controls.Add(this.LProductView);
             this.Controls.Add(this.LProductSold);
@@ -513,7 +500,6 @@
         private System.Windows.Forms.TextBox TProductView;
         private System.Windows.Forms.TextBox TProductSold;
         private System.Windows.Forms.Button BAddStoreProduct;
-        private System.Windows.Forms.Button BEditStoreProduct;
         private System.Windows.Forms.Button BDeleteStoreProduct;
         private System.Windows.Forms.Label LProductsList;
         private System.Windows.Forms.Label LSystemProductList;
